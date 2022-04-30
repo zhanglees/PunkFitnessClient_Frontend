@@ -1,0 +1,46 @@
+<!--pages/packageA/inbody/inbody.wxml-->
+<wxs src="/utils/util.wxs" module="utils" />
+<view class="container">
+    <view class="top__layout" wx:if="{{reportList.length}}">        
+        <view class="right-top">
+            <image class="right-top-icon" src="/images/inbody/weight-icon.png" />
+            体重记录
+        </view>
+        <view class="canvas-wrapper">
+            <view class="canvas-title">{{dataTitle}}</view>
+            <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas"  bindtouchstart="touchcanvas"></canvas>
+        </view>
+        <!-- <view class="right-user">
+            <view class="user-info">
+                <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+                {{userInfo.name}}
+            </view>
+            <view class="user-change">
+                <image bindtap="bindViewTap" class="userinfo-avatar" src="/images/inbody/changeuser.png" mode="cover"></image>
+                切换客户
+            </view>
+        </view> -->
+    </view>
+    <view class="report-area">
+        <ul class="report-list" wx:if="{{reportList.length}}">
+            <li wx:for="{{reportList}}" wx:key="index" class="report-item" bindtap="reportDetail" data-id="{{item.userHealthcheckId}}">
+                <view class="report-item-cell">
+                    <view class="report-item-title">身体测试报告</view>
+                    <view class="report-item-coach">{{item.userName}} | {{utils.timestampDate(item.createTime)}}</view>
+                </view>
+                <view class="report-item-cell">
+                    <view class="report-data">
+                        体重 <text class="report-data-number">{{item.weight || '--'}}KG</text>
+                    </view>
+                    <view class="report-data">
+                        体脂率 <text class="report-data-number">{{item.bodyFatRatio || '--'}}%</text>
+                    </view>
+                    <view class="report-data">
+                        腰臀比 <text class="report-data-number">{{item.waistHipRatio || '--'}}</text>
+                    </view>
+                </view>
+            </li>
+        </ul>
+        <view wx:else class="no-data">暂无数据~</view>
+    </view>
+</view>

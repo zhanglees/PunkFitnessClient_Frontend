@@ -1,0 +1,22 @@
+<!--pages/packageA/training/stagedetail/stagedetail.wxml   阶段详情查看-->
+<view class="container">
+    <view class="stage-title">{{className}}</view>
+    <view class="stage-list">
+        <block wx:for="{{userTrainplanClassContents}}" wx:key="index">
+            <view class="stage-detail-title">
+            {{item.name}}
+            </view>
+            <view class="item-detail">
+                <view class="item-detail-item" wx:for="{{item.list}}" wx:for-item="i" wx:key="i">
+                    {{i.itemName}} {{i.contentItemValue ? ('： ' + i.contentItemValue + 'kg') : ''}}
+                </view>
+            </view>
+        </block>
+        <view class="stage-fct">
+            <view class="stage-fct-item">阶段频率：<text class="text-gray">{{stageFrequency || '--'}} 次/周</text></view>
+            <view class="stage-fct-item">阶段周期：<text class="text-gray">{{stagePeriod || '--'}} 周</text></view>
+            <view class="stage-fct-item">所需课时：<text class="text-gray">{{classNum || '--'}} 节</text></view>
+            <view class="stage-fct-item">备注：<text class="text-gray">{{coachRemarks || '--'}}</text></view>
+        </view>
+    </view>
+</view>

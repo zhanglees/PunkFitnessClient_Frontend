@@ -1,0 +1,22 @@
+<!--pages/schedule/schedule.wxml-->
+<view class="container">
+    <view class="top-layout">
+        <!-- <view class="top-title">课程预约列表</view> -->
+        <calendarWeek bindmydata="mydata" id="myCalendar" selDate="{{selDate}}"></calendarWeek> 
+    </view>
+    <view class="training-list">
+        <view wx:for="{{list}}" wx:key="index" class="training-item">
+            <image class="training-avatar" src="{{item.avatar || '/images/avatar.png'}}" mode="cover" />
+            <view class="training-item-b">
+                <view class="training-name">{{item.userName || '--'}}</view>
+                <view class="training-time">{{item.appointmentTime}}</view>
+            </view>
+            
+            <view wx:if="{{item.isComplete}}" class="training-status have-done">已上课</view>
+            <view wx:else class="training-status">未上课</view>
+        
+        </view>
+        <view wx:if="{{!list.length}}" class="no-data">暂无预约~</view>
+    </view>
+    
+</view>
