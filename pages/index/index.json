@@ -1,0 +1,7 @@
+{
+  "usingComponents": { 
+    "timeAxis": "/components/timeAxis/timeAxis",
+    "mp-dialog": "weui-miniprogram/dialog/dialog"
+  },
+  "navigationBarTitleText": "Link健身"
+}

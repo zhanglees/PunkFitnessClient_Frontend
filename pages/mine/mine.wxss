@@ -1,0 +1,109 @@
+/* pages/mine/mine.wxss */
+.top-layout{
+    background: #fff;
+    width: 100%;
+    padding: 32rpx;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+}
+.userinfo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  
+  .userinfo-avatar {
+    overflow: hidden;
+    border-radius: 50%;
+    width: 112rpx;
+    height: 112rpx;
+    border: 1px solid rgba(34, 40, 52, 0.03);
+    margin-right: 24rpx;
+  }
+  .userinfo-nickname{
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #222834;
+    line-height: 44rpx;
+  }
+  .userinfo-phone{
+    font-size: 24rpx;
+    color: #707784;
+    line-height: 40rpx;
+  }
+  .userinfo-right{
+      display: flex;
+      flex-direction: column;
+      margin-left: 10rpx;
+  }
+ .edit-btn{
+    width: 31rpx;
+    height: 31rpx;
+    display: inline-block;
+ }
+.info-list{
+    width: 100%;
+    margin-top: 16rpx;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+.info-item{
+    text-align: center;
+    font-size: 24rpx;
+    color: #707784;
+    line-height: 32rpx;
+    position: relative;
+    word-break: keep-all;
+    white-space: nowrap;
+    flex: 1;
+}
+.info-item:not(:last-child):after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 22rpx;
+    height: 48rpx;
+    width: 1px;
+    background: #D2D7E1;
+}
+.info-item-v{
+    display: block;
+    font-size: 36rpx;
+    font-family: Roboto-Bold, Roboto;
+    font-weight: bold;
+    color: #222834;
+    line-height: 44rpx;
+    margin-bottom: 16rpx;
+}
+.info-time{
+    color: #fff;
+    margin-top: 32rpx;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 28rpx;
+    position: relative;
+}
+.info-time-content{
+    font-size: 28rpx;
+    font-weight: 500;
+    color: #FFFFFF;
+    position: absolute;
+    top: 40rpx;
+    left: 60rpx;
+    line-height: 72rpx;
+}
+.info-time-content-count{
+    color: #60D481;
+    font-size: 48rpx;
+    font-family: Roboto-Black, Roboto;
+    font-weight: 900;
+}
+.info-time-bg{
+    display: inline-block;
+    width: 100%;
+}

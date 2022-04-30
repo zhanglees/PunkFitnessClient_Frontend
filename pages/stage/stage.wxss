@@ -1,0 +1,2 @@
+/* pages/stage/stage.wxss */
+@import '/pages/lesson/lesson.wxss';
