@@ -1,12 +1,13 @@
 {
-    "description": "项目配置文件",
+    "description": "Project configuration file, more information: https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
     "packOptions": {
         "ignore": [
             {
-                "type": "file",
-                "value": ".eslintrc.js"
+                "value": ".eslintrc.js",
+                "type": "file"
             }
-        ]
+        ],
+        "include": []
     },
     "setting": {
         "urlCheck": false,
@@ -44,39 +45,16 @@
         "disableUseStrict": false,
         "minifyWXML": true,
         "showES6CompileOption": false,
-        "useCompilerPlugins": false
+        "useCompilerPlugins": false,
+        "useStaticServer": true
     },
     "compileType": "miniprogram",
     "libVersion": "2.19.4",
     "appid": "wx6f3d8f29907ad58d",
     "projectname": "funk%20fitness",
-    "debugOptions": {
-        "hidedInDevtools": []
-    },
-    "scripts": {},
-    "staticServerOptions": {
-        "baseURL": "",
-        "servePath": ""
-    },
-    "isGameTourist": false,
-    "condition": {
-        "search": {
-            "list": []
-        },
-        "conversation": {
-            "list": []
-        },
-        "game": {
-            "list": []
-        },
-        "plugin": {
-            "list": []
-        },
-        "gamePlugin": {
-            "list": []
-        },
-        "miniprogram": {
-            "list": []
-        }
+    "condition": {},
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
     }
 }
