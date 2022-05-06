@@ -1,6 +1,8 @@
 <!--pages/packageA/training/classlist/classlist.wxml-->
 <!-- 训练规划列表-->
 <view class="container">
+    <my-chooseCoach></my-chooseCoach>
+    <!-- <view wx:for="{{100}}">000</view> -->
     <view class="list">
         <block wx:if="{{list.length}}">
         <mp-slideview wx:for="{{list}}" wx:key="index" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-usertrainitemid="{{item.userTrainitemId}}" data-index="{{index}}"  data-trainingPlanId="{{item.trainingPlanId}}">

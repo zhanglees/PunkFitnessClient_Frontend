@@ -1,0 +1,18 @@
+<!--components/chooseCoach/chooseCoach.wxml-->
+<view class="container">
+  <view class="container-left" bindtap="selectCoach" >{{selectName}}</view>
+  <view class="container-right">共{{selectAll.length}}条数据</view>
+</view>
+<view class="tancengContainer">
+  <!-- -->
+  <view class='pickerview' hidden="{{ !isShow}}">
+ <ul class="tanceng"  wx:if="{{isShow}}">
+   <li wx:for="{{selectAll}}" wx:key="id" bindtap="selcetSingle" data-test="{{item}}" >{{item.name}}</li>
+   <li bindtap="cancelBtn">取消
+     <view class="footerStrip"></view>
+   </li>
+ </ul>
+</view>
+</view>
+
+

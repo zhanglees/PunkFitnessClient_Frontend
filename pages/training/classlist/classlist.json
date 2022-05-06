@@ -2,7 +2,8 @@
   "usingComponents": {
     "mp-slideview": "weui-miniprogram/slideview/slideview",
     "mp-dialog": "weui-miniprogram/dialog/dialog",
-    "mp-cell": "weui-miniprogram/cell/cell"
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "my-chooseCoach":"/components/chooseCoach/chooseCoach"
   },
   "navigationBarTitleText": "训练规划"
 }

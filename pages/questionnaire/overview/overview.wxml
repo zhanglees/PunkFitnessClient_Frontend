@@ -5,6 +5,7 @@
         <view class="detail-tab">
             <view wx:for="{{typeList}}" wx:key="index" bindtap="tabChange" data-type="{{index}}" class="'tab-item' {{index == type ? 'tab-item-act' : ''}}">{{item}}</view>
         </view>
+
         <ul class="detail-ul" wx:if="{{questionList[type].length}}">
             <!-- <li class="detail-li" wx:for="{{questionnaire}}" wx:key="index">
                 <view class="detail-li-q">{{index+1}}. {{item.q}}</view>
