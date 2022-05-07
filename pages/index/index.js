@@ -15,8 +15,14 @@ Page({
     dialogShow: false,
     dialogButtons: [{ text: '取消' }, { text: '确定' }],
     serverList: [{
-      name: '健康问卷',
-      link: '/pages/questionnaire/overview/overview?'
+      name: '训练规划',
+      link: '/pages/training/classlist/classlist?type=plan&'
+    }, {
+      name: '训练记录',
+      link: '/pages/training/classlist/classlist?type=record&'
+    }, {
+      name: '体验课教案',
+      link: '/pages/training/edit/edit?'
     }, {
       name: '评估测试',
       link: '/pages/evaluation/overview/overview?'
@@ -24,14 +30,8 @@ Page({
       name: '体测报告',
       link: '/pages/inbody/overview/overview?'
     }, {
-      name: '体验课教案',
-      link: '/pages/training/edit/edit?'
-    }, {
-      name: '训练规划',
-      link: '/pages/training/classlist/classlist?type=plan&'
-    }, {
-      name: '训练记录',
-      link: '/pages/training/classlist/classlist?type=record&'
+      name: '健康问卷',
+      link: '/pages/questionnaire/overview/overview?'
     }],
     news: {
       '#2021': {

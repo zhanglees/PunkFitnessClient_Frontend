@@ -1,56 +1,31 @@
 .container{
     padding-bottom: 60rpx;
 }
-.top-tips{
-    font-size: 18rpx;
-    background: #eee;
-    color: #333;
-    width: 100%;
-    padding: 20rpx;
-    box-sizing: border-box;
-    /* height: 80rpx; */
-}
 .question-list{
     width: 100%;
     text-align: left;
     box-sizing: border-box;
-    padding: 20rpx 64rpx;
+    padding: 0 32rpx;
 }
 .question-item{
     position: relative;
-    margin: 0 0 20rpx;
+    margin-top: 48rpx;
+    color: #222834;
 }
 .question-q{
     position: relative;
     line-height: 60rpx;
-    margin-bottom: 20rpx;
+    margin-bottom: 32rpx;
+    font-size: 32rpx;
 }
-.question-q::after{
-    content: "";
-    background: #ddd;
-    height: 1px;
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-.question-o{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 20rpx;
-}
-.form-checkbox-item{
-    margin-right: 20rpx;
-    word-break: keep-all;
-    white-space: nowrap;
-}
-.form-checkbox-item-show{
-    color: #5d5d5d;
-}
-.form-checkbox-item-holder{
-    color: #999;
+.question-a{
+    color: #707784;
+    font-size: 28rpx;
+    padding: 32rpx;
+    box-sizing: border-box;
+    line-height: 40rpx;
+    background: #F7F7F9;
+    border-radius: 12rpx;
 }
 
 .answer-remarks-show{
@@ -60,19 +35,5 @@
 .answer-remarks{
     color: #999;
 }
-.weui-input{
-    border-bottom: 1px solid #eee;
-}
-.option-customize{
-    color: #999;
-    font-size: 20rpx;
-}
-swiper{
-    width: 100%;
-    min-height: 300px;
-}
-.btn-wrapper{
-    margin: 40rpx 0;
-    width: 100%;
-    text-align: center;
-}
+
+

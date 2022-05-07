@@ -3,210 +3,47 @@ const app = getApp()
 Page({
     data: {
         typeList: ['健身问卷', '健康问卷'],
-        questionList: [[], []],
-        currentPage: 0,
+        questionList: [],
         coachId: '',
-        swiperHeight: 160, //动态计算swiper高度
         userId: '',
-        answers: [[], []]//记录选择选项
+        answers: []//记录选择选项
     },
     onLoad(options){
-        // console.log(888, options.id)
-        let coachId = wx.getStorageSync('mp-req-user-id');
-        const {userId, recordTime, questionType} = options;
-        this.setData({
-            coachId: coachId,
-            userId: userId
-        });
-        if(recordTime && questionType){
-            //查看详情，去取详情
-            this.setData({
-                currentPage: questionType,
-                recordTime, 
-                questionType
-            });
-            this.getQuestionDetail(questionType);
-        }else{
-            this.getQuestion(0);
-        }
-    },
-    /***获取问卷内容*/
-    getQuestion(type){
-        app.req.api.getQuestionByType({
-            coachId: this.data.coachId,
-            type: type
-        }).then(res=>{
-            const list = res.data;
-            console.log('问卷:', list)
-            this.setData({
-                [`questionList[${type}]`]: list
-            })
-            this.comSwiperHeight();
+        const {questionType} = options;
+        wx.setNavigationBarTitle({
+          title: ['健身', '健康'][questionType]+'问卷详情',
         })
+        // this.setData({
+            // coachId: coachId,
+            // userId: userId
+        // });
+        //查看详情，去取详情
+        this.setData({
+            questionType
+        });
+        this.getQuestionDetail(questionType);
     },
+    
     /***查看问卷详情时拿着数据请求问卷详情****/
     getQuestionDetail(type){
-        const {userId, coachId, recordTime} = this.data;
-        app.req.api.getUserTemplateQuestionDetail({
-            userId,
-            coachId,
-            recordTime,
-            questionType: type
-        }).then(res=>{
-            // let answers = [];
-            // answers = res.data.map(i=>{
-            //     return i.questionItemId
-            // })
-            console.log('问卷详情：', res)
-            this.setData({
-                [`questionList[${type}]`]: res.data ? res.data.questions : []
-            })
-            this.comSwiperHeight();
-        });
-    },
-    comSwiperHeight(){
-      var query = wx.createSelectorQuery();
-      const _this = this;
-      query.select(`#swiperItem${this.data.currentPage}`).boundingClientRect(function (rect) {
-        if(rect){
-          _this.setData({
-            swiperHeight: rect.height
-          })
-        }
-      }).exec();
-    },
-    swiperChange(e){
-      this.goTop();
-      const curr = e.detail.current;
-      this.setData({
-          currentPage: curr
-      })
-      if(!this.data.questionList[curr].length){
-        this.getQuestion(curr);
-      }else{
-        this.comSwiperHeight();
-      }
-    }, 
-    goTop(e) {  // 左右滑动后回到顶部
-        if (wx.pageScrollTo) {
-            wx.pageScrollTo({
-                scrollTop: 0,
-                duration: 0
-          })
-        } 
-    },
-    // tapAddOption(e){
-    //     const index = e.currentTarget.dataset.index;
-    //     this.setData({
-    //         [`questionList[${index}].addFlag`]: true
-    //     })
-    // },
-    // addOption(e){
-    //     const index = e.currentTarget.dataset.index;
-    //     const question = this.data.questionList[index];
-    //     let options = question.option;
-    //     const value = e.detail.value;
-    //     const answer = question.answer || [];
-    //     if(value != ''){
-    //         options.push(value);
-    //         answer.push(value);
-    //         this.setData({
-    //             [`questionList[${index}].option`]: options,
-    //             [`questionList[${index}].answer`]: answer,
-    //             [`questionList[${index}].addInput`]: '',
-    //             [`questionList[${index}].addFlag`]: false
-    //         })
-    //     }else{
-    //         this.setData({
-    //             [`questionList[${index}].addFlag`]: false
-    //         })
-    //     }
-    // },
-    setChoice(e){
-        const value = e.detail.value;
-        const current = this.data.currentPage;
-        const index = e.currentTarget.dataset.index;
-        this.setData({
-            [`questionList[${current}][${index}].answer`]: value
-        })
-        console.log(888, this.data.questionList[current][index].answer)
-    },
-    // userSel(e){
-    //     const {index, value} = e.currentTarget.dataset;
-    //     const current = this.data.currentPage;
-    //     let answers = this.data.answers[current];
-    //     const i = answers.indexOf(value);
-    //     if(i != -1){
-    //         answers.splice(i, 1);
-    //     }else{
-    //         answers.push(value);
-    //     }
-    //     this.setData({
-    //         [`answers[${current}]`]: answers
-    //     });
-    //     console.log(888888888888,'answers:', this.data.answers);
-    // },
-    setRemark(e){
-        const value = e.detail.value;
-        const current = this.data.currentPage;
-        const index = e.currentTarget.dataset.index;
-        this.setData({
-            [`questionList[${current}][${index}].itemExplain`]: value
-        })
-    },
-    nextStep(e){
-        const step = e.currentTarget.dataset.value;
-        if(step == 0){
-            //下一步 切换到另一个问卷
-            this.setData({
-                currentPage: 1
-            });
-        }else{
-            //提交问卷
-            this.submitForm()
-        }
-    },
-    /****问卷提交 */
-    submitForm(){
-        //发请求保存数据 
-        // let answers = this.data.answers;
-        const {userId, coachId} = this.data;
-        let questionList = this.data.questionList[0].concat(this.data.questionList[1]);
-        let list = questionList.map(i=>{
-            i.items = (i.answer && i.answer.length) ? ((i.questionType == 1) ? ([{questionItemId: i.answer}]) : i.answer.map(a=>{
-                return {questionItemId: a};
-            })) : [];
-            return i;
-        });
-        console.log("问卷提交：", list)
-        let data = {
-            coachId,
-            userId,
-            createTime: new Date().getTime(),
-            questions: questionList
-        };
-        // answers.forEach((item, k) => {
-        //     item.forEach(i => {
-        //         data.push({
-        //             questionItemId: i,
-        //             questionType: k,
-        //             userId: userId,
-        //             coachId: coachId
-        //         })
-        //     });
+        // const {userId, coachId, recordTime} = this.data;
+        // app.req.api.getUserTemplateQuestionDetail({
+        //     userId,
+        //     coachId,
+        //     // recordTime,
+        //     questionType: type
+        // }).then(res=>{
+        //     // let answers = [];
+        //     // answers = res.data.map(i=>{
+        //     //     return i.questionItemId
+        //     // })
+        //     console.log('问卷详情：', res)
+        //     this.setData({
+        //         questionList: res.data ? res.data.questions : []
+        //     })
         // });
-        // console.log('问卷提交：', data);
-        app.req.api.saveUserTemplateQuestion(data).then(res=>{
-            console.log('提交返回：', res);
-            if(res.code == 0){
-                wx.showToast({
-                    title: '提交成功',
-                    duration: 2000
-                });
-                wx.navigateBack({
-                  delta: 0,
-                })
-            }
-        })
-    }
+        this.setData({
+            questionList: [{"questionId":"fb943bb5-ad0e-103a-a787-e7e4c0162da0","questionTemplateId":"EDC0C14B-D8C9-4DB7-AFA7-0004B5BAC077","required":0,"remark":"","questionAnswer":"","questionContent":"您之前有没有过健身经历？","questionType":1,"ownerId":"system","items":[],"showOrder":"1","itemExplain":null},{"questionId":"aea32302-ad13-103a-a787-e7e4c0162da0","questionTemplateId":"EDC0C14B-D8C9-4DB7-AFA7-0004B5BAC077","required":0,"remark":null,"questionAnswer":null,"questionContent":"您现在有没有任何的健身计划？","questionType":1,"ownerId":"system","items":[{"questionItemId":"b44e05a9-ad18-103a-a787-e7e4c0162da0","qustionId":"aea32302-ad13-103a-a787-e7e4c0162da0","describes":"有","isAnswer":2,"ownerId":"system"}],"showOrder":"2","itemExplain":"sfdsafdafdsafdsafds"},{"questionId":"b9e91775-ad13-103a-a787-e7e4c0162da0","questionTemplateId":"EDC0C14B-D8C9-4DB7-AFA7-0004B5BAC077","required":0,"remark":null,"questionAnswer":null,"questionContent":"您希望通过健身达到哪些改变？","questionType":2,"ownerId":"system","items":[{"questionItemId":"bf9b64b9-ad18-103a-a787-e7e4c0162da0","qustionId":"b9e91775-ad13-103a-a787-e7e4c0162da0","describes":"增肌","isAnswer":2,"ownerId":"system"},{"questionItemId":"c65177e0-ad18-103a-a787-e7e4c0162da0","qustionId":"b9e91775-ad13-103a-a787-e7e4c0162da0","describes":"塑形","isAnswer":2,"ownerId":"system"},{"questionItemId":"cb96cb28-ad18-103a-a787-e7e4c0162da0","qustionId":"b9e91775-ad13-103a-a787-e7e4c0162da0","describes":"康复","isAnswer":2,"ownerId":"system"},{"questionItemId":"d17eafb6-ad18-103a-a787-e7e4c0162da0","qustionId":"b9e91775-ad13-103a-a787-e7e4c0162da0","describes":"提高运动表现","isAnswer":2,"ownerId":"system"},{"questionItemId":"d790847d-ad18-103a-a787-e7e4c0162da0","qustionId":"b9e91775-ad13-103a-a787-e7e4c0162da0","describes":"改善亚健康","isAnswer":2,"ownerId":"system"}],"showOrder":"3","itemExplain":null},{"questionId":"c360dca3-ad13-103a-a787-e7e4c0162da0","questionTemplateId":"EDC0C14B-D8C9-4DB7-AFA7-0004B5BAC077","required":0,"remark":null,"questionAnswer":null,"questionContent":"您最想改变哪个部位？","questionType":2,"ownerId":"system","items":[{"questionItemId":"e9174602-ad18-103a-a787-e7e4c0162da0","qustionId":"c360dca3-ad13-103a-a787-e7e4c0162da0","describes":"背部","isAnswer":2,"ownerId":"system"},{"questionItemId":"f0b4463b-ad18-103a-a787-e7e4c0162da0","qustionId":"c360dca3-ad13-103a-a787-e7e4c0162da0","describes":"肩部","isAnswer":2,"ownerId":"system"},{"questionItemId":"15e95d20-ad19-103a-a787-e7e4c0162da0","qustionId":"c360dca3-ad13-103a-a787-e7e4c0162da0","describes":"腹部","isAnswer":2,"ownerId":"system"},{"questionItemId":"215b44fc-ad19-103a-a787-e7e4c0162da0","qustionId":"c360dca3-ad13-103a-a787-e7e4c0162da0","describes":"腿部","isAnswer":2,"ownerId":"system"},{"questionItemId":"262917ec-ad19-103a-a787-e7e4c0162da0","qustionId":"c360dca3-ad13-103a-a787-e7e4c0162da0","describes":"臀部","isAnswer":2,"ownerId":"system"}],"showOrder":"4","itemExplain":null},{"questionId":"ca7f0ab9-ad13-103a-a787-e7e4c0162da0","questionTemplateId":"EDC0C14B-D8C9-4DB7-AFA7-0004B5BAC077","required":0,"remark":null,"questionAnswer":null,"questionContent":"您希望多长时间完成目标？","questionType":1,"ownerId":"system","items":[{"questionItemId":"2b3356ac-ad19-103a-a787-e7e4c0162da0","qustionId":"ca7f0ab9-ad13-103a-a787-e7e4c0162da0","describes":"1个月","isAnswer":2,"ownerId":"system"}],"showOrder":"5","itemExplain":null},{"questionId":"d0eb8132-ad13-103a-a787-e7e4c0162da0","questionTemplateId":"EDC0C14B-D8C9-4DB7-AFA7-0004B5BAC077","required":0,"remark":null,"questionAnswer":null,"questionContent":"您是否聘请过私人教练？","questionType":1,"ownerId":"system","items":[{"questionItemId":"7c03ea49-ad1a-103a-a787-e7e4c0162da0","qustionId":"d0eb8132-ad13-103a-a787-e7e4c0162da0","describes":"有","isAnswer":2,"ownerId":"system"}],"showOrder":"6","itemExplain":null},{"questionId":"d8371ecb-ad13-103a-a787-e7e4c0162da0","questionTemplateId":"EDC0C14B-D8C9-4DB7-AFA7-0004B5BAC077","required":0,"remark":null,"questionAnswer":null,"questionContent":"为了您的目标您每周能来运动几次？","questionType":1,"ownerId":"system","items":[{"questionItemId":"b88f6a9a-ad1a-103a-a787-e7e4c0162da0","qustionId":"d8371ecb-ad13-103a-a787-e7e4c0162da0","describes":"2-3天","isAnswer":2,"ownerId":"system"}],"showOrder":"7","itemExplain":null},{"questionId":"de7dfd30-ad13-103a-a787-e7e4c0162da0","questionTemplateId":"EDC0C14B-D8C9-4DB7-AFA7-0004B5BAC077","required":0,"remark":"","questionAnswer":null,"questionContent":"您通常每天什么时间来运动？（可多选）","questionType":2,"ownerId":"system","items":[{"questionItemId":"f7037b69-ad1a-103a-a787-e7e4c0162da0","qustionId":"de7dfd30-ad13-103a-a787-e7e4c0162da0","describes":"上午","isAnswer":2,"ownerId":"system"},{"questionItemId":"fc16e7eb-ad1a-103a-a787-e7e4c0162da0","qustionId":"de7dfd30-ad13-103a-a787-e7e4c0162da0","describes":"中午","isAnswer":2,"ownerId":"system"},{"questionItemId":"01ae4fdf-ad1b-103a-a787-e7e4c0162da0","qustionId":"de7dfd30-ad13-103a-a787-e7e4c0162da0","describes":"下午","isAnswer":2,"ownerId":"system"}]}]
+        });
+    },
 })

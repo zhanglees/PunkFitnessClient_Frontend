@@ -12,8 +12,14 @@
                 <view class="detail-li-a">{{item.a}}</view>
             </li> -->
             <li class="detail-li" wx:for="{{questionList[type]}}" wx:key="index" bindtap="gotoDetail" data-recordTime="{{item.recordTime}}" data-questionType="{{type}}">
-                <view class="detail-li-title">{{['健身问卷', '健康问卷'][type]}} {{utils.formatDate(item.recordTime)}}</view>
-                <view class="detail-li-right">{{item.coachName}}</view>
+                <image src="/images/icons/icon-question-li.png" class="li-btn" />
+                <view  class="detail-li-right">
+                    <view class="detail-li-title">
+                        {{['健身问卷', '健康问卷'][type]}} 
+                        <view class="detail-li-coach">由{{item.coachName}}创建</view>
+                    </view>
+                    <view class="detail-li-date">{{item.recordTime}}</view>
+                </view>
             </li>
         </ul>
         <view class="no-data" wx:else>暂无数据~</view>
