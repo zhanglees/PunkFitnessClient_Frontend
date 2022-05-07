@@ -1,4 +1,5 @@
 <!--components/chooseCoach/chooseCoach.wxml-->
+<!-- 筛选组件 -->
 <view class="container">
   <view class="container-left" bindtap="selectCoach" >{{selectName}}</view>
   <view class="container-right">共{{selectAll.length}}条数据</view>

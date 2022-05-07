@@ -24,6 +24,15 @@ Page({
         }]
     },
 
+
+    // 跳转到课时详情
+    gotoDeatil(e){
+      // console.log('e',e);
+      wx.navigateTo({
+        url: ''
+      })
+    },
+
     /**
      * Lifecycle function--Called when page load
      */
