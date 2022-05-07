@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "my-phaseClassDetail":"/components/phaseClassDetail/phaseClassDetail"
-  },
-  "navigationBarTitleText": "进步期"
-}

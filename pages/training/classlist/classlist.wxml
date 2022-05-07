@@ -6,7 +6,7 @@
     <view class="list">
         <block wx:if="{{list.length}}">
         <mp-slideview wx:for="{{list}}" wx:key="index" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-usertrainitemid="{{item.userTrainitemId}}" data-index="{{index}}"  data-trainingPlanId="{{item.trainingPlanId}}">
-            <mp-cell link bindtap="gotoDetail" data-index="{{index}}" class="item">
+            <mp-cell link bindtap="gotoDetail" data-index="{{index}}" class="item" data-name="{{item.className}}">
                 <view slot="title" class="weui-label">
                     <view class="item-title">
                         {{item.className}}

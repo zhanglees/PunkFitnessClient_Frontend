@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "my-phaseClassDetail":"/components/phaseClassDetail/phaseClassDetail"
-  },
-  "navigationBarTitleText": "适应期"
-}
