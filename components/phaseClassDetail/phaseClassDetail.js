@@ -69,7 +69,7 @@ Component({
     gotoClassDeatil(e) {
       console.log('跳转课时详情并携带id', e);
       wx.navigateTo({
-        url: '',
+        url: '/pages/lesson/lesson',
       })
     }
 

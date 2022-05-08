@@ -16,10 +16,10 @@ Page({
     dialogButtons: [{ text: '取消' }, { text: '确定' }],
     serverList: [{
       name: '训练规划',
-      link: '/pages/training/classlist/classlist?type=plan&'
+      link: '/pages/training/stagelist/stagelist?type=plan&'
     }, {
       name: '训练记录',
-      link: '/pages/training/classlist/classlist?type=record&'
+      link: '/pages/training/stagelist/stagelist?type=record&'
     }, {
       name: '体验课教案',
       link: '/pages/training/edit/edit?'

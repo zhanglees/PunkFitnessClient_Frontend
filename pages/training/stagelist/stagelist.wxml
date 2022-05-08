@@ -1,0 +1,28 @@
+<!--pages/packageA/training/stagelist/stagelist.wxml-->
+<!-- 训练规划列表-->
+<view class="container">
+    <!-- <my-chooseCoach></my-chooseCoach> -->
+    <view class="lesson-list">
+        <block wx:if="{{list.length}}">
+            <view class="lesson-item lesson-item-stage {{item.status ? 'lesson-item-act' : ''}}" wx:for="{{list}}" wx:key="item" bindtap="gotoDetail" data-index="{{item.id}}">
+                <view class="lesson-item-left">
+                    <view class="lesson-item-name">
+                        {{item.name}}
+                        <view class="lesson-item-status" wx:if="{{item.status}}">进行中</view>
+                    </view>
+                    <view class="lesson-item-counts">
+                        <text class="lesson-item-count">{{item.count || 0}}</text> /{{item.total}}
+                    </view>
+                </view>
+                <view class="lesson-item-right">
+                    <view class="lesson-item-time">{{item.time}}</view>
+                    <view class="lesson-item-bottom">
+                        <image class="lesson-item-avatar" src="{{item.avatar || '/images/avatar.png'}}" mode="cover" />
+                        <view class="lesson-item-coach">{{item.coach}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view wx:else class="no-data">暂无数据</view>
+    </view>
+</view>
