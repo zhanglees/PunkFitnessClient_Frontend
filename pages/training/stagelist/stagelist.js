@@ -14,6 +14,7 @@ Page({
      */
     onLoad: function(options) {
         const { userId, type } = options; //用来区分是训练规划还是训练记录,记录则每条跳转到该阶段对应的课程，规划则每条跳转到该阶段的详情
+        console.log('type',type);
         // const coachId = wx.getStorageSync('mp-req-user-id');
         wx.setNavigationBarTitle({
             title: '训练' + {plan: '规划', record:'记录'}[type],
@@ -66,6 +67,7 @@ Page({
     /***查看该阶段课程列表 */
     gotoDetail(e) {
         const { index, trainingPlanId, userTrainitemId, name } = e.currentTarget.dataset;
+        console.log('name',e);
         const url = (this.data.type == 'plan' ? '/pages/training/stagedetail/stagedetail?' : '/pages/classPhaseDetail/consolidationPeriod/consolidationPeriod');
         //查详情的接口需要传大量的参数，所以先存起来吧
         wx.setStorage({
@@ -75,7 +77,7 @@ Page({
         wx.navigateTo({
             url
         });
-        wx.setNavigationBarTitle({ title: name })
+         this.data.type == 'record'?wx.setNavigationBarTitle({ title: name }):wx.setNavigationBarTitle({ title: '训练规划' })
     },
 
     /**

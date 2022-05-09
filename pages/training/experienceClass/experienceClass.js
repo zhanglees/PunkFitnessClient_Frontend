@@ -1,4 +1,4 @@
-// pages/classPhaseDetail/classPhaseDetail.js
+// pages/training/experienceClass/experienceClass.js
 Page({
 
   /**

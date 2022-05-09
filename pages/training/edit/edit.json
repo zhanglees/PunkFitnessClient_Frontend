@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-chooseCoach":"/components/chooseCoach/chooseCoach"
+  },
+  "navigationBarTitleText": "体验课教案"
+}

@@ -1,2 +1,2 @@
 <!--pages/classPhaseDetail/consolidationPeriod/consolidationPeriod.wxml-->
-<my-phaseClassDetail></my-phaseClassDetail>
+<my-phaseClassDetail topHeight="{{0}}"></my-phaseClassDetail>

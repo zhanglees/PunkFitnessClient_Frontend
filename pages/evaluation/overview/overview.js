@@ -1,65 +1,74 @@
-// evaluation overview.js
+// questionnaire overview.js
 const app = getApp()
 Page({
   data: {
+    typeList: ['静态评估', '健康体适能', '动态评估'],
+    type: 0,
     userId: '',
-    type: '0',
-    tabList: [{
-      name: '静态评估',
-      id: '0'
-    }, {
-      name: '健康体适能',
-      id: '2'
-    }, {
-      name: '动态评估',
-      id: '1'
-    }],
-    evaluation: []//评估结果预览
+    questionList: [],
+    
   },
-  onLoad(options){
-    const userId = options.userId;
+  onLoad(options) {
+    this.getList();
+  },
+  getList() {
     this.setData({
-      userId
+      [`questionList[${0}]`]: [{
+        coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
+        coachName: "张教练",
+        questionType: 1,
+        recordTime: "今天42分钟前"
+      }, {
+        coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
+        coachName: "张教练",
+        questionType: 1,
+        recordTime: "2022/05/07"
+      }],
+      [`questionList[${1}]`]: [{
+        coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
+        coachName: "张三三",
+        questionType: 0,
+        recordTime: "2022/05/07"
+      }, {
+        coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
+        coachName: "张三三",
+        questionType: 0,
+        recordTime: "2022/05/07"
+      }, {
+        coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
+        coachName: "张三三",
+        questionType: 0,
+        recordTime: "2022/05/07"
+      }],
+      [`questionList[${2}]`]: [{
+        coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
+        coachName: "张三三",
+        questionType: 0,
+        recordTime: "2022/05/07"
+      }, {
+        coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
+        coachName: "张三三",
+        questionType: 0,
+        recordTime: "2022/05/07"
+      }, {
+        coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
+        coachName: "张三三",
+        questionType: 0,
+        recordTime: "2022/05/07"
+      }]
     });
   },
-  getEvaluationData(){
-    const type = this.data.type;
-    console.log(type, 9999999)
-    app.req.api.getTrainerAssessmentByRecord({
-      assessmentType: type,
-      userId: this.data.userId
-    }).then(res=>{
-      this.setData({
-        evaluation: res.data
-      })
-
-    });
+  //查看详情
+  gotoDetail(e) {
+ console.log('评估测试',e);
   },
-  tabChange(e){
-    const type = e.currentTarget.dataset.id;
-    //请求评估结果数据 或者页面加载时一次拿回来
+  tabChange(e) {
+    const type = e.currentTarget.dataset.type;
     this.setData({
-        type: type
-    });
-    this.getEvaluationData();
+      type: type
+    })
   },
-  //跳转新建评估页面
-  gotoEvaluation(e) {
-    const url = ['static', 'dynamic', 'physical'][this.data.type];
-      wx.navigateTo({
-          url: `/pages/packageA/evaluation/${url}/${url}?userId=${this.data.userId}`
-      })
-  },
-  //点击查看详情
-  gotoDetail(e){
-    const {createtime, coachid} = e.currentTarget.dataset;
-    const url = ['static', 'dynamic', 'physical'][this.data.type];
-      wx.navigateTo({
-          url: `/pages/packageA/evaluation/${url}/${url}?userId=${this.data.userId}&createTime=${createtime}&coachId=${coachid}`
-      })
-  },
-  onShow(){
-    //请求数据
-    this.getEvaluationData();
+  onShow() {
+    this.getList();
   }
 })

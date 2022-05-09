@@ -1,6 +1,5 @@
 {
   "usingComponents": {
     "my-phaseClassDetail":"/components/phaseClassDetail/phaseClassDetail"
-  },
-  "navigationBarTitleText": "巩固期"
+  }
 }

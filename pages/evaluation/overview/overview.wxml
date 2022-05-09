@@ -1,22 +1,24 @@
-<!--evaluation    overview.wxml-->
 <wxs src="/utils/util.wxs" module="utils" />
 <view class="container">
-    <view class="type-tab">
-        <view wx:for="{{tabList}}" wx:key="id" bindtap="tabChange" data-id="{{item.id}}"  class="'tab-item' {{item.id == type ? 'tab-item-act' : ''}}">
-        {{item.name}}
-        </view>
-    </view>
     <view class="detail">
-        <block wx:if="{{evaluation.length}}">
-        <view class="detail-item" wx:for="{{evaluation}}" wx:key="index" wx:for-item="li" bindtap="gotoDetail" data-createtime="{{li.createTime}}" data-coachid="{{li.coachId}}">
-            <text>{{['静态评估', '动态评估', '健康体适能'][li.assessmentType]}}</text>
-            <view class="detatil-top-right">
-                <text class="detail-coach">{{li.coachName}}</text>
-                <text class="detatil-time">{{utils.formatDate(li.createTime)}}</text>
-            </view>
-        </view>
-        </block>
-
+            <ul class="detail-tab">
+                <li wx:for="{{typeList}}" wx:key="index" bindtap="tabChange" data-type="{{index}}"
+                    class="'tab-item' {{index == type ? 'tab-item-act' : ''}}">{{item}}</li>
+            </ul>
+        <my-chooseCoach topHeight="{{1}}"></my-chooseCoach>
+        <ul class="detail-ul" wx:if="{{questionList[type].length}}">
+            <li class="detail-li" wx:for="{{questionList[type]}}" wx:key="index" bindtap="gotoDetail">
+                <image src="/images/icons/icon-assessment{{type}}.png" class="li-btn" />
+                <view class="detail-li-right">
+                    <view class="detail-li-title">
+                        {{['静态评估', '健康体适能','动态评估'][type]}}
+                        <view class="detail-li-coach">由{{item.coachName}}创建</view>
+                    </view>
+                    <view class="detail-li-coach">{{item.recordTime}}</view>
+                </view>
+            </li>
+            <!-- <li wx:for="{{100}}">2222222222222222</li> -->
+        </ul>
         <view class="no-data" wx:else>暂无数据~</view>
     </view>
 </view>

@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    topHeight:{
+      type:Number,
+      value:0
+    }
   },
 
   /**
@@ -13,6 +16,7 @@ Component({
   data: {
     isShow: false,
     selectName:'全部',
+    height:0,
     selectAll: [{ id: 1, name: '全部教练' }, { id: 2, name: '张三' }, { id: 3, name: '李四' }, { id: 4, name: '二麻' }, { id: 5, name: '可可' }]
   },
 
@@ -31,7 +35,7 @@ Component({
       console.log('选择按下', e.target.dataset.test);
       this.setData({
         isShow: false,
-        selectName:e.target.dataset.test.name
+        selectName:e.target.dataset.test.name=='全部教练'?'全部':e.target.dataset.test.name
       })
       
     },
