@@ -1,7 +1,9 @@
 {
     "usingComponents": {
         "mp-icon": "weui-miniprogram/icon/icon",
-        "mp-cell": "weui-miniprogram/cell/cell"
+        "mp-cell": "weui-miniprogram/cell/cell",
+        "mp-dialog": "weui-miniprogram/dialog/dialog",
+        "wxml-to-canvas": "wxml-to-canvas"
     },
     "navigationBarTitleText": "课程详情"
 }

@@ -4,26 +4,49 @@
         <view class="classname">
             {{showOrder + '. '+ sectionName}}
         </view>
-        <view class="share-btn" bindtap="showShare">晒成果</view>
+        <view class="show-share-btn" bindtap="renderToCanvas">晒成果</view>
     </view>
     <view class="action-list" wx:if="{{actionList.length}}">
         <view wx:for="{{actionList}}" wx:for-index="i" wx:key="action" wx:for-item="action" class="action-item">
-            <view class="action-item-head">
-                <view class="action-item-head-left">
-                    <view class="user-video-wrapper video-wrapper" wx:if="{{action.videourl}}">
-                        <video class="user-video" data-src="{{action.videourl}}" src="{{action.videourl}}" object-fit="cover"></video>
+            <view class="action-item-s"><view class="action-item-s-title">热身方式：</view><view>跑步热身</view></view>
+            <view class="action-item-s action-item-s-c">
+                <view class="action-item-s-title">正式训练</view>
+                <view class="action-item-head">
+                    <view class="action-item-head-left">
+                        <view class="user-video-wrapper video-wrapper" wx:if="{{action.videourl}}">
+                            <video class="user-video" data-src="{{action.videourl}}" src="{{action.videourl}}" object-fit="cover"></video>
+                        </view>
+                        <view class="action-item-head-c">
+                            <view class="action-item-actionname">{{action.actionName}}</view>
+                            <view class="action-item-trainname action-item-trainname{{i}}">动作{{i+1}}</view>
+                        </view>
+                        <view class="action-item-head-r"><i class="zx-tip"></i>126人在学</view>
                     </view>
-                    <view>
-                        <view class="action-item-actionname">{{action.actionName}}</view>
-                        <view class="action-item-trainname action-item-trainname{{i}}">动作{{i+1}}</view>
+                </view>
+                <view class="class-info-list">
+                    <view wx:for="{{itemsShow}}" class="class-info-li" wx:key="index" wx:for-item="ia">
+                        <text class="class-info-li-name">{{ia.name}}：</text>{{(action[ia.id]||'--') + (ia.unit ? ia.unit : '')}}
                     </view>
                 </view>
             </view>
-            <view class="class-info-list">
-                <view wx:for="{{itemsShow}}" class="class-info-li" wx:key="index" wx:for-item="ia">
-                    <text class="class-info-li-name">{{ia.name}}：</text>{{(action[ia.id]||'--') + (ia.unit ? ia.unit : '')}}
-                </view>
-            </view>
+            <view class="action-item-s"><view class="action-item-s-title">放松方式：</view><view>被动拉伸</view></view>
         </view>
     </view>
+    <view class="share-dialog{{ showShare ? ' share-dialog-show' : ''}}" bindtap="closeShare"></view>
+    <view class="share-dialog-content">     
+        <view class="share-view">
+            <wxml-to-canvas class="widget"></wxml-to-canvas>
+        </view>
+        <view class="share-tip">上滑</view>
+        <view class="share-btn"></view>
+    </view>
+    <!-- 
+    <view class="share-dialog" title="" show="{{dialogShow}}" buttons="{{false}}" mask>    
+        <view class="share-view">
+            <image class="share-img" src="{{shareImg}}" />
+        </view>
+        <view class="share-tip">上滑</view>
+        <view class="share-btn"></view>
+    </view>
+    <canvas type="2d" id="shareFrends" class="hide share-canvas" style="width: 560rpx;height: 1000rpx;"></canvas> -->
 </view>
