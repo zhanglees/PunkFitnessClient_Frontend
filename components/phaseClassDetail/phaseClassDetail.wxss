@@ -90,7 +90,7 @@
 
 .img-style {
   width: 48rpx;
-  height: 48px;
+  height: 48rpx;
   font-size: 34rpx;
   border-radius: 50%;
   border: 1px solid #fff;

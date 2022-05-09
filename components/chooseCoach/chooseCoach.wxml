@@ -3,7 +3,7 @@
 <view class="{{topHeight==1? 'container1':'container'}}" style="background-color:#fff; z-index: 9;" >
   <view class="container-left" bindtap="selectCoach" >
     {{selectName}}
-    <image class="drap-icon" src="/images/icons/drop@2x.png"></image>
+    <image class="drap-icon" src="/images/icons/drop.png"></image>
   </view>
   <view class="container-right">共{{selectAll.length}}条数据</view>
 </view>

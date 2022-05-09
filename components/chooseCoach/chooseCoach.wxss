@@ -95,6 +95,6 @@ ul li {
 }
 
 .drap-icon {
-  width: 20rpx;
-  height: 20rpx;
+  width: 20rpx !important;
+  height: 20rpx !important;
 }
