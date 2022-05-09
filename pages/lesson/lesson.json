@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "课时"
+    "usingComponents": {
+        "mp-icon": "weui-miniprogram/icon/icon",
+        "mp-cell": "weui-miniprogram/cell/cell"
+    },
+    "navigationBarTitleText": "课程详情"
 }

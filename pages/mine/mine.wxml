@@ -29,7 +29,7 @@
         </view>
     </view>
     <view class="info-list">
-        <view class="info-item" wx:for="{{infoList}}" wx:key="index">
+        <view class="info-item" wx:for="{{infoList}}" wx:key="index"  bindtap="gotoDeatil" data-test="{{item}}">
             <text class="info-item-v">{{info[item.id]}}</text>
             {{item.title}}
         </view>

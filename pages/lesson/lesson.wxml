@@ -1,54 +1,29 @@
 <!--pages/lesson/lesson.wxml-->
 <view class="container">
-    <view class="page-title">课时</view>
-    <view class="tab-list">
-        <view class="'tab-item' {{index == current ? 'tab-item-act' : ''}}" 
-            wx:for="{{tabList}}" wx:key="item" data-index="{{index}}"
-            bindtap="changeTab">
-            {{item.name}}
+    <view class="page-title">
+        <view class="classname">
+            {{showOrder + '. '+ sectionName}}
         </view>
+        <view class="share-btn" bindtap="showShare">晒成果</view>
     </view>
-    <view class="tab-content lesson-list">
-        <block wx:if="{{lessonList.length}}">
-        <block wx:if="{{current!=0}}">
-        <view class="lesson-item" wx:for="{{lessonList}}" wx:key="item">
-            <view class="lesson-item-left">
-                <image src="/images/icons/icon-lesson-{{current==1 ? 'done' : 'todo'}}.png" class="lesson-item-icon" />
-                <view class="lesson-item-info">
-                    <view class="lesson-item-name">{{item.name}}</view>
-                    <view class="lesson-item-time" wx:if="{{current==1}}">{{item.time || '--'}}</view>
+    <view class="action-list" wx:if="{{actionList.length}}">
+        <view wx:for="{{actionList}}" wx:for-index="i" wx:key="action" wx:for-item="action" class="action-item">
+            <view class="action-item-head">
+                <view class="action-item-head-left">
+                    <view class="user-video-wrapper video-wrapper" wx:if="{{action.videourl}}">
+                        <video class="user-video" data-src="{{action.videourl}}" src="{{action.videourl}}" object-fit="cover"></video>
+                    </view>
+                    <view>
+                        <view class="action-item-actionname">{{action.actionName}}</view>
+                        <view class="action-item-trainname action-item-trainname{{i}}">动作{{i+1}}</view>
+                    </view>
                 </view>
             </view>
-            <view class="lesson-item-right">
-                <image class="lesson-item-avatar" src="{{item.avatar || '/images/avatar.png'}}" mode="cover" />
-                <view class="lesson-item-coach">{{item.coach}}</view>
-            </view>
-        </view>
-        </block>
-        <block wx:else>
-        <view class="lesson-item lesson-item-stage {{item.status ? 'lesson-item-act' : ''}}" 
-            wx:for="{{lessonList}}" wx:key="item"
-            bindtap="gotoDetail" data-index="{{item.id}}">
-            <view class="lesson-item-left">
-                <view class="lesson-item-name">
-                    {{item.name}}
-                    <view class="lesson-item-status" wx:if="{{item.status}}">进行中</view>
-                </view>
-                <view class="lesson-item-counts">
-                    <text class="lesson-item-count">{{item.count || 0}}</text>
-                    /{{item.total}}
-                </view>
-            </view>
-            <view class="lesson-item-right">
-                <view class="lesson-item-time">{{item.time}}</view>
-                <view class="lesson-item-bottom">
-                    <image class="lesson-item-avatar" src="{{item.avatar || '/images/avatar.png'}}" mode="cover" />
-                    <view class="lesson-item-coach">{{item.coach}}</view>
+            <view class="class-info-list">
+                <view wx:for="{{itemsShow}}" class="class-info-li" wx:key="index" wx:for-item="ia">
+                    <text class="class-info-li-name">{{ia.name}}：</text>{{(action[ia.id]||'--') + (ia.unit ? ia.unit : '')}}
                 </view>
             </view>
         </view>
-        </block>
-        </block>
-        <view wx:else class="no-data">暂无数据</view>
     </view>
 </view>

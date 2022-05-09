@@ -1,0 +1,85 @@
+/* components/chooseCoach/chooseCoach.wxss */
+.container {
+  position: fixed;
+  top: 0;
+  /* position: relative; */
+  display: block;
+  width: 100%;
+  height: 84rpx;
+  /* position: relative; */
+  line-height: 84rpx;
+}
+
+.container-left {
+  position: absolute;
+  left: 32rpx;
+  color: #222834;
+  font-size: 14px;
+}
+
+.container-right {
+  position: absolute;
+  right: 32rpx;
+  color: #BCC0C7;
+  font-size: 12px;
+}
+
+.tancengContainer {
+  height: 100%;
+  background-color: rbg(0, 0, 0, 0.1);
+}
+
+ul li {
+  text-align: center;
+  display: block
+}
+
+.tanceng {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-radius: 24rpx 24rpx 0 0;
+  background-color: #F2F2F2;
+  transition: all 0.3s ease-in-out;
+  /* position: absolute; */
+  /* bottom: 0; */
+}
+
+.tanceng li {
+  color: #000;
+  font-size: 16px;
+  height: 112rpx;
+  line-height: 112rpx;
+  width: 100%;
+  background: #ffffff;
+  font-weight:400 ;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.tanceng li:last-child {
+  margin-top: 16rpx;
+  height: 180rpx !important;
+}
+
+.tanceng li:first-child {
+  border-radius: 24rpx 24rpx 0 0;
+}
+
+.pickerview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 900px;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.footerStrip {
+  display: block;
+  width: 268rpx;
+  height: 10rpx;
+  background-color: #000;
+  margin: 32rpx auto;
+  border-radius: 200rpx;
+}

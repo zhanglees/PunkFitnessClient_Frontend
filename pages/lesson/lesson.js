@@ -5,133 +5,126 @@ Page({
      * Page initial data
      */
     data: {
-        tabList: [{
-            name: '总课时',
-            id: 0
+        sectionName: '',
+        showOrder: 0,
+        actionList: [],
+        itemsShow: [{
+            name: '器械',
+            id: 'equipmentName'
         }, {
-            name: '已上课时',
-            id: 1
+            name: '配重',
+            id: 'counterWeight',
+            unit: 'kg'
         }, {
-            name: '未上课时',
-            id: 2
+            name: '单组次数',
+            id: 'numberSinglegroup',
+            unit: '次'
+        }, {
+            name: '组数',
+            id: 'groups',
+            unit: '组'
+        }, {
+            name: '训练部位',
+            id: 'trainingAreaName'
         }],
-        current: 0,
-        lessonList: []
     },
 
     /**
      * Lifecycle function--Called when page load
      */
-    onLoad: function (options) {
-        this.getLessons()
+    onLoad: function(options) {
+        this.getLesson()
     },
-    getLessons(){
+    getLesson() {
         this.setData({
-            lessonList: this.data.current == 0 ? [{
-                id: 1,
-                time: '2022/02/14',
-                name: '适应期',
-                avatar: '',
-                coach: '王教练',
-                count: 15,
-                total: 18,
-                status: 1
+            sectionName: '体能提升课程',
+            showOrder: 5,
+            actionList: [{
+                action: 2,
+                actionName: "阿诺德推胸（肩伸90℃）",
+                coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
+                counterWeight: 23,
+                equipment: 0,
+                equipmentName: "哑铃",
+                groups: 3,
+                numberSinglegroup: 2,
+                sectionDetailId: "0acacd8a-027e-486a-b6bb-81acfd70b7c5",
+                sectionName: "sfdafds",
+                trainingArea: 0,
+                trainingAreaName: "胸大肌",
+                trainingType: 0,
+                userId: "14c6962a-fb31-4ad5-ae72-6fcb74054a53",
+                usertrainSectionId: "ec404a18-5148-4376-bfc3-a7146f0585ec",
+                videourl: "https://www.zhangleixd.com/static/14c6962a-fb31-4ad5-ae72-6fcb74054a53/face/d17429da-b9e3-4121-a2ec-16d630e82e72.mp4"
             }, {
-                id: 2,
-                time: '2022/02/14',
-                name: '进步期',
-                avatar: '',
-                coach: '王教练',
-                count: '',
-                total: 18,
-                status: 0
-            }] : this.data.current == 1 ? [{
-                time: '2022/02/14 17:40',
-                name: '3.增肌训练',
-                avatar: '',
-                coach: '王教练'
-            },{
-                time: '2022/02/14 17:40',
-                name: '3.增肌训练',
-                avatar: '',
-                coach: '张教练'
-            }] : [{
-            time: '2022/02/14 17:40',
-            name: '3.增肌训练',
-            avatar: '',
-            coach: '张教练'
-        },{
-            time: '2022/02/14 17:40',
-            name: '2.体能训练',
-            avatar: '',
-            coach: '张教练'
-        },{
-            time: '2022/02/14 17:40',
-            name: '2.体能训练',
-            avatar: '',
-            coach: '张教练'
-        }]})
-    },
-    changeTab(e){
-        const i = e.currentTarget.dataset.index;
-        this.setData({
-            current: i
-        })
-        this.getLessons()
-    },
-    gotoDetail(e){
-        const id = e.currentTarget.dataset.index;
-        wx.navigateTo({
-          url: `/pages/stage/stage?id=${id}`,
+                action: 0,
+                actionName: "颈前引体向上",
+                coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
+                counterWeight: 4,
+                equipment: 0,
+                equipmentName: "哑铃",
+                groups: 4,
+                numberSinglegroup: null,
+                sectionDetailId: "e82f3d65-d761-4e93-a4d8-f5c43810f24f",
+                sectionName: "sfdafds",
+                trainingArea: 2,
+                trainingAreaName: "背阔肌",
+                trainingType: 0,
+                userId: "14c6962a-fb31-4ad5-ae72-6fcb74054a53",
+                usertrainSectionId: "ec404a18-5148-4376-bfc3-a7146f0585ec",
+                videourl: "https://www.zhangleixd.com/static/14c6962a-fb31-4ad5-ae72-6fcb74054a53/face/82bfb94c-c44b-463d-990d-af5bf53d786e.mp4"
+            }]
         })
     },
-    
+    showShare() {
+        
+    },
     /**
      * Lifecycle function--Called when page is initially rendered
      */
-    onReady: function () {
+    onReady: function() {
 
     },
 
     /**
      * Lifecycle function--Called when page show
      */
-    onShow: function () {
+    onShow: function() {
 
     },
 
     /**
      * Lifecycle function--Called when page hide
      */
-    onHide: function () {
+    onHide: function() {
 
     },
 
     /**
      * Lifecycle function--Called when page unload
      */
-    onUnload: function () {
+    onUnload: function() {
 
     },
 
     /**
      * Page event handler function--Called when user drop down
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
 
     },
 
     /**
      * Called when page reach bottom
      */
-    onReachBottom: function () {
+    onReachBottom: function() {
 
     },
 
     /**
      * Called when user click on the top right corner to share
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
 
     }
 })
