@@ -2,20 +2,13 @@
 const req = require('/utils/req.js');
 App({
     onLaunch() {
-        // 没有手机号跳转去登录页获取
-        const that = this;
-        const phoneNumber = wx.getStorageSync("phoneNumber");
-        // if (!phoneNumber) {
-        //     wx.redirectTo({
-        //         url: '/pages/login/login',
-        //     })
-        // }
     },
     req: req,
     globalData: {
         userInfo: null,
         appid: '',
-        appsecret: ''
+        appsecret: '',
+        backUrl: ''
     }
 })
 

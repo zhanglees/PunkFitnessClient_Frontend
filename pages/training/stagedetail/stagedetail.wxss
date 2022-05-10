@@ -1,66 +1,171 @@
 /* pages/packageA/training/stagedetail/stagedetail.wxss */
-
-.stage-detail-title{
-    padding-left: 20rpx;
-    position: relative;
-    height: 60rpx;
-    line-height: 60rpx;
-    font-weight: bold;
-    margin: 30rpx 0 0 0;
+.stage-detail{
+    min-height: 100vh;
+    display: block;
+    padding-top: 48rpx;
 }
-.stage-detail-title::after{
+.plan-target-title{
+    font-size: 24rpx;
+    color: #BCC0C7;
+    line-height: 32rpx;
+    text-align: center;
+    font-size: 32rpx;
+    width: 100%;
+}
+.plan-target-list{
+    text-align: center;
+    flex-wrap: nowrap;
+    margin: 16rpx 0 48rpx;
+    font-size: 44rpx;
+    font-weight: 600;
+    color: #386DF3;
+    line-height: 56rpx;
+}
+.plan-target-list-item{
+    margin-right: 20rpx;
+    display: inline-block;
+}
+.plan-info{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 64rpx;
+}
+.plan-info{
+    margin-bottom: 20rpx;
+}
+.plan-info-item{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 33%;
+    position: relative;
+    font-size: 24rpx;
+    color: #222834;
+    line-height: 44rpx;
+}
+.plan-info .plan-info-item:not(:last-child)::after{
     content: '';
     position: absolute;
-    left: 0;
-    background: #008CE9;
-    width: 2px;
-    border-radius: 2px;
-    top: 18rpx;
-    height: 24rpx;
+    right: 0;
+    width: 1px;
+    background: #F1F1F3;
+    height: 48rpx;
+    top: 20rpx;
 }
-.item-detail-item{
-    padding: 0 20rpx;
-    background: #eee;
-    border-radius: 4px;
-    display: inline-block;
-    margin-right: 20rpx;
-    color: #515151;
+.plan-info-item-v{
+    font-size: 36rpx;
+    font-weight: bold;
+}
+.plan-info-item-g{
+    color: #707784;
+}
+.stage-item{
+    border-top: 1px solid #F1F1F3;
+    color: #222834;
+    padding: 0 32rpx 32rpx;
+    width: 100%;
+    box-sizing: border-box;
 }
 .stage-title{
     width: 100%;
     box-sizing: border-box;
-    background: #D4EDF9;
-    height: 80rpx;
-    line-height: 80rpx;
-    padding: 0 40rpx 0 60rpx;
+    padding: 0 40rpx 0 32rpx;
     position: relative;
-    margin-top: 20rpx;
+    margin-top: 48rpx;
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #222834;
+    line-height: 40rpx;
 }
 
 .stage-title::after{
     content: "";
-    height: 10rpx;
-    width: 10rpx;
     position: absolute;
-    left: 20rpx;
-    top: 35rpx;
-    background: #FAB44F;
+    left: 0;
+    top: 12rpx;
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    background: #386DF3;
     display: block;
+}
+.stage-list-item{
+    margin-bottom: 20rpx;
+    border-bottom: 1px solid #F1F1F3;
+    padding-bottom: 24rpx;
+}
+.stage-list .stage-list-item:last-child{
+    border: none;
+    padding-bottom: 0;
+}
+.stage-detail-title{
+    position: relative;
+    font-size: 28rpx;
+    color: #222834;
+    line-height: 36rpx;
+    margin: 32rpx 0 16rpx;
+}
+.item-detail{
+    display: inline-block;
+}
+.item-detail-item{
+    font-size: 24rpx;
+    color: #707784;
+    line-height: 32rpx;
+    display: inline;
+}
+.item-detail .item-detail-item:not(:last-child)::after{
+    content: '、';
 }
 .stage-list{
     width: 100%;
     box-sizing: border-box;
-    padding: 0 20rpx 20rpx;
 }
-.stage-fct{
-    margin-top: 40rpx;
+.stage-remark{
+    font-size: 28rpx;
+    color: #222834;
+    line-height: 36rpx;
+    margin-top: 32rpx;
 }
-.stage-fct-item{
-    background: #F1F1F1;
-    line-height: 60rpx;
-    padding-left: 20rpx;
-    margin: 20rpx 0;
+.stage-remark-d{
+    color: #707784;
+    font-size: 24rpx;
+    margin-top: 16rpx;
 }
-.text-gray{
-    color: #515151;
+.stage-detail-target-w{
+    padding: 32rpx 32rpx 10rpx;
+    border-radius: 12rpx;
+    color: #222834;
+    background: #F7F7F9;
+}
+.stage-detail-target-n{
+    color: #707784;
+}
+.stage-detail-target{
+    display: flex;
+    margin-bottom: 20rpx;
+    justify-content: space-between;
+    font-size: 24rpx;
+    line-height: 32rpx;
+}
+.stage-detail-target-icon{
+    height: 24rpx;
+    width: 24rpx;
+    margin-right: 8rpx;
+    vertical-align: middle;
+}
+.coach-avatar{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    border: 1px solid rgba(34, 40, 52, 0.03);
+    margin-right: 16rpx;
+}
+.stage-coach{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: #222834;
+    line-height: 36rpx;
+    margin-top: 32rpx;
 }

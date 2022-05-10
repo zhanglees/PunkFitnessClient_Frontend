@@ -4,7 +4,10 @@
         <view class="classname">
             {{showOrder + '. '+ sectionName}}
         </view>
-        <view class="show-share-btn" bindtap="renderToCanvas">晒成果</view>
+        <view class="show-share-btn" bindtap="renderToCanvas">
+            <image class="share-icon" src="/images/icons/share-icon.png"></image>
+            <text>晒成果</text>
+        </view>
     </view>
     <view class="action-list" wx:if="{{actionList.length}}">
         <view wx:for="{{actionList}}" wx:for-index="i" wx:key="action" wx:for-item="action" class="action-item">

@@ -24,4 +24,10 @@ button.login-btn{
   color: #FFFFFF;
   line-height: 88rpx;
   padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+.phone-btn{
+    position: relative;
+    top: -88rpx;
 }

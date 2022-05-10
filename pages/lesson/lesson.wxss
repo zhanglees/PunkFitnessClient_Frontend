@@ -19,6 +19,9 @@
     color: #EC4C4C;
     line-height: 36rpx;
     font-size: 28rpx;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
 }
 .classname {
     position: relative;
@@ -329,4 +332,9 @@
 }
 .action-item-head-c{
     flex: 1;
+}
+.share-icon{
+    height: 48rpx;
+    width: 48rpx;
+    margin-right: 16rpx;
 }

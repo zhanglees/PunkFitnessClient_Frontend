@@ -90,8 +90,9 @@ Page({
           icon: 'loading',
           duration: 100000
         });
+        const userInfo = app.globalData.userInfo;
         const {sectionName, actionList} = this.data;
-        const _wxml = wxml({sectionName, actionList});
+        const _wxml = wxml({sectionName, actionList, userInfo});
         const p1 = this.widget.renderToCanvas({ wxml: _wxml, style })
         p1.then((res) => {
             this.container = res
