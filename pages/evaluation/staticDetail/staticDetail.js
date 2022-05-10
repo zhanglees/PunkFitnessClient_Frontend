@@ -1,11 +1,16 @@
-// pages/classPhaseDetail/classPhaseDetail.js
+// pages/evaluation/staticDetail/staticDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    staticList:[
+      {
+        img:'/images/main/menu2@3x.png',
+        
+      }
+    ]
   },
 
   /**

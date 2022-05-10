@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "mp-icon": "weui-miniprogram/icon/icon",
-    "mp-cell": "weui-miniprogram/cell/cell"
-  },
-  "navigationBarBackgroundColor": "#3D4257",
-  "navigationBarTitleText": "动态评估"
-}

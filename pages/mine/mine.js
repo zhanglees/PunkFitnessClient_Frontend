@@ -27,16 +27,16 @@ Page({
 
     // 跳转到课时详情
     gotoDeatil(e) {
-        // console.log('e',e);
+        console.log('e', e.currentTarget.dataset.index);
         wx.navigateTo({
-            url: '/pages/training/stagelist/stagelist?type=record'
+            url: `/pages/training/stagelist/stagelist?type=record&i=${e.currentTarget.dataset.index}`
         })
     },
 
     /**
      * Lifecycle function--Called when page load
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         if (wx.getUserProfile) {
             this.setData({
                 canIUseGetUserProfile: true
@@ -44,18 +44,18 @@ Page({
         }
         this.getUserInfo();
         this.setData({
-                info: {
-                    count: 50,
-                    sign: 10,
-                    last: 40,
-                    time: 500
-                }
-            })
-            // app.req.api.getMyInfo()
-            //   .then((res) => {
-            //     console.log(res);
-            //   })
-            //   .catch(app.req.err.show);
+            info: {
+                count: 50,
+                sign: 10,
+                last: 40,
+                time: 500
+            }
+        })
+        // app.req.api.getMyInfo()
+        //   .then((res) => {
+        //     console.log(res);
+        //   })
+        //   .catch(app.req.err.show);
 
     },
     getUserInfo() {
@@ -71,7 +71,7 @@ Page({
             desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
             success: (res) => {
                 console.log('*************', res)
-                    // getApp().globalData.userInfo = res.userInfo;
+                // getApp().globalData.userInfo = res.userInfo;
                 wx.setStorage({
                     key: "userInfo",
                     data: res.userInfo
@@ -91,49 +91,49 @@ Page({
     /**
      * Lifecycle function--Called when page is initially rendered
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * Lifecycle function--Called when page show
      */
-    onShow: function() {
+    onShow: function () {
 
     },
 
     /**
      * Lifecycle function--Called when page hide
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * Lifecycle function--Called when page unload
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * Page event handler function--Called when user drop down
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * Called when page reach bottom
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * Called when user click on the top right corner to share
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

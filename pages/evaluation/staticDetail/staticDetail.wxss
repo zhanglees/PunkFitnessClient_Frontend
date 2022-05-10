@@ -1,0 +1,75 @@
+/* pages/evaluation/staticDetail/staticDetail.wxss */
+.container{
+  box-sizing: border-box;
+}
+
+ul {
+  display: flex;
+}
+.left-container{
+  flex: 1;
+}
+.right-container{
+  flex: 1;
+}
+
+/* .img-container{
+  flex: 1;
+}
+
+.words-container{
+  flex: 1;
+} */
+
+.img-container {
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  text-align: center;
+ 
+}
+
+.test-style {
+  width: 100%;
+  line-height: 36rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #fff;
+  display: block;
+  position: absolute;
+  bottom: 32rpx;
+  text-align: center;
+  z-index: 9;
+}
+
+.img-item {
+  box-sizing: border-box;
+  /* border: 1px solid #000; */
+  height: 442rpx;
+  z-index: 8;
+}
+
+text {
+  display: block;
+}
+
+.text-container {
+  display: block;
+  padding-left: 32rpx;
+  font-size: 24rpx;
+  background-color: #F1F1F3;
+  border-bottom: 1px solid #F1F1F3;
+}
+
+.text-top {
+  line-height: 32rpx;
+  color: #707784;
+  padding: 32rpx 0 16rpx 0;
+}
+
+.text-bottom {
+  line-height: 32rpx;
+  font-weight: 500;
+  color: #222834;
+  margin-bottom: 32rpx;
+}

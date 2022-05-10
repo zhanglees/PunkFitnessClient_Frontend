@@ -4,14 +4,15 @@
             <ul class="detail-tab">
                 <li wx:for="{{typeList}}" wx:key="index" bindtap="tabChange" data-type="{{index}}"
                     class="'tab-item' {{index == type ? 'tab-item-act' : ''}}">{{item}}</li>
+                    <li class="tab-item" wx:show="false"></li>
             </ul>
         <my-chooseCoach topHeight="{{1}}"></my-chooseCoach>
-        <ul class="detail-ul" wx:if="{{questionList[type].length}}">
-            <li class="detail-li" wx:for="{{questionList[type]}}" wx:key="index" bindtap="gotoDetail">
+        <ul class="detail-ul" wx:if="{{testList[type].length}}">
+            <li class="detail-li" wx:for="{{testList[type]}}" wx:key="index" bindtap="gotoDetail" data-testType="{{item.testType}}">
                 <image src="/images/icons/icon-assessment{{type}}.png" class="li-btn" />
                 <view class="detail-li-right">
                     <view class="detail-li-title">
-                        {{['静态评估', '健康体适能','动态评估'][type]}}
+                        {{['静态评估', '健康体适能'][type]}}
                         <view class="detail-li-coach">由{{item.coachName}}创建</view>
                     </view>
                     <view class="detail-li-coach">{{item.recordTime}}</view>

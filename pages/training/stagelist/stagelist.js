@@ -7,13 +7,15 @@ Page({
     data: {
         type: 'plan', //默认是训练计划进来
         list: [],
+        classIndex:0
     },
 
     /**
      * Lifecycle function--Called when page load
      */
     onLoad: function(options) {
-        const { userId, type } = options; //用来区分是训练规划还是训练记录,记录则每条跳转到该阶段对应的课程，规划则每条跳转到该阶段的详情
+        const { userId, type, i } = options; //用来区分是训练规划还是训练记录,记录则每条跳转到该阶段对应的课程，规划则每条跳转到该阶段的详情
+        console.log('options11111111',i);
         console.log('type',type);
         // const coachId = wx.getStorageSync('mp-req-user-id');
         wx.setNavigationBarTitle({
@@ -22,7 +24,8 @@ Page({
         this.setData({
             //     userId,
             //     coachId,
-            type: type
+            type: type,
+            classIndex:i
         })
         this.getStageList();
     },
@@ -67,8 +70,8 @@ Page({
     /***查看该阶段课程列表 */
     gotoDetail(e) {
         const { index, trainingPlanId, userTrainitemId, name } = e.currentTarget.dataset;
-        console.log('name',e);
-        const url = (this.data.type == 'plan' ? '/pages/training/stagedetail/stagedetail?' : '/pages/classPhaseDetail/consolidationPeriod/consolidationPeriod');
+        // console.log('name',classIndex);
+        const url = (this.data.type == 'plan' ? '/pages/training/stagedetail/stagedetail?' : `/pages/classPhaseDetail/consolidationPeriod/consolidationPeriod?classInndex=${this.data.classIndex}`);
         //查详情的接口需要传大量的参数，所以先存起来吧
         wx.setStorage({
             key: "stageDetail",
