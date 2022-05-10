@@ -216,6 +216,7 @@
     height: 940rpx;
     flex: 1;
     background: #fff;
+    overflow-y: scroll;
 }
 .share-tip{
     margin-bottom: 48rpx;

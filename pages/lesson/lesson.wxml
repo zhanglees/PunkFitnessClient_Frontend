@@ -35,7 +35,7 @@
     <view class="share-dialog{{ showShare ? ' share-dialog-show' : ''}}" bindtap="closeShare"></view>
     <view class="share-dialog-content">     
         <view class="share-view">
-            <wxml-to-canvas class="widget"></wxml-to-canvas>
+            <wxml-to-canvas class="widget" width="280" height="1000"></wxml-to-canvas>
         </view>
         <view class="share-tip">上滑</view>
         <view class="share-btn"></view>

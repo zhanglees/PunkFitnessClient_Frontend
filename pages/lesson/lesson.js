@@ -37,6 +37,7 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad: function(options) {
+        console.log(88888, app.globalData.userInfo)
         this.getLesson()
         this.widget = this.selectComponent('.widget')
     },
@@ -83,12 +84,19 @@ Page({
         this.setData({...data});
     },
     renderToCanvas() {
+        wx.showToast({
+          title: '图片生成中',
+          mask: true,
+          icon: 'loading',
+          duration: 100000
+        });
         const {sectionName, actionList} = this.data;
         const _wxml = wxml({sectionName, actionList});
         const p1 = this.widget.renderToCanvas({ wxml: _wxml, style })
         p1.then((res) => {
             this.container = res
             this.extraImage()
+            wx.hideToast();
         })
     },
     extraImage() {

@@ -1,5 +1,5 @@
 const wxml = (data)=>{
-  return `
+  let str = `
 <view class="container" >
   <view class="header">
     <text class="title">${data.sectionName}</text>
@@ -21,9 +21,23 @@ const wxml = (data)=>{
         <text class="summarydatanum">1250</text><text class="summarydataunit">min</text>
       </view>
     </view>
-  </view>
-</view>
-`};
+  </view>`;
+  data.actionList.forEach(item=>{
+   str +=
+  `
+  <image class="sec-image" src="https://www.zhangleixd.com/static/052fdb81-8d72-40fd-ab1b-b8496d16aaab/face/42852f3b-52b7-43d7-bc78-20c42a6b9e60.png"></image>
+  <text class="actionname">${item.actionName}</text>
+  <view class="actionindex">动作1</view>
+  <text class="actionname">训练部位</text>
+  <text class="actionname">器械</text>
+  <text class="actionname">配重</text>
+  <text class="actionname">组数</text>
+  <text class="actionname">单组次数</text>
+`;
+})
+str += '</view>';
+return str;
+ };
 const style = {
   container: {
     width: 280,
@@ -121,6 +135,18 @@ const style = {
     width: 40,
     height: 40,
     borderRadius: 20,
+  },
+  secImage: {
+    width: 100,
+    height: 80,
+  },
+  actionname:{
+    width: 80,
+    height: 24,
+  },
+  actionindex:{
+    width: 50,
+    height: 20
   }
 }
 

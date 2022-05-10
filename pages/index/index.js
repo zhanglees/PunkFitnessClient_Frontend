@@ -10,10 +10,6 @@ Page({
     avatarUrl: '/images/avatar.png',
     userInfo: {},
     userInfoGet: {},
-    qrShow: false,
-    imgUrl: '',  //后端返回的绑定二维码
-    dialogShow: false,
-    dialogButtons: [{ text: '取消' }, { text: '确定' }],
     serverList: [{
       name: '训练规划',
       link: '/pages/training/stagelist/stagelist?type=plan&'
@@ -105,6 +101,7 @@ Page({
       }
     }
   },
+
   // 事件处理函数
   bindAct(e){
     var link = e.currentTarget.dataset.link;
