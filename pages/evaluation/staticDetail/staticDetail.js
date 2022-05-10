@@ -1,21 +1,23 @@
-// pages/classPhaseDetail/consolidationPeriod/consolidationPeriod.js
+// pages/evaluation/staticDetail/staticDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    classtype:0
+    staticList:[
+      {
+        img:'/images/main/menu2@3x.png',
+        
+      }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('适应期options',options);
-    this.setData({
-      classtype:options.classInndex
-    })
+
   },
 
   /**

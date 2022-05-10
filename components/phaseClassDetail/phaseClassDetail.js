@@ -4,7 +4,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    classT:{
+      type:Number,
+      value:0,
+      observer(newVal, oldVal) {
+        // 第一种方式通过参数传递的方式触发函数的执行
+        this.logInfo();
+    }
 
+    }
   },
 
   /**
@@ -55,7 +63,13 @@ Component({
   /**
    * 组件的方法列表
    */
+  
   methods: {
+    logInfo(){
+      this.setData({
+        type:this.properties.classT
+      })
+  },
 
     // 转换小导航
     transformAct(e) {

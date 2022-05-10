@@ -9,19 +9,15 @@
     "pages/lesson/lesson",
     "pages/questionnaire/overview/overview",
     "pages/questionnaire/healthy/healthy",
-    "pages/evaluation/dynamic/dynamic",
-    "pages/evaluation/static/static",
     "pages/evaluation/overview/overview",
-    "pages/evaluation/physical/physical",
     "pages/inbody/overview/overview",
     "pages/inbody/report/report",
     "pages/training/stagelist/stagelist",
     "pages/training/stagedetail/stagedetail",
-    "pages/classPhaseDetail/probationPeriod/probationPeriod",
-    "pages/classPhaseDetail/progressivePeriod/progressivePeriod",
     "pages/classPhaseDetail/consolidationPeriod/consolidationPeriod",
-    "pages/training/experienceClass/experienceClass",
-    "pages/training/edit/edit"
+    "pages/training/edit/edit",
+    "pages/evaluation/staticDetail/staticDetail",
+    "pages/evaluation/physicalDetail/physicalDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

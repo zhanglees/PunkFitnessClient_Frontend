@@ -1,0 +1,52 @@
+<!--pages/evaluation/staticDetail/staticDetail.wxml-->
+<view class="container">
+  <!-- <ul>
+    <li>
+      <view class="img-container">
+        <image class="img-item" src="/images/tb/tb-icon1-g.png"></image>
+        <text>正面</text>
+      </view>
+      <view class="img-container">
+        <image class="img-item" src="/images/tb/tb-icon1-g.png"></image>
+        <text>侧面</text>
+      </view>
+    </li>
+    <li>
+      <view class="words-container">
+        <text>全身</text>
+        <text>s形</text>
+      </view>
+      <view class="words-container">
+        <text>头部</text>
+        <text>--</text>
+      </view>
+    </li>
+  </ul> -->
+
+  <ul>
+    <li class="left-container">
+      <!-- <view class="img-container" > -->
+        <image class="img-item img-container" style="padding-right: 7rpx; margin-bottom: -9rpx;" src="/images/icons/icon-assessment0.png" mode="scaleToFill"> 
+          <text class="test-style">正面</text>
+        </image>
+      <!-- </view> -->
+      <view class="text-container" wx:for="{{11}}" wx:key="index">
+        <text class="text-top">身体</text>
+        <text class="text-bottom">s形</text>
+      </view>
+    </li>
+    <li class="left-container">
+      <!-- <view class="img-container"> -->
+        <image class="img-item  img-container"  src="/images/icons/icon-assessment0.png" style="padding-left: 7rpx; margin-bottom: -9rpx;">
+          <text class="test-style">侧面</text>
+        </image>    
+      <!-- </view> -->
+      <view class="text-container" wx:for="{{11}}" wx:key="index">
+        <text class="text-top">头部</text>
+        <text class="text-bottom">后倾</text>
+      </view>
+    </li>
+  </ul>
+
+
+</view>
