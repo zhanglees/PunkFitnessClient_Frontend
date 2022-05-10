@@ -178,7 +178,7 @@ function getSessionId() {
  * @param {object} options {}
  * @param {boolean} keepLogin true
  */
-function request(options = {}, keepLogin = true) {
+function request(options = {}, keepLogin = false) {
   if (keepLogin) {
     return new Promise((res, rej) => {
       getSessionId()

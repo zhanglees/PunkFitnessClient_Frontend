@@ -1,5 +1,13 @@
 function install(req, request) {
     req.api = {
+        getWXPhone(data){
+            const url = `${req.apiUrl}/userCilent/getWXPhone`;
+            return request({ url, method: 'GET', data });
+        },
+
+
+
+
         userRegister(data){
             const url = `${req.apiUrl}/user/register`;
             return request({ url, method: 'POST', data });

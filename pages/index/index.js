@@ -119,16 +119,16 @@ Page({
   gotoServer: function (e) {
     let link = e.currentTarget.dataset.link;
     console.log(99999,this.data.userInfo )
-    if(this.data.userInfo){
+    // if(this.data.userInfo){
         wx.navigateTo({
           url: link
         })
-    }else{
-        //未登录跳转登录
-        wx.redirectTo({
-            url: '/pages/login/login',
-        })
-        app.globalData.backUrl = link;
-    }
+    // }else{
+    //     //未登录跳转登录
+    //     wx.redirectTo({
+    //         url: '/pages/login/login',
+    //     })
+    //     app.globalData.backUrl = link;
+    // }
   }
 })
