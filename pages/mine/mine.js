@@ -7,11 +7,11 @@ Page({
      */
     data: {
         userInfo: {},
-        userInfoExt: {},
-        hasUserInfo: false,
-        canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        canIUseGetUserProfile: false,
-        canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
+        // userInfoExt: {},
+        // hasUserInfo: false,
+        // canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        // canIUseGetUserProfile: false,
+        // canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
         infoList: [{
             title: '总课时',
             id: 'count'
@@ -37,13 +37,14 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad: function (options) {
-        if (wx.getUserProfile) {
-            this.setData({
-                canIUseGetUserProfile: true
-            })
-        }
-        this.getUserInfo();
+        // if (wx.getUserProfile) {
+        //     this.setData({
+        //         canIUseGetUserProfile: true
+        //     })
+        // }
+        // this.getUserInfo();
         this.setData({
+            userInfo: app.globalData.userInfo,
             info: {
                 count: 50,
                 sign: 10,
@@ -58,34 +59,39 @@ Page({
         //   .catch(app.req.err.show);
 
     },
-    getUserInfo() {
-        this.setData({
-            userInfoExt: {
-                phone: '123123123123'
-            }
-        })
-    },
-    getUserProfile(e) {
-        // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-        wx.getUserProfile({
-            desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-            success: (res) => {
-                console.log('*************', res)
-                // getApp().globalData.userInfo = res.userInfo;
-                wx.setStorage({
-                    key: "userInfo",
-                    data: res.userInfo
-                })
-                this.setData({
-                    userInfo: res.userInfo,
-                    hasUserInfo: true
-                })
-            }
-        })
-    },
+    // getUserInfo() {
+    //     this.setData({
+    //         userInfoExt: {
+    //             phone: '123123123123'
+    //         }
+    //     })
+    // },
+    // getUserProfile(e) {
+    //     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+    //     wx.getUserProfile({
+    //         desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+    //         success: (res) => {
+    //             console.log('*************', res)
+    //             // getApp().globalData.userInfo = res.userInfo;
+    //             wx.setStorage({
+    //                 key: "userInfo",
+    //                 data: res.userInfo
+    //             })
+    //             this.setData({
+    //                 userInfo: res.userInfo,
+    //                 hasUserInfo: true
+    //             })
+    //         }
+    //     })
+    // },
     gotoSetting() {
         wx.navigateTo({
             url: '/pages/setting/setting',
+        })
+    },
+    gotoLogin(){
+        wx.navigateTo({
+            url: '/pages/login/login',
         })
     },
     /**

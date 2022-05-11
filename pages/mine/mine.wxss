@@ -23,6 +23,11 @@
     border: 1px solid rgba(34, 40, 52, 0.03);
     margin-right: 24rpx;
   }
+  .userinfo-avatar-img{
+    width: 112rpx;
+    height: 112rpx;
+    border-radius: 50%;
+  }
   .userinfo-nickname{
     font-size: 32rpx;
     font-weight: 500;
