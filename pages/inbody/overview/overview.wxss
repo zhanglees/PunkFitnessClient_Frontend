@@ -7,95 +7,67 @@
     background: #3D4257;
     position: relative;
     width: 100%;
-    height: 500rpx;
-}
-.right-top{
-    position: absolute;
-    right: 10rpx;
-    top: 0;
-    /* border: 1px solid #eee;
-    border-radius: 20rpx; */
-    color: #eee;
-    height: 60rpx;
-    line-height: 60rpx;
+    /* height: 616rpx; */
     box-sizing: border-box;
-    text-align: center;
-    padding: 0 20rpx;
+    padding-bottom: 16rpx;
 }
-.right-top-icon{
-    width: 40rpx;
-    height: 40rpx;
-    vertical-align: sub;
-    display: inline-block;
+.top-top{
+    color: #fff;
+    height: 50rpx;
+    line-height: 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 28rpx;
+    padding: 0 32rpx;
 }
 .canvas {
-    /* position: absolute; */
     width: 100%;
-    height: 400rpx;
+    height: 378rpx;
     box-sizing: border-box;
 }
 .canvas-wrapper{
     width: 100%;
-    margin-top: 40rpx;
     box-sizing: border-box;
-}
-.canvas-title{
-    font-size: 20rpx;
-    color: #eee;
-    padding-left: 20rpx;
-}
-.right-user{
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 80rpx;
-    border-radius: 40rpx 0 0 40rpx;
-    background: #222834;
-    color: #eee;
-    font-size: 20rpx;
-    padding-left: 40rpx;
-    height: 80rpx;
-    padding: 10rpx 10rpx 10rpx 30rpx;
-    display: flex;
-    align-items: center;
-    opacity: .8;
-}
-.userinfo-avatar{
-    width: 40rpx;
-    height: 40rpx;
-    border-radius: 50%;
-}
-.user-info, .user-change{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-}
-.user-info{
-    margin-right: 20rpx;
 }
 .report-area{
     width: 100%;
     box-sizing: border-box;
-    padding: 20rpx 40rpx;
+    padding: 32rpx;
     background: #fff;
 }
 .report-item{
-    border-bottom: 1px solid #eee;
-    margin-bottom: 48rpx;
+    border-bottom: 1px solid #F1F1F3;
+    padding: 32rpx 0 24rpx;
     position: relative;
     display: block;
 }
 .report-item-cell{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
 }
-.report-item-coach{
-    color: #bbb;
-    float: right;
-    font-size: 20rpx;
+.report-item-top{
+    font-size: 32rpx;
+    color: #222834;
+    line-height: 36rpx;
 }
-.report-data-number{
-    font-size: 48rpx;
-    font-weight: bold;
+.report-item-cell-data{
+    font-size: 24rpx;
+    color: #707784;
+    line-height: 32rpx;
+    margin-top: 16rpx;
+}
+.report-item-cell-left{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.report-item-title{
+    font-weight: 500;
+}
+.report-item-cell-d-i{
+    margin-right: 32rpx;
 }

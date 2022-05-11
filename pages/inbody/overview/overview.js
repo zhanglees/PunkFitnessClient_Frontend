@@ -19,44 +19,105 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad: function (options) {
-        const userid = options.userId;
-        //获取用户体重数据
-        // var x_data=["12-05", "12-06", "12-07", "12-08", "12-09", "12-10", "12-11"]
-        // var y_data= ["55", "56", "53", "55", "55", "57", "53"]
-            //绘制折线图
-        // this.OnWxChart(x_data,y_data);
-        this.getReportList(userid);
-        this.setData({
-            userId: userid
-        })
+        // const userid = options.userId;
+        this.getReportList();
+        // this.setData({
+        //     userId: userid
+        // })
     },
     getReportList(userid){
         //获取用户的报告记录
-      let coachId = wx.getStorageSync('mp-req-user-id');
-      app.req.api.getUserHealthCheckAll({
-          coachId: coachId,
-          userId: userid
-        }).then(res=>{
-          const data = res.data;
-          const len = data.length;
-          if(len){
-            let x_data = [], y_data = [];
-            let startDate, endDate;
-            data.forEach((i, k)=>{
-              const date = util.formatDate(new Date(i.createTime));
-              if(i.weight){
-                x_data.push(date);
-                y_data.push(i.weight);
-              }
-            });
-            startDate = x_data[0];
-            endDate = x_data[x_data.length - 1];
-            this.OnWxChart(x_data,y_data);
-            this.setData({
-                dataTitle: startDate + ' ~ ' + endDate,
-                reportList: data
-            })
-          }
+      // let coachId = wx.getStorageSync('mp-req-user-id');
+      // app.req.api.getUserHealthCheckAll({
+      //     coachId: coachId,
+      //     userId: userid
+      //   }).then(res=>{
+      //     const data = res.data;
+      //     const len = data.length;
+      //     if(len){
+      //       let x_data = [], y_data = [];
+      //       let startDate, endDate;
+      //       data.forEach((i, k)=>{
+      //         const date = util.formatDate(new Date(i.createTime));
+      //         if(i.weight){
+      //           x_data.push(date);
+      //           y_data.push(i.weight);
+      //         }
+      //       });
+      //       startDate = x_data[0];
+      //       endDate = x_data[x_data.length - 1];
+      //       this.OnWxChart(x_data,y_data);
+      //       this.setData({
+      //           dataTitle: startDate + ' ~ ' + endDate,
+      //           reportList: data
+      //       })
+      //     }
+      //   })
+
+        //获取用户体重数据
+        var x_data=["12-05", "12-06", "12-07", "12-08", "12-09", "12-10", "12-11"]
+        var y_data= ["55", "56", "53", "55", "55", "57", "53"]
+            //绘制折线图
+        this.OnWxChart(x_data,y_data);
+        this.setData({
+          dataTitle: "2022/02/27" + ' ~ ' + "2022/08/09",
+          reportList: [{
+            userHealthcheckId:'123',
+            userName: 'user',
+            createTime: '2021/01/20',
+            weight: 50,
+            bodyFatRatio: 8,
+            waistHipRatio: 0.8
+          }, {
+            userHealthcheckId:'123',
+            userName: 'user',
+            createTime: '2021/01/20',
+            weight: 50,
+            bodyFatRatio: 8,
+            waistHipRatio: 0.8
+          }, {
+            userHealthcheckId:'123',
+            userName: 'user',
+            createTime: '2021/01/20',
+            weight: 50,
+            bodyFatRatio: 8,
+            waistHipRatio: 0.8
+          }, {
+            userHealthcheckId:'123',
+            userName: 'user',
+            createTime: '2021/01/20',
+            weight: 50,
+            bodyFatRatio: 8,
+            waistHipRatio: 0.8
+          }, {
+            userHealthcheckId:'123',
+            userName: 'user',
+            createTime: '2021/01/20',
+            weight: 50,
+            bodyFatRatio: 8,
+            waistHipRatio: 0.8
+          }, {
+            userHealthcheckId:'123',
+            userName: 'user',
+            createTime: '2021/01/20',
+            weight: 50,
+            bodyFatRatio: 8,
+            waistHipRatio: 0.8
+          }, {
+            userHealthcheckId:'123',
+            userName: 'user',
+            createTime: '2021/01/20',
+            weight: 50,
+            bodyFatRatio: 8,
+            waistHipRatio: 0.8
+          }, {
+            userHealthcheckId:'123',
+            userName: 'user',
+            createTime: '2021/01/20',
+            weight: 50,
+            bodyFatRatio: 8,
+            waistHipRatio: 0.8
+          }]
         })
     },
     OnWxChart:function(x_data,y_data,name){
@@ -76,7 +137,6 @@ Page({
           legend: false,
           dataLabel: true,
           dataPointShape: true,
-         
           series: [{
             name: "体重",
             data: y_data,
@@ -99,7 +159,7 @@ Page({
             gridColor: '#3D4257'
           },
           width: windowWidth,
-          height: 200,
+          height: 189,
           extra: {
               lineStyle: 'curve'
           }
