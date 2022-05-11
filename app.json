@@ -17,7 +17,8 @@
     "pages/classPhaseDetail/consolidationPeriod/consolidationPeriod",
     "pages/training/edit/edit",
     "pages/evaluation/staticDetail/staticDetail",
-    "pages/evaluation/physicalDetail/physicalDetail"
+    "pages/evaluation/physicalDetail/physicalDetail",
+    "pages/inbody/bodySideReport/bodySideReport"
   ],
   "window": {
     "backgroundTextStyle": "light",

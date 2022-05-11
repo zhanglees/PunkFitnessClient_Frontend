@@ -1,0 +1,35 @@
+<!--pages/inbody/bodySideReport/bodySideReport.wxml-->
+<view class="container">
+  <ul>
+    <li class="li-style" wx:for="{{9}}" wx:key="index" >
+      <view class="left-container">
+        <image class="icon-style" src="/images/icons/report-detail0.png"></image>
+        <text class="left-text">身高</text>
+      </view>
+      <view class="right-container">180cm</view>
+    </li>
+  </ul>
+  <view class="report-style">
+    <text class="report-title">体测报告</text>
+    <image class="report-img" src="/images/icons/icon-assessment0.png"></image>
+  </view>
+
+  <view>
+    <text class="report-title">身体测量</text>
+    <ul class="body-ul">
+      <li class="body-container" wx:for="{{12}}" wx:key="index">
+        <view class="body-sum">180</view>
+        <view class="body-company">身高 (cm)</view>
+      </li>
+    </ul >
+   </view>
+   <view>
+    <ul class="body-ul" style="margin-bottom: 80rpx;">
+      <li wx:for="{{3}}" wx:key="index" style="border-radius: 4rpx;">
+       <image class="bottom-imgs" src="/images/icons/icon-assessment2.png">
+        <view class="bottom-imgs-imgs">图片</view>
+      </image>   
+      </li>
+    </ul >
+   </view>
+</view>

@@ -1,0 +1,101 @@
+/* pages/inbody/bodySideReport/bodySideReport.wxss */
+.icon-style {
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: middle;
+  margin-right: 24rpx;
+}
+
+.li-style {
+  position: relative;
+  display: block;
+  height: 144rpx;
+  line-height: 144rpx;
+  border-bottom: 1px solid #F1F1F3;
+  margin: 0 32rpx;
+}
+
+.left-container {
+  position: absolute;
+  left: 0;
+}
+
+.right-container {
+  position: absolute;
+  right: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222834;
+}
+
+.left-text {
+  display: inline-block;
+  height: 36rpx;
+  font-size: 28rpx;
+  color: #222834;
+  line-height: 36rpx;
+  vertical-align: middle;
+}
+
+.report-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #222834;
+  height: 40rpx;
+  margin: 24rpx 0 24rpx 32rpx;
+}
+
+.report-img {
+  width: 420rpx;
+  height: 236rpx;
+  margin-left: 32rpx;
+}
+
+.body-container {
+  display: block;
+  width: 208rpx;
+  height: 140rpx;
+  background: #F7F7F9;
+  border-radius: 12rpx;
+  text-align: center;
+  padding-top: 24rpx;
+  margin: 0 0 32rpx 0;
+}
+
+.body-sum {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #222834;
+  margin-bottom: 8rpx;
+}
+
+.body-company {
+  font-size: 24rpx;
+  color: #707784;
+  line-height: 16px;
+}
+
+.body-ul {
+  box-sizing: border-box;
+  display: flex;
+  padding: 0 32rpx;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+.bottom-imgs {
+  width: 208rpx;
+  height: 278rpx;
+  position: relative;
+}
+.bottom-imgs-imgs{
+  position: absolute;
+  font-size: 28rpx;
+  color: #fff;
+  bottom: 16rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+}

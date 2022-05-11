@@ -174,7 +174,7 @@ Page({
     reportDetail(e){
       const id = e.currentTarget.dataset.id;
       wx.navigateTo({
-        url: '/pages/packageA/inbody/report/report?reportId=' + id,
+        url: '/pages/inbody/bodySideReport/bodySideReport?reportId=' + id,
       })
     },
     /**
