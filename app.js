@@ -5,10 +5,9 @@ App({
     },
     req: req,
     globalData: {
-        userInfo: null,
         appid: '',
         appsecret: '',
-        backUrl: ''
+        backUrl: '/pages/index/index'
     }
 })
 

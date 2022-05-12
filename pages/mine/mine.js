@@ -37,14 +37,9 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad: function (options) {
-        // if (wx.getUserProfile) {
-        //     this.setData({
-        //         canIUseGetUserProfile: true
-        //     })
-        // }
-        // this.getUserInfo();
+        console.log('用户：', wx.getStorageSync('userInfo'))
         this.setData({
-            userInfo: app.globalData.userInfo,
+            userInfo: wx.getStorageSync('userInfo'),
             info: {
                 count: 50,
                 sign: 10,
@@ -90,6 +85,7 @@ Page({
         })
     },
     gotoLogin(){
+        app.globalData.backUrl = '/pages/mine/mine';
         wx.navigateTo({
             url: '/pages/login/login',
         })

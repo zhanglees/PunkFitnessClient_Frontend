@@ -14,7 +14,7 @@
 .content{
   width: 100%;
 }
-button.login-btn{
+.login-btn{
   width: 654rpx!important;
   height: 88rpx;
   background: #386DF3;
@@ -27,7 +27,9 @@ button.login-btn{
   word-break: keep-all;
   white-space: nowrap;
 }
-.phone-btn{
-    position: relative;
-    top: -88rpx;
+.back-btn{
+    border: 1px solid #E5E5E9;
+    background: #fff;
+    color: #707784;
+    margin-top: 32rpx;
 }

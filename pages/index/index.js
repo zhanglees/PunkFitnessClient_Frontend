@@ -25,14 +25,14 @@ Page({
       name: '健康问卷',
       link: '/pages/questionnaire/overview/overview?'
     }],
-    logs: null
+    logs: null,
+    logsLen: 0
   },
 
   onLoad(options) {
     const userInfo = wx.getStorageSync("userInfo");
     if(userInfo){
-      app.globalData.userInfo = userInfo;
-      this.data.userInfo = userInfo;
+        this.data.userInfo = userInfo;
     }
   },
   onShow(){
@@ -41,94 +41,95 @@ Page({
     }
   },
   getLogs: function(){
-    this.setData({
-      logs: {
+    const logs =  {
         '#2021': {
-          '11.02': [{
+            '11.02': [{
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }], 
-          '10.03': [{
+            }], 
+            '10.03': [{
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }]
+            }]
         },
         '#2020': {
-          '11.02': [{
+            '11.02': [{
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }],
-          '02.11': [{
+            }],
+            '02.11': [{
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }]
+            }]
         }
-      }
+    };
+    this.setData({
+      logs: logs,
+      logsLen: Object.keys(logs).length
     });
   },
    //跳转到其他页面
   gotoServer: function (e) {
     let link = e.currentTarget.dataset.link;
-    console.log(99999,this.data.userInfo )
-    // if(this.data.userInfo){
+    if(this.data.userInfo){
         wx.navigateTo({
           url: link
         })
-    // }else{
-    //     //未登录跳转登录
-    //     wx.redirectTo({
-    //         url: '/pages/login/login',
-    //     })
-    //     app.globalData.backUrl = link;
-    // }
+    }else{
+        //未登录跳转登录
+        wx.redirectTo({
+            url: '/pages/login/login',
+        })
+        app.globalData.backUrl = link;
+    }
   }
 })

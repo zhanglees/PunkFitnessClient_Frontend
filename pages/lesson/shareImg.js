@@ -3,7 +3,7 @@ const wxml = (data)=>{
 <view class="container" >
   <view class="header">
     <text class="title">${data.sectionName}</text>
-    <image class="avatar" src="${data.userInfo ? (data.userInfo.avatarUrl || '') : ''}"></image>
+    <image class="avatar" src="${data.userInfo ? (data.userInfo.headImg || '') : ''}"></image>
   </view>
   <view class="summary">
     <view class="schedule">
