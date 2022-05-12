@@ -7,8 +7,6 @@ Page({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getPhoneNumber'),
-    hasPhone: false,//是否授权了手机号
-    hasUser: false,//是否授权了用户信息
     backUrl: '/pages/index/index' //登录后跳转页面
   },
 
@@ -60,6 +58,7 @@ Page({
   },
   //调用后端登录接口
   wxLogin(code, encryptedData, iv) {
+    const _this = this;
     wx.showLoading({ // 显示登录 loading
       title: '登录中...',
     })
@@ -69,11 +68,18 @@ Page({
       iv // 加密算法的初始向量
     }).then(res=>{
       wx.hideLoading();
-      if(res.code == 200){
+      if(res.code == 0){
         const userInfo = res.data;
-        this.showGetInfo();
+        console.log('用户信息：', userInfo)
         wx.setStorageSync('userInfo', userInfo);
-        app.globalData.userInfo = userInfo;
+        this.data.userInfo = userInfo;
+        if(!userInfo.userName){
+            this.showGetInfo();
+        }else{
+            wx.reLaunch({
+              url: _this.data.backUrl,
+            })
+        }
       }
     }, err=>{
       wx.hideLoading();
@@ -100,23 +106,39 @@ Page({
             desc: "用于完善用户资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
             success: res => {
               // 用户同意授权
+                const userInfo = {..._this.data.userInfo, ...res.userInfo};
+                console.log('用户信息：', userInfo)
+                app.req.api.userIdentity({ 
+                    headImg: userInfo.avatarUrl, 
+                    phone: userInfo.phone, 
+                    wxid: userInfo.wxid,
+                    userName: userInfo.nickName
+                }).then(res=>{
+                    const data = res.data;
+                    wx.setStorageSync('userInfo', {..._this.data.userInfo, ...data});
+                    wx.reLaunch({
+                        url: _this.data.backUrl,
+                    })
+                })
             },
             fail: e => {
               // 用户拒绝授权
+                wx.reLaunch({
+                    url: _this.data.backUrl,
+                })
             },
             complete: e => {
               // 接口调用结束（调用成功、失败都会执行）
-              console.log(888888,e)
-              wx.setStorageSync('userInfo', e.userInfo || {});
-              app.globalData.userInfo = e.userInfo || {};
-              wx.reLaunch({
-                url: _this.data.backUrl,
-              })
             }
           });
         }
       }
     });
+  },
+  goback: function(){
+    wx.reLaunch({
+        url: this.data.backUrl.includes('mine') ? this.data.backUrl : '/pages/index/index',
+      })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

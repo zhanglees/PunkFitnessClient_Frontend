@@ -4,7 +4,10 @@ function install(req, request) {
             const url = `${req.apiUrl}/userCilent/getWXPhone`;
             return request({ url, method: 'GET', data });
         },
-
+        userIdentity(data){
+            const url = `${req.apiUrl}/userCilent/userIdentity`;
+            return request({ url, method: 'POST', data });
+        },
 
 
 

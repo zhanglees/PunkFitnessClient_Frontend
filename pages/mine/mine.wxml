@@ -1,16 +1,16 @@
 <!--pages/mine/mine.wxml-->
 <view class="container">
     <view class="top-layout">
-        <view class="userinfo">
+        <view class="userinfo" bindtap="{{userInfo.phone ? '' : 'gotoLogin'}}">
             <view class="userinfo-avatar">
                 <image src="{{userInfo.headImg || '/images/avatar.png'}}" class="userinfo-avatar-img"></image>
             </view>
             <view class="userinfo-right">
-                <block wx-if="userInfo.phone">
+                <block wx:if="{{userInfo.phone}}">
                     <view class="userinfo-nickname">{{userInfo.userName}}</view>
                     <text class="userinfo-phone">{{userInfo.phone}}</text>
                 </block>
-                <view class="userinfo-nickname" bindtap="gotoLogin">请点击登录</view>
+                <view wx:else class="userinfo-nickname">请点击登录</view>
             </view>
             <!-- <block wx:if="{{canIUseOpenData}}"> -->
             <!-- <view class="userinfo-avatar">

@@ -31,12 +31,12 @@ Page({
   onLoad(options) {
     const userInfo = wx.getStorageSync("userInfo");
     if(userInfo){
-      app.globalData.userInfo = userInfo;
-      this.data.userInfo = userInfo;
+        this.data.userInfo = userInfo;
     }
   },
   onShow(){
     if(this.data.userInfo){
+        console.log(888, this.data.userInfo)
       this.getLogs();
     }
   },
@@ -118,17 +118,16 @@ Page({
    //跳转到其他页面
   gotoServer: function (e) {
     let link = e.currentTarget.dataset.link;
-    console.log(99999,this.data.userInfo )
-    // if(this.data.userInfo){
+    if(this.data.userInfo){
         wx.navigateTo({
           url: link
         })
-    // }else{
-    //     //未登录跳转登录
-    //     wx.redirectTo({
-    //         url: '/pages/login/login',
-    //     })
-    //     app.globalData.backUrl = link;
-    // }
+    }else{
+        //未登录跳转登录
+        wx.redirectTo({
+            url: '/pages/login/login',
+        })
+        app.globalData.backUrl = link;
+    }
   }
 })

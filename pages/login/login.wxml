@@ -10,4 +10,5 @@
     <!-- <button class="login-btn" lang="zh_CN" open-type='getUserInfo'  bindgetuserinfo="getUserInfo">微信用户一键登录</button> -->
   </view>
   <view wx:else>请升级微信版本</view>
+  <button class="back-btn login-btn" bindtap="goback">返回</button>
 </view> 

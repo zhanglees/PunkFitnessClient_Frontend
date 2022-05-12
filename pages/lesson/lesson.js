@@ -37,9 +37,9 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad: function(options) {
-        console.log(88888, app.globalData.userInfo)
         this.getLesson()
         this.widget = this.selectComponent('.widget')
+        this.data.userInfo = wx.getStorageSync('userInfo');
     },
     getLesson() {
         const data = {
@@ -90,8 +90,9 @@ Page({
           icon: 'loading',
           duration: 100000
         });
-        const userInfo = app.globalData.userInfo;
+        const userInfo = this.data.userInfo;
         const {sectionName, actionList} = this.data;
+        console.log(8888, userInfo)
         const _wxml = wxml({sectionName, actionList, userInfo});
         const p1 = this.widget.renderToCanvas({ wxml: _wxml, style })
         p1.then((res) => {

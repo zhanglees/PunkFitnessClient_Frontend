@@ -112,3 +112,6 @@
     display: inline-block;
     width: 100%;
 }
+.layout-right{
+    display: none;
+}
