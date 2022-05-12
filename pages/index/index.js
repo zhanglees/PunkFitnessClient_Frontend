@@ -25,7 +25,8 @@ Page({
       name: '健康问卷',
       link: '/pages/questionnaire/overview/overview?'
     }],
-    logs: null
+    logs: null,
+    logsLen: 0
   },
 
   onLoad(options) {
@@ -36,83 +37,84 @@ Page({
   },
   onShow(){
     if(this.data.userInfo){
-        console.log(888, this.data.userInfo)
       this.getLogs();
     }
   },
   getLogs: function(){
-    this.setData({
-      logs: {
+    const logs =  {
         '#2021': {
-          '11.02': [{
+            '11.02': [{
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }], 
-          '10.03': [{
+            }], 
+            '10.03': [{
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }]
+            }]
         },
         '#2020': {
-          '11.02': [{
+            '11.02': [{
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }, {
+            }, {
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }],
-          '02.11': [{
+            }],
+            '02.11': [{
             date: '11.02',
             time: '12:10',
             content: '训练计划',
             coach:'王祥'
-          }]
+            }]
         }
-      }
+    };
+    this.setData({
+      logs: logs,
+      logsLen: Object.keys(logs).length
     });
   },
    //跳转到其他页面
