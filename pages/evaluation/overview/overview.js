@@ -2,7 +2,7 @@
 const app = getApp()
 Page({
   data: {
-    typeList: ['静态评估', '健康体适能', ],
+    typeList: ['静态评估', '健康体适能', '动态评估'],
     type: 0,
     userId: '',
     testList: [],
@@ -62,9 +62,25 @@ Page({
   gotoDetail(e) {
     const { testtype } = e.currentTarget.dataset
     console.log('评估测试', e, testtype);
-    wx.navigateTo({
-      url:testtype==0? '/pages/evaluation/staticDetail/staticDetail':'/pages/evaluation/physicalDetail/physicalDetail',
-    })
+    // wx.navigateTo({
+    //   url:testtype==0? '/pages/evaluation/staticDetail/staticDetail':'/pages/evaluation/physicalDetail/physicalDetail',
+    // })
+    wx: if (testtype == 0) {
+      wx.navigateTo({
+        url: '/pages/evaluation/staticDetail/staticDetail',
+      })
+    }
+    wx: if (testtype == 1) {
+      wx.navigateTo({
+        url: '/pages/evaluation/physicalDetail/physicalDetai',
+      })
+    }
+    wx: if (testtype == 2) {
+      wx.navigateTo({
+        url: '/pages/evaluation/dynamicDetail/dynamicDetail',
+      })
+    }
+
   },
   tabChange(e) {
     const type = e.currentTarget.dataset.type;

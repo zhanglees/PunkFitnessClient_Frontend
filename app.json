@@ -18,7 +18,8 @@
     "pages/training/edit/edit",
     "pages/evaluation/staticDetail/staticDetail",
     "pages/evaluation/physicalDetail/physicalDetail",
-    "pages/inbody/bodySideReport/bodySideReport"
+    "pages/inbody/bodySideReport/bodySideReport",
+    "pages/evaluation/dynamicDetail/dynamicDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
