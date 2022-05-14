@@ -21,8 +21,13 @@ Page({
     app.req.api.getUserQuestionListByType({
         userId: this.data.userId,
     }).then(res => {
+        const data = res.data;
+        let arr = [[],[]];
+        data.forEach(i=>{
+            arr[i.questionType].push(i);
+        })
         this.setData({
-            [`questionList[${0}]`]: res.data
+            questionList: arr
         });
     });
 
