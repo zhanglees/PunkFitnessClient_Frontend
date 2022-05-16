@@ -35,6 +35,7 @@ Page({
     // console.log('开始播放', e.currentTarget.dataset.i)
     var videoplay = wx.createVideoContext(`video${e.currentTarget.dataset.i}`,this)
       videoplay.play()
+      wx.createVideoContext(`video${e.currentTarget.dataset.i}`).requestFullScreen({ direction: 90 });
      // this.setData({
     //   isShow: !this.data.isShow
     // })

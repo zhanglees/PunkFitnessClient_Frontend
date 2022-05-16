@@ -19,7 +19,8 @@
     "pages/evaluation/staticDetail/staticDetail",
     "pages/evaluation/physicalDetail/physicalDetail",
     "pages/inbody/bodySideReport/bodySideReport",
-    "pages/evaluation/dynamicDetail/dynamicDetail"
+    "pages/evaluation/dynamicDetail/dynamicDetail",
+    "pages/evaluation/demo/demo"
   ],
   "window": {
     "backgroundTextStyle": "light",

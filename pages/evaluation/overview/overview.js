@@ -78,6 +78,7 @@ Page({
     wx: if (testtype == 2) {
       wx.navigateTo({
         url: '/pages/evaluation/dynamicDetail/dynamicDetail',
+        // url: '/pages/evaluation/demo/demo',
       })
     }
 
