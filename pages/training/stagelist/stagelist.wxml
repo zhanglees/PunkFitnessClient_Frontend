@@ -4,21 +4,21 @@
     <!-- <my-chooseCoach></my-chooseCoach> -->
     <view class="lesson-list">
         <block wx:if="{{list.length}}">
-            <view class="lesson-item lesson-item-stage {{item.status ? 'lesson-item-act' : ''}}" wx:for="{{list}}" wx:key="item" bindtap="gotoDetail" data-index="{{item.id}}" data-name="{{item.name}}">
+            <view class="lesson-item lesson-item-stage {{item.status ? 'lesson-item-act' : ''}}" wx:for="{{list}}" wx:key="item" bindtap="gotoDetail" data-index="{{index}}">
                 <view class="lesson-item-left">
                     <view class="lesson-item-name">
-                        {{item.name}}
+                        {{item.className}}
                         <view class="lesson-item-status" wx:if="{{item.status}}">进行中</view>
                     </view>
                     <view class="lesson-item-counts">
-                        <text class="lesson-item-count">{{item.count || 0}}</text> /{{item.total}}
+                        <text class="lesson-item-count">{{item.completeSections || 0}}</text> /{{item.classNum}}
                     </view>
                 </view>
                 <view class="lesson-item-right">
-                    <view class="lesson-item-time">{{item.time}}</view>
+                    <view class="lesson-item-time">{{item.createTime}}</view>
                     <view class="lesson-item-bottom">
                         <image class="lesson-item-avatar" src="{{item.avatar || '/images/avatar.png'}}" mode="cover" />
-                        <view class="lesson-item-coach">{{item.coach}}</view>
+                        <view class="lesson-item-coach">{{item.coachName}}</view>
                     </view>
                 </view>
             </view>

@@ -24,7 +24,16 @@ function install(req, request) {
         getHealthReportDetail(data) {
             const url = `${req.apiUrl}/healthCheck/getHealthReportDetail?reportId=${data}`;
             return request({ url, method: 'POST', data });
-        }
+        },
+        GetUserClassByUserId(data) {
+            const url = `${req.apiUrl}/trainPlanClient/GetUserClassByUserId`;
+            return request({ url, method: 'GET', data });
+        },
+        getUserTrainPlainDetail(data) { //训练计划详情
+            const url = `${req.apiUrl}/trainPlan/getUserTrainPlainDetai`;
+            return request({ url, method: 'GET', data });
+        },
+
     };
 }
 
