@@ -4,21 +4,15 @@
     <!----查看状态-->
     <view class="question-list">
         <view class="question-item" wx:for="{{questionList}}" wx:key="index">
-            <view class="question-q">{{index+1}}. {{item.questionContent}}</view> 
+            <view class="question-q">{{index+1}}. {{item.questionContent}}</view>
             <view class="question-a" wx:if="{{item.items.length}}">
-            <label wx:for="{{item.items}}" wx:key="index" wx:for-item="option">
+                <label wx:for="{{item.items}}" wx:key="index" wx:for-item="option">
                 {{option.describes}}
                 <block wx:if="{{index != (item.items.length-1)}}">；
                 </block>
-            </label> 
+            </label>
             </view>
             <view wx:else class="question-a">--</view>
-            <!-- <block wx:for="{{item.items}}" wx:key="index" wx:for-item="option" wx:for-index="i"> -->
-                <!-- <label wx:if="{{utils.indexOf(answers[typeIndex], option.questionItemId) != -1}}" class="form-checkbox-item form-checkbox-item-show">
-                {{option.describes}}
-                </label> -->
-            <!-- </block> -->
-            <!-- <label class="form-checkbox-item"></label> -->
             <label class="answer-remarks answer-remarks-show" wx:if="{{item.itemExplain}}">补充说明：{{item.itemExplain}}</label>
         </view>
     </view>
