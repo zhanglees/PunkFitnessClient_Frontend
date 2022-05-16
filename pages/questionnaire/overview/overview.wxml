@@ -11,7 +11,7 @@
                 <view class="detail-li-q">{{index+1}}. {{item.q}}</view>
                 <view class="detail-li-a">{{item.a}}</view>
             </li> -->
-            <li class="detail-li" wx:for="{{questionList[type]}}" wx:key="index" bindtap="gotoDetail" data-recordTime="{{item.recordTime}}" data-questionType="{{type}}">
+            <li class="detail-li" wx:for="{{questionList[type]}}" wx:key="index" wx:for-index="index" bindtap="gotoDetail" data-index="{{index}}" data-questionType="{{type}}">
                 <image src="/images/icons/icon-question-li{{type}}.png" class="li-btn" />
                 <view class="detail-li-right">
                     <view class="detail-li-title">
