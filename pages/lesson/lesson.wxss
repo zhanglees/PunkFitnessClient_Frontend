@@ -1,4 +1,5 @@
 /* pages/lesson/lesson.wxss */
+
 .container {
     padding: 32rpx;
     position: relative;
@@ -15,7 +16,8 @@
     align-items: center;
     justify-content: space-between;
 }
-.show-share-btn{
+
+.show-share-btn {
     color: #EC4C4C;
     line-height: 36rpx;
     font-size: 28rpx;
@@ -23,6 +25,7 @@
     display: flex;
     align-items: center;
 }
+
 .classname {
     position: relative;
     padding-left: 50rpx;
@@ -53,8 +56,6 @@
     background: #60D481;
     left: 14rpx;
 }
-
-
 
 .training-title::before {
     content: "";
@@ -147,7 +148,7 @@
     width: 210rpx;
 }
 
-.action-list {
+.lesson-content {
     padding-bottom: 20rpx;
 }
 
@@ -201,8 +202,7 @@
     background: #DADAE3;
 }
 
-
-.share-dialog{
+.share-dialog {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -213,7 +213,8 @@
     opacity: 0;
     left: 10000;
 }
-.share-view{
+
+.share-view {
     margin-bottom: 32rpx;
     width: 560rpx;
     height: 940rpx;
@@ -221,17 +222,20 @@
     background: #fff;
     overflow-y: scroll;
 }
-.share-tip{
+
+.share-tip {
     margin-bottom: 48rpx;
     height: 28rpx;
     font-size: 24rpx;
     color: #FFFFFF;
     line-height: 32rpx;
 }
-.share-btn{
+
+.share-btn {
     height: 154rpx;
 }
-.share-dialog-content{
+
+.share-dialog-content {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -246,20 +250,26 @@
     opacity: 0;
     left: 10000;
 }
-.share-dialog-show, .share-dialog-show+.share-dialog-content{
+
+.share-dialog-show,
+.share-dialog-show+.share-dialog-content {
     z-index: 1000;
     opacity: 1;
 }
-.share-dialog-show{
+
+.share-dialog-show {
     left: 0;
 }
-.share-dialog-show+.share-dialog-content{
+
+.share-dialog-show+.share-dialog-content {
     left: 96rpx;
 }
-.weui-canvas{
+
+.weui-canvas {
     width: 200px!important;
 }
-.action-item-s{
+
+.action-item-s {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -267,18 +277,22 @@
     font-size: 32rpx;
     margin-bottom: 64rpx;
 }
-.action-item .action-item-s:last-child{
+
+.action-item .action-item-s:last-child {
     margin-bottom: 0;
 }
-.action-item-s-c{
+
+.action-item-s-c {
     display: block;
 }
-.action-item-s-title{
+
+.action-item-s-title {
     color: #707784;
     padding-left: 32rpx;
     position: relative;
 }
-.action-item-s-title::before{
+
+.action-item-s-title::before {
     content: '';
     display: block;
     width: 16rpx;
@@ -291,7 +305,8 @@
     left: 0;
     top: 8rpx;
 }
-.action-item::before{
+
+.action-item::before {
     content: '';
     width: 1px;
     border-right: 1px dashed #BCC0C7;
@@ -301,16 +316,20 @@
     display: block;
     position: absolute;
 }
-.action-item .action-item-s:nth-child(1) .action-item-s-title::before{
+
+.action-item .action-item-s:nth-child(1) .action-item-s-title::before {
     background: #F48038;
 }
-.action-item .action-item-s:nth-child(2) .action-item-s-title::before{
+
+.action-item .action-item-s:nth-child(2) .action-item-s-title::before {
     background: #386DF3;
 }
-.action-item .action-item-s:nth-child(3) .action-item-s-title::before{
+
+.action-item .action-item-s:nth-child(3) .action-item-s-title::before {
     background: #23C451;
 }
-.action-item-head-r{
+
+.action-item-head-r {
     font-size: 24rpx;
     color: #707784;
     position: relative;
@@ -322,7 +341,8 @@
     text-align: right;
     vertical-align: top;
 }
-.action-item-s-c .zx-tip{
+
+.action-item-s-c .zx-tip {
     border-radius: 50%;
     width: 12rpx;
     height: 12rpx;
@@ -330,10 +350,12 @@
     display: inline-block;
     margin-right: 8rpx;
 }
-.action-item-head-c{
+
+.action-item-head-c {
     flex: 1;
 }
-.share-icon{
+
+.share-icon {
     height: 48rpx;
     width: 48rpx;
     margin-right: 16rpx;

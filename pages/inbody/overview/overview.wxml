@@ -1,13 +1,13 @@
 <!--pages/packageA/inbody/inbody.wxml-->
 <wxs src="/utils/util.wxs" module="utils" />
 <view class="container">
-    <view class="top__layout" wx:if="{{reportList.length}}">        
+    <view class="top__layout" wx:if="{{reportList.length}}">
         <view class="top-top">
             <view class="top-title">体重记录</view>
             <view class="top-date">{{dataTitle}}</view>
         </view>
         <view class="canvas-wrapper">
-            <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas"  bindtouchstart="touchcanvas"></canvas>
+            <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchcanvas"></canvas>
         </view>
     </view>
     <view class="report-area">
@@ -15,7 +15,7 @@
             <li wx:for="{{reportList}}" wx:key="index" class="report-item" bindtap="reportDetail" data-id="{{item.userHealthcheckId}}">
                 <view class="report-item-cell report-item-cell-top">
                     <view class="report-item-title">身体测试报告</view>
-                    <view class="report-item-coach">{{item.userName}}</view>
+                    <view class="report-item-coach">{{item.coachName}}</view>
                 </view>
                 <view class="report-item-cell report-item-cell-data">
                     <view class="report-item-cell-left">
