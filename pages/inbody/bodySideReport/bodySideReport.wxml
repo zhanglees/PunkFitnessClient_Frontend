@@ -25,7 +25,7 @@
    </view>
    <view>
     <ul class="body-ul" style="margin-bottom: 80rpx;">
-      <li wx:key="index" style="border-radius: 4rpx;">
+      <li style="border-radius: 4rpx;">
        <image class="bottom-imgs" src="{{userhealthcheckResourceList[itemLeftPath]}}">
         <view class="bottom-imgs-imgs">左侧面照片</view>
       </image>
