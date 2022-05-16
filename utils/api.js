@@ -16,6 +16,10 @@ function install(req, request) {
             const url = `${req.apiUrl}/questionnaireClient/getQuestionDetail`;
             return request({ url, method: 'POST', data });
         },
+        getHealthReportDetail(data){
+            const url =`${req.apiUrl}/healthCheck/getHealthReportDetail?reportId=${data}`;
+            return request({ url, method: 'POST' ,data });
+        }
     };
 }
 
