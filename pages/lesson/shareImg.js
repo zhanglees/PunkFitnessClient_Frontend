@@ -25,19 +25,38 @@ const wxml = (data)=>{
   data.actionList.forEach(item=>{
    str +=
   `
-  <image class="sec-image" src="https://www.zhangleixd.com/static/052fdb81-8d72-40fd-ab1b-b8496d16aaab/face/42852f3b-52b7-43d7-bc78-20c42a6b9e60.png"></image>
+
   <text class="actionname">${item.actionName}</text>
-  <view class="actionindex">动作1</view>
-  <text class="actionname">训练部位</text>
-  <text class="actionname">器械</text>
-  <text class="actionname">配重</text>
-  <text class="actionname">组数</text>
-  <text class="actionname">单组次数</text>
+  <text class="actionindex">动作1</text>
+  <view class="acitem">
+    <view class="acitemleft">
+        <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-0.png"></image>
+        <text class="actionname">训练部位</text>
+    </view>
+    <text class="actvalue">胸肌</text>
+  </view>
+  <view class="acitem">
+    <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-1.png"></image>
+    <text class="actionname">器械</text>
+  </view>
+  <view class="acitem">
+    <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-2.png"></image>
+    <text class="actionname">配重</text>
+  </view>
+  <view class="acitem">
+    <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-3.png"></image>
+    <text class="actionname">组数</text>
+  </view>
+  <view class="acitem">
+    <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-0.png"></image>
+    <text class="actionname">单组次数</text>
+  </view>
 `;
 })
 str += '</view>';
 return str;
  };
+ //  <image class="sec-image" src="https://www.zhangleixd.com/static/052fdb81-8d72-40fd-ab1b-b8496d16aaab/face/42852f3b-52b7-43d7-bc78-20c42a6b9e60.png"></image>
 const style = {
   container: {
     width: 280,
@@ -140,14 +159,44 @@ const style = {
     width: 100,
     height: 80,
   },
-  actionname:{
-    width: 80,
-    height: 24,
-  },
   actionindex:{
     width: 50,
-    height: 20
-  }
+    height: 20,
+    display: 'block',
+    background: '#e4e9f6',
+    color: '#386DF3'
+  },
+  acitem:{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: 50,
+    background: '#F7F7F9',
+    borderRadius: 6,
+    width: '100%',
+    color: '#222834',
+    fontSize: 14,
+  },
+  acitemleft: {
+    display: 'flex',
+    flexDirection: 'row',
+    color: '#707784'
+  },
+  acticon:{
+    width: 24,
+    height: 24,
+    marginRight: 8,
+  },
+  actionname:{
+    width: 100,
+    height: 50,
+  },
+  actvalue:{
+      width: 100,
+      height: 50,
+      textAlign: 'right'
+  },
 }
 
 module.exports = {
