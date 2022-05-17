@@ -33,6 +33,22 @@ function install(req, request) {
             const url = `${req.apiUrl}/trainPlan/getUserTrainPlainDetai`;
             return request({ url, method: 'GET', data });
         },
+        // 评估测试列表
+        getTrainersAssessmentList(data) {
+            const url = `${req.apiUrl}/assessment/getTrainersAssessment?assessmentType=${data}`;
+            return request({ url, method: 'POST', data });
+        },
+        // 评估测试详情
+        getTrainerAssessmentDetail(data) {
+            const url = `${req.apiUrl}/assessment/getTrainerAssessmentDetail`;
+            return request({ url, method: 'POST', data });
+        },
+        // 得到全部教练
+        getTrainerAssessmentByRecordList(data){
+            const url = `${req.apiUrl}/assessment/getTrainerAssessmentByRecord`;
+            return request({ url, method: 'POST', data });
+        }
+
 
     };
 }

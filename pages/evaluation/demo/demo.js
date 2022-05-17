@@ -34,7 +34,24 @@ Page({
 
 
   onLoad: function (options) {
+    this.getDetail()
 
+
+
+  },
+  getDetail(){
+    for(let i=0;i<5;i++)[
+      this.setData({
+        staticList:  this.data.staticList.push(
+          {
+            [`v${i}_play`]: true,//默认的显示播放的按钮
+            [`v${i}_pause`]: true,//默认不显示暂停的按钮
+          }
+        )
+      })
+     
+    ],
+    console.log('0000000000000000000',this.data.showlist);
   },
 
 

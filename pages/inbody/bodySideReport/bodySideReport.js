@@ -7,155 +7,155 @@ Page({
    */
   data: {
     reportId: "6712f718-5a17-473c-be06-351785dfd26f",
-    detailList:[
+    detailList: [
       {
-        name:'身高',
-        icon:'/images/icons/shengao.png',
-        danwei:'cm',
-        id:'height'
+        name: '身高',
+        icon: '/images/icons/shengao.png',
+        danwei: 'cm',
+        id: 'height'
       },
       {
-        name:'体重',
-        icon:'/images/icons/tizhong.png',
-        danwei:'kg',
-        id:'weight'
+        name: '体重',
+        icon: '/images/icons/tizhong.png',
+        danwei: 'kg',
+        id: 'weight'
       },
       {
-        name:'BMI',
-        icon:'/images/icons/bmi.png',
-        danwei:'',
-        id:'bmi'
+        name: 'BMI',
+        icon: '/images/icons/bmi.png',
+        danwei: '',
+        id: 'bmi'
       },
       {
-        name:'体脂率',
-        icon:'/images/icons/tizhilv.png',
-        danwei:'%',
-        id:'bodyFatRatio'
+        name: '体脂率',
+        icon: '/images/icons/tizhilv.png',
+        danwei: '%',
+        id: 'bodyFatRatio'
       },
       {
-        name:'脂肪量',
-        icon:'/images/icons/zhifangliang.png',
-        danwei:'%',
-        id:'fatContent'
+        name: '脂肪量',
+        icon: '/images/icons/zhifangliang.png',
+        danwei: '%',
+        id: 'fatContent'
       },
       {
-        name:'水分',
-        icon:'/images/icons/shuifen.png',
-        danwei:'%',
-        id:'waterContent'
+        name: '水分',
+        icon: '/images/icons/shuifen.png',
+        danwei: '%',
+        id: 'waterContent'
       },
       {
-        name:'骨骼肌',
-        icon:'/images/icons/gugeji.png',
-        danwei:'%',
-        id:'skeletalMuscle'
+        name: '骨骼肌',
+        icon: '/images/icons/gugeji.png',
+        danwei: '%',
+        id: 'skeletalMuscle'
       },
       {
-        name:'肌肉量',
-        icon:'/images/icons/jirouliang.png',
-        danwei:'%',
-        id:'muscleMass'
+        name: '肌肉量',
+        icon: '/images/icons/jirouliang.png',
+        danwei: '%',
+        id: 'muscleMass'
       },
       {
-        name:'腰臀比',
-        icon:'/images/icons/yaotunbi.png',
-        danwei:'',
-        id:'waistHipRatio'
+        name: '腰臀比',
+        icon: '/images/icons/yaotunbi.png',
+        danwei: '',
+        id: 'waistHipRatio'
       },
-      
+
     ],
-    bodyMeasurementList:[
+    bodyMeasurementList: [
       {
-        name:'身高',
-        icon:'/images/icons/shengao.png',
-        danwei:'cm',
-        id:'height'
+        name: '身高',
+        icon: '/images/icons/shengao.png',
+        danwei: 'cm',
+        id: 'height'
       },
       {
-        name:'体重',
-        icon:'/images/icons/tizhong.png',
-        danwei:'kg',
-        id:'weight'
+        name: '体重',
+        icon: '/images/icons/tizhong.png',
+        danwei: 'kg',
+        id: 'weight'
       },
       {
-        name:'BMI',
-        icon:'/images/icons/bmi.png',
-        danwei:'',
-        id:'bmi'
+        name: 'BMI',
+        icon: '/images/icons/bmi.png',
+        danwei: '',
+        id: 'bmi'
       },
       {
-        name:'胸围',
-        icon:'/images/icons/bmi.png',
-        danwei:'cm',
-        id:'chestMeasurement'
+        name: '胸围',
+        icon: '/images/icons/bmi.png',
+        danwei: 'cm',
+        id: 'chestMeasurement'
       },
       {
-        name:'腰围',
-        icon:'/images/icons/bmi.png',
-        danwei:'cm',
-        id:'waistline'
+        name: '腰围',
+        icon: '/images/icons/bmi.png',
+        danwei: 'cm',
+        id: 'waistline'
       },
       {
-        name:'臂围',
-        icon:'/images/icons/bmi.png',
-        danwei:'cm',
-        id:'hipline'
+        name: '臂围',
+        icon: '/images/icons/bmi.png',
+        danwei: 'cm',
+        id: 'hipline'
       },
       {
-        name:'左上臂围',
-        icon:'/images/icons/bmi.png',
-        danwei:'cm',
-        id:'leftArmCircumference'
+        name: '左上臂围',
+        icon: '/images/icons/bmi.png',
+        danwei: 'cm',
+        id: 'leftArmCircumference'
       },
       {
-        name:'右上臂围',
-        icon:'/images/icons/bmi.png',
-        danwei:'cm',
-        id:'rightArmCircumference'
+        name: '右上臂围',
+        icon: '/images/icons/bmi.png',
+        danwei: 'cm',
+        id: 'rightArmCircumference'
       },
       {
-        name:'左大腿围',
-        icon:'/images/icons/bmi.png',
-        danwei:'cm',
-        id:'leftThighCircumference'
+        name: '左大腿围',
+        icon: '/images/icons/bmi.png',
+        danwei: 'cm',
+        id: 'leftThighCircumference'
       },
       {
-        name:'右大腿围',
-        icon:'/images/icons/bmi.png',
-        danwei:'cm',
-        id:'rightThighCircumference'
+        name: '右大腿围',
+        icon: '/images/icons/bmi.png',
+        danwei: 'cm',
+        id: 'rightThighCircumference'
       },
       {
-        name:'左小腿围',
-        icon:'/images/icons/bmi.png',
-        danwei:'cm',
-        id:'leftShankCircumference'
+        name: '左小腿围',
+        icon: '/images/icons/bmi.png',
+        danwei: 'cm',
+        id: 'leftShankCircumference'
       },
       {
-        name:'右小腿围',
-        icon:'/images/icons/bmi.png',
-        danwei:'cm',
-        id:'rightShankCircumference'
+        name: '右小腿围',
+        icon: '/images/icons/bmi.png',
+        danwei: 'cm',
+        id: 'rightShankCircumference'
       }
     ],
-    userhealthcheckReportList:{},
-    userhealthcheckResourceList:{}
+    userhealthcheckReportList: {},
+    userhealthcheckResourceList: {}
   },
 
   getBodySideReportList() {
     const { reportId } = this.data
     // console.log('reportId', reportId);
     app.req.api.getHealthReportDetail(
-      'c99782e9-8450-43b3-ba30-731aafe464e6'
+      reportId
     ).then(res => {
       console.log('体侧详情：', res.data)
-      const {userhealthcheckReport,userhealthcheckResource}=res.data
+      const { userhealthcheckReport, userhealthcheckResource } = res.data
       // console.log('userhealthcheckReport',userhealthcheckReport)
       this.setData({
-        userhealthcheckReportList:userhealthcheckReport,
-        userhealthcheckResourceList:userhealthcheckResource
+        userhealthcheckReportList: userhealthcheckReport,
+        userhealthcheckResourceList: userhealthcheckResource
       })
-      })
+    })
 
   },
 
@@ -165,6 +165,10 @@ Page({
    */
   onLoad: function (options) {
     this.getBodySideReportList()
+    const { reportId } = options
+    this.setData({
+      reportId: reportId
+    })
   },
 
 

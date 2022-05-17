@@ -1,56 +1,43 @@
 // pages/evaluation/physicalDetail/physicalDetail.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   list:[
-      {
-        name:'心脏功能',
-        sum:10,
-        describe:'运动前心率',
-        company:'次/min'
-      },
-      {
-        name:'心肺功能',
-        sum:2,
-        describe:'2分钟踏板 (心率)',
-        company:'次/min'
-      },
-      {
-        name:'核心力量',
-        sum:55,
-        describe:'plank (平板支撑)',
-        company:'s'
-      },
-      {
-        name:'上肢力量',
-        sum:88,
-        describe:'俯卧撑',
-        company:'次/min'
-      },
-      {
-        name:'下肢力量',
-        sum:88,
-        describe:'深度',
-        company:'次/min'
-      },
-      {
-        name:'柔韧性',
-        sum:'手到脚踝',
-        describe:'2分钟踏板 (心率)',
-        company:''
-      }
-
-   ]
+   list:[],
+   userId: '09cc20bc-3e3e-46bd-bcb2-d7a85bbf68be',
+  //  userId: '052fdb81-8d72-40fd-ab1b-b8496d16aaab',
+   coachId: 'f15371d7-975b-4ae9-98fb-df54453ef0a5',
+   createTime: '2021-12-30 11:11:29',
+   assessmentType: 0
+  },
+  getDetail() {
+    const { userId, coachId, createTime, assessmentType } = this.data
+    app.req.api.getTrainerAssessmentDetail({
+      assessmentType,
+      coachId,
+      createTime,
+      userId
+    }).then((res) => {
+      console.log('详情', res);
+      this.setData({
+        list:res.data
+      })
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const { coachId, createTime, assessmentType } = options
+    this.data.userId = wx.getStorageSync('userInfo').id;
+    this.data.createTime = createTime;
+    this.data.coachId = coachId;
+    this.data.assessmentType = assessmentType;
+    this.getDetail()
   },
 
   /**

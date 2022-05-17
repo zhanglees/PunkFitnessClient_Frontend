@@ -1,10 +1,11 @@
 <!--pages/evaluation/dynamicDetail/dynamicDetail.wxml-->
 <view class="container">
-  <ul class="dynamic-ul">
-    <li class="dynamic-li" wx:for="{{4}}" wx:key="index">
+  <ul class="dynamic-ul" wx:if="{{detailList.length>0}}">
+    <li class="dynamic-li" wx:for="{{detailList}}" wx:key="index">
       <view class="dynamic-vedio">
+        <!-- http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400 -->
         <video class="vedio-style" id="video{{index}}"
-          src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+          src="{{item.currentUserResource.resourceUrl}}"
           binderror="videoErrorCallback" bindloadedmetadata="getLength" show-play-btn='{{false}}'
           show-center-play-btn='{{false}}' bindfullscreenchange="fullScreen" bindtap="videoPlay" data-i="{{index}}" >
           <cover-view>
@@ -22,12 +23,12 @@
         </view> -->
       </view>
       <view class="bottom-container">
-
-        <view class="bottom-title">单腿下蹲</view>
+        <view class="bottom-title">{{item.assessmentName}}</view>
         <view class="bottom-text-container">
-          <text class="bottom-text">躯干过分前倾</text>
+          <text class="bottom-text">{{item.feedbacks[0].feedbackItem}}</text>
         </view>
       </view>
     </li>
   </ul>
+  <view class="no-data" wx:else>暂无数据~</view>
 </view>
