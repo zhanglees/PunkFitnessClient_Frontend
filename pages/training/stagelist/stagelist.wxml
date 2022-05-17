@@ -4,7 +4,7 @@
     <!-- <my-chooseCoach></my-chooseCoach> -->
     <view class="lesson-list">
         <block wx:if="{{list.length}}">
-            <view class="lesson-item lesson-item-stage {{item.status ? 'lesson-item-act' : ''}}" wx:for="{{list}}" wx:key="item" bindtap="gotoDetail" data-index="{{index}}">
+            <view class="lesson-item lesson-item-stage {{((item.completeSections > 0) && (item.completeSections < item.classNum)) ? 'lesson-item-act' : ''}}" wx:for="{{list}}" wx:key="item" bindtap="gotoDetail" data-index="{{index}}">
                 <view class="lesson-item-left">
                     <view class="lesson-item-name">
                         {{item.className}}
