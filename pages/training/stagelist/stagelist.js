@@ -69,13 +69,9 @@ Page({
     /***查看该阶段课程列表 */
     gotoDetail(e) {
         const index = e.currentTarget.dataset.index;
-        const { trainingPlanId, coachId, classId } = this.data.list[index];
-        const url = (this.data.type == 'plan' ? '/pages/training/stagedetail/stagedetail?' : `/pages/classPhaseDetail/consolidationPeriod/consolidationPeriod?classInndex=${this.data.classIndex}`) + '&classId=' + classId + '&trainingPlanId=' + trainingPlanId + '&coachId=' + coachId;
-        //查详情的接口需要传大量的参数，所以先存起来吧
-        // wx.setStorage({
-        //     key: "stageDetail",
-        //     data: this.data.list[index]
-        // });
+        const { trainingPlanId, coachId, classId, userTrainitemId, className, coachName } = this.data.list[index];
+        const url = (this.data.type == 'plan' ? '/pages/training/stagedetail/stagedetail?' : `/pages/classPhaseDetail/consolidationPeriod/consolidationPeriod?userTrainitemId=${userTrainitemId}&className=${className}&coachName=${coachName}`) + '&classId=' + classId + '&trainingPlanId=' + trainingPlanId + '&coachId=' + coachId;
+
         console.log('url:', url);
         wx.navigateTo({
             url

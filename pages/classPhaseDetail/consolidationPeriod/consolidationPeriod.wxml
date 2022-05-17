@@ -1,2 +1,28 @@
 <!--pages/classPhaseDetail/consolidationPeriod/consolidationPeriod.wxml-->
-<my-phaseClassDetail topHeight="{{0}}" classT="{{classtype}}"></my-phaseClassDetail>
+<view class="container">
+  <view class="info-list">
+    <view class="'info-item' {{index == type ? 'info-item-act' : ''}}" wx:for="{{infoList}}" wx:key="index" bindtap="transformAct" data-type="{{index}}">
+        {{item.title}}
+    </view>
+</view>
+
+<ul class="detail-ul" >
+  <!-- <li class="detail-li" wx:for="{{questionnaire}}" wx:key="index">
+      <view class="detail-li-q">{{index+1}}. {{item.q}}</view>
+      <view class="detail-li-a">{{item.a}}</view>
+  </li> -->
+  <li class="detail-li" wx:for="{{courseData[type]}}" wx:key="item" bindtap="gotoClassDeatil" data-index="{{index}}">
+      <view class="detail-li-left">
+        <view class="name-style">{{item.sectionName}}</view>
+        <view class="time-style">{{item.createTime}}</view>
+      </view>   
+      <view class="detail-li-right">
+          <image src="/images/avatar.png" class="img-style" mode="cover"/>
+        <view class="time-style" style="line-height: 42px;">{{item.coachName}}</view>
+      </view> 
+  </li>
+</ul>
+<!-- <view class="no-data" wx:else>暂无数据~</view> -->
+
+</view>
+

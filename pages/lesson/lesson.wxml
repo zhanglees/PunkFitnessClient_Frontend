@@ -2,7 +2,7 @@
 <view class="container">
     <view class="page-title">
         <view class="classname">
-            {{showOrder + '. '+ sectionName}}
+            {{(showOrder?(showOrder + '. ') : '')+ sectionName}}
         </view>
         <view class="show-share-btn" bindtap="renderToCanvas">
             <image class="share-icon" src="/images/icons/share-icon.png"></image>
@@ -13,7 +13,7 @@
         <view class="action-item">
             <view class="action-item-s">
                 <view class="action-item-s-title">热身方式：</view>
-                <view>跑步热身</view>
+                <view>{{warmUp}}</view>
             </view>
             <view class="action-item-s action-item-s-c">
                 <view class="action-item-s-title">正式训练</view>
@@ -39,7 +39,7 @@
             </view>
             <view class="action-item-s">
                 <view class="action-item-s-title">放松方式：</view>
-                <view>被动拉伸</view>
+                <view>{{relax}}</view>
             </view>
         </view>
     </view>

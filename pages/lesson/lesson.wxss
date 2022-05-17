@@ -184,8 +184,10 @@
 .class-info-li {
     display: inline-block;
     margin: 8rpx 0;
-    min-width: 180rpx;
+    min-width: 160rpx;
     position: relative;
+    padding-right: 16px;    
+    box-sizing: border-box;
 }
 
 .class-info-li-name {
