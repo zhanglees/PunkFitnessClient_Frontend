@@ -1,52 +1,30 @@
 <!--pages/evaluation/staticDetail/staticDetail.wxml-->
 <view class="container">
-  <!-- <ul>
-    <li>
-      <view class="img-container">
-        <image class="img-item" src="/images/tb/tb-icon1-g.png"></image>
-        <text>正面</text>
-      </view>
-      <view class="img-container">
-        <image class="img-item" src="/images/tb/tb-icon1-g.png"></image>
-        <text>侧面</text>
-      </view>
-    </li>
-    <li>
-      <view class="words-container">
-        <text>全身</text>
-        <text>s形</text>
-      </view>
-      <view class="words-container">
-        <text>头部</text>
-        <text>--</text>
-      </view>
-    </li>
-  </ul> -->
 
-  <ul>
+  <ul wx:if="{{list.length>0}}">
     <li class="left-container">
       <!-- <view class="img-container" > -->
-        <image class="img-item img-container" style="padding-right: 7rpx; margin-bottom: -9rpx;" src="/images/icons/icon-assessment0.png" mode="scaleToFill"> 
-          <text class="test-style">正面</text>
+        <image class="img-item img-container" style=" margin-bottom: -9rpx;" src="{{sideList.currentUserResource.resourceUrl}}" mode="scaleToFill"> 
+          <text class="test-style">侧面</text>
         </image>
       <!-- </view> -->
-      <view class="text-container" wx:for="{{11}}" wx:key="index">
-        <text class="text-top">身体</text>
-        <text class="text-bottom">s形</text>
+      <view class="text-container" wx:for="{{sideList.feedbacks}}" wx:key="index" style="border-right: 1px soild #f1f1f3; ">
+        <text class="text-top">{{item.feedbackItem}}</text>
+        <text class="text-bottom">{{item.childFeedbacks[0].feedbackItem ||'--'}}</text>
       </view>
     </li>
     <li class="left-container">
       <!-- <view class="img-container"> -->
-        <image class="img-item  img-container"  src="/images/icons/icon-assessment0.png" style="padding-left: 7rpx; margin-bottom: -9rpx;">
-          <text class="test-style">侧面</text>
+        <image class="img-item  img-container"  src="{{positiveList.currentUserResource.resourceUrl}}" style=" margin-bottom: -9rpx;">
+          <text class="test-style">正面</text>
         </image>    
       <!-- </view> -->
-      <view class="text-container" wx:for="{{11}}" wx:key="index">
-        <text class="text-top">头部</text>
-        <text class="text-bottom">后倾</text>
+      <view class="text-container" wx:for="{{positiveList.feedbacks}}" wx:key="index" style="border-left: 1px soild #f1f1f3; ">
+        <text class="text-top">{{item.feedbackItem}}</text>
+        <text class="text-bottom">{{item.childFeedbacks[0].feedbackItem ||'--'}}</text>
       </view>
     </li>
   </ul>
-
+  <view class="no-data" wx:else>暂无数据~</view>
 
 </view>

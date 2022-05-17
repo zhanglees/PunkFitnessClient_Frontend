@@ -7,6 +7,10 @@ Component({
     topHeight:{
       type:Number,
       value:0
+    },
+    coachList:{
+      type:Array,
+      value:[]
     }
   },
 

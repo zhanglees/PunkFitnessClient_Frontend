@@ -1,13 +1,20 @@
 // pages/evaluation/dynamicDetail/dynamicDetail.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isShow: [true, false],
+    isShow0: true,
+    isShow1: true,
     duration: '',
-    videoIndex: ''
+    videoIndex: '',
+    userId: '09cc20bc-3e3e-46bd-bcb2-d7a85bbf68be',
+    coachId: 'f15371d7-975b-4ae9-98fb-df54453ef0a5',
+    createTime: '2021-12-30 11:12:17',
+    assessmentType: 0,
+    detailList:[]
   },
 
   getLength(e) {
@@ -22,63 +29,44 @@ Page({
   triggerPause() {
     this.videoContext.play()
   },
+  // 获取详情
+  getDetail() {
+    const { userId, coachId, createTime, assessmentType } = this.data
+    app.req.api.getTrainerAssessmentDetail({
+      assessmentType,
+      coachId,
+      createTime,
+      userId
+    }).then((res) => {
+      console.log('详情', res);
+      this.setData({
+        detailList:res.data
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     // wx.createVideoContext = wx.createVideoContext('video_player')
+    const { coachId, createTime, assessmentType } = options
+    this.data.userId = wx.getStorageSync('userInfo').id;
+    this.data.createTime = createTime;
+    this.data.coachId = coachId;
+    this.data.assessmentType = assessmentType;
+    this.getDetail()
   },
 
-  // videoPlay(e) {
-  //   // console.log('开始播放', e.currentTarget.dataset.i)
-  //   var videoplay = wx.createVideoContext(`video${e.currentTarget.dataset.i}`,this)
-  //   console.log(this);
-  //   wx: if (!this.data.isShow) {
-  //     videoplay.play()
-  //   }
-  //   this.setData({
-  //     isShow: !this.data.isShow
-  //   })
-  //   wx: if (!this.data.isShow) {
-  //     videoplay.pause()
-  //   }
-  //   // this.setData({
-  //   //   isShow: !this.data.isShow
-  //   // })
-
-
-  // },
-
-
-  videoPlay(event) {
-    // var index = video.getDataSet(event, 'index'); 
-    console.log('000', this.data.isShow[event.currentTarget.dataset.i]);
-    if (this.data.isShow[event.currentTarget.dataset.i] == undefined) {
-      this.data.isShow.splice(event.currentTarget.dataset.i,true)
-      console.log('this',this.data.isShow);
-    }
-    if (!this.data.videoIndex && this.data.videoIndex != 0) { // 没有播放时播放视频
-      this.setData({
-        videoIndex: event.currentTarget.dataset.i
-      })
-      //  console.log(!this.data.videoIndex);
-      var videoContext = wx.createVideoContext('video' + event.currentTarget.dataset.i)
-      // videoContext.requestFullScreen({ direction: 90 })
-      videoContext.play()
-    } else {
-      var videoContextPrev = wx.createVideoContext('video' + this.data.videoIndex)
-      videoContextPrev.stop()
-      this.setData({
-        videoIndex: event.currentTarget.dataset.i
-      })
-      var videoContextCurrent = wx.createVideoContext('video' + event.currentTarget.dataset.i)
-      // videoContext.requestFullScreen({ direction: 90 })
-      videoContextCurrent.play()
-    }
+  videoPlay(e) {
+    // console.log('开始播放', e.currentTarget.dataset.i)
+    var videoplay = wx.createVideoContext(`video${e.currentTarget.dataset.i}`,this)
+      videoplay.play()
+      wx.createVideoContext(`video${e.currentTarget.dataset.i}`).requestFullScreen({ direction: 90 });
+     // this.setData({
+    //   isShow: !this.data.isShow
+    // })
   },
-
-
 
   // 暂停播放
   videoPause(e) {

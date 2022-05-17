@@ -5,13 +5,13 @@
     {{selectName}}
     <image class="drap-icon" src="/images/icons/drop.png"></image>
   </view>
-  <view class="container-right">共{{selectAll.length}}条数据</view>
+  <view class="container-right">共{{coachList.length}}条数据</view>
 </view>
 <view class="tancengContainer">
   <!-- -->
   <view class='pickerview' hidden="{{ !isShow}}">
  <ul class="tanceng"  wx:if="{{isShow}}" style="z-index: 9;">
-   <li wx:for="{{selectAll}}" wx:key="id" bindtap="selcetSingle" data-test="{{item}}" >{{item.name}}</li>
+   <li wx:for="{{coachList}}" wx:key="id" bindtap="selcetSingle" data-test="{{item}}" >{{item.coachName}}</li>
    <li bindtap="cancelBtn">取消
      <view class="footerStrip"></view>
    </li>

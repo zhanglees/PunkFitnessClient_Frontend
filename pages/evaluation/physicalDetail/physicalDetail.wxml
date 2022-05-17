@@ -2,19 +2,20 @@
 <view class="container">
   <view class="top-text">健康体适能</view>
   <view>
-  <ul class="ul-style">
+  <ul class="ul-style" wx:if="{{list.length>0}}">
     <li class="li-style" wx:for="{{list}}" wx:key="index">
       <view class="subtitle">
         <image class="icon-style" src="/images/icons/xinzang{{index}}.png"></image>
-        <text class="text-style">{{item.name}}</text>
+        <text class="text-style">{{item.assessmentName}}</text>
       </view>
       <view style="margin: 24rpx 0 16rpx 24rpx;">
-        <text class="num-style">{{item.sum}}</text>
-        <text class="danwei-style">{{item.company}}</text>
+        <text class="num-style">{{item.feedbacks[0].itemValue}}</text>
+        <text class="danwei-style">{{item.assessmentName =='柔韧性'? '' : item.feedbacks[0].itemUnit}}</text>
       </view>
-      <view class="danwei-style bottom-style">{{item.describe}}</view>
+      <view class="danwei-style bottom-style">{{item.feedbacks[0].feedbackItem}}</view>
     </li>
   </ul>
+  <view class="no-data" wx:else>暂无数据~</view>
   <image class="footer-style" src="/images/bgs/bg-physical.png"></image>
 </view>
 
