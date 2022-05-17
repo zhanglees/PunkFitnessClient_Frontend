@@ -6,7 +6,8 @@
                     class="'tab-item' {{index == type ? 'tab-item-act' : ''}}">{{item.name}}</li>
                     <!-- <li class="tab-item" wx:show="false"></li> -->
             </ul>
-        <my-chooseCoach topHeight="{{1}}" cocahAllList="{{coachList}}"></my-chooseCoach>
+        <my-chooseCoach topHeight="{{1}}" typeId="{{typeId}}"></my-chooseCoach>
+        <li>{{coachId}}</li>
         <ul class="detail-ul" wx:if="{{testList[typeId].length}}">
             <li class="detail-li" wx:for="{{testList[typeId]}}" wx:key="index" bindtap="gotoDetail" data-testType="{{item.assessmentType}}" data-index="{{index}}">
                 <image src="/images/icons/icon-assessment{{type}}.png" class="li-btn" />

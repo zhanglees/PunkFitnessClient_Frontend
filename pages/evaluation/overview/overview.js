@@ -21,9 +21,20 @@ Page({
     testList: [],
     typeId: 0, //获取数据分类type
     userId: '052fdb81-8d72-40fd-ab1b-b8496d16aaab',
-    coachList:[]
+    // coachList:[],
+    coachId:''
 
   },
+
+  // 子传父
+  selcetCoach (e) {
+    this.setData({
+      coachId: e.detail.coachName
+    })
+    console.log(e.detail);
+  },
+
+
   onLoad(options) {
     watch.setWatcher(this);
     // this.data.userId = wx.getStorageSync('userInfo').id;
@@ -33,56 +44,9 @@ Page({
     typeId: function (newVal, oldVal) {
       console.log(newVal, oldVal);
       this.getTestList(newVal)
-      this.getCoachAllList()
+      // this.getCoachAllList()
     }
   },
-  // getList() {
-  //   this.setData({
-  //     [`testList[${0}]`]: [{
-  //       coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
-  //       coachName: "李教练",
-  //       testType: 0,
-  //       recordTime: "今天42分钟前"
-  //     }, {
-  //       coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
-  //       coachName: "李教练",
-  //       testType: 0,
-  //       recordTime: "2022/05/07"
-  //     }],
-  //     [`testList[${1}]`]: [{
-  //       coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
-  //       coachName: "刘教练",
-  //       testType: 1,
-  //       recordTime: "2022/05/07"
-  //     }, {
-  //       coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
-  //       coachName: "刘教练",
-  //       testType: 1,
-  //       recordTime: "2022/05/07"
-  //     }, {
-  //       coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
-  //       coachName: "刘教练",
-  //       testType: 1,
-  //       recordTime: "2022/05/07"
-  //     }],
-  //     [`testList[${2}]`]: [{
-  //       coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
-  //       coachName: "张三三",
-  //       testType: 2,
-  //       recordTime: "2022/05/07"
-  //     }, {
-  //       coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
-  //       coachName: "张三三",
-  //       testType: 2,
-  //       recordTime: "2022/05/07"
-  //     }, {
-  //       coachId: "f15371d7-975b-4ae9-98fb-df54453ef0a5",
-  //       coachName: "张三三",
-  //       testType: 2,
-  //       recordTime: "2022/05/07"
-  //     }]
-  //   });
-  // },
 
   // 获取列表
   getTestList(typeId) {
@@ -94,20 +58,7 @@ Page({
     })
   },
 
-  // 得到全部教练
-  getCoachAllList() {
-    const { userId, typeId } = this.data
-    app.req.api.getTrainerAssessmentByRecordList({
-      userId,
-      assessmentType:typeId
-    }).then((res) => {
-      console.log('全部教练', res);
-      this.setData({
-        coachList:res.data
-      })
-    })
-  },
-
+ 
 
   //查看详情
   gotoDetail(e) {
@@ -148,6 +99,6 @@ Page({
   onShow() {
     // this.getList();
     this.getTestList(0)
-    this.getCoachAllList()
+    // this.getCoachAllList()
   }
 })
