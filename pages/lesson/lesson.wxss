@@ -263,14 +263,10 @@
     width: 100%;
 }
 .share-hide{
-    position: fixed;
-    top: 90rpx;
-    bottom: 48rpx;
-    left: 96rpx;
-    right: 96rpx;
-    z-index: -100;
-    opacity: 0;
-    left: 10000;
+  position: absolute;
+  transform: translateY(-1000%);
+  bottom: 0;
+  z-index: 0;
 }
 .share-dialog-content {
     display: flex;

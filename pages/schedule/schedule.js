@@ -21,45 +21,44 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad: function (options) {
-        //日历初始化的时候就会调用接口请求数据，所以页面load完之后不用再请求一遍
-        const coachId = wx.getStorageSync('mp-req-user-id');
-        this.data.coachId = coachId;
+      const userId = wx.getStorageSync('userInfo').id;
+      this.data.userId = userId;
     },
     getList(){
         console.log('日期： ', this.data.selDate.replace(/\.|\-/g, '/'))
-        // app.req.api.getUserAppointmentAllByDate({
-        //     appointmentTime: new Date(this.data.selDate.replace(/\.|\-/g, '/')).getTime(),
-        //     coachId: this.data.coachId
-        // }).then(res=>{
-            const  list = [
-                {
-                  "appointmentId": "0f8705a0-b61e-4521-837d-e73d98e59b7b", 
-                  "userId": "e930ae3a-e64e-47bd-bfe3-07ac06afcb43",        
-                  "appointmentTime": "2021-12-30 01:58:03",                
-                  "classId": null,
-                  "createTime": "2021-12-29 10:01:16",                     
-                  "isComplete": null,
-                  "classHour": null,
-                  "coachId": "string",                                      
-                  "userName": "System1638917352612",
-                  "avatar": "../../images/avatar.png"                   
-                },
-                {
-                  "appointmentId": "17c6e995-b1ef-4251-bc2f-f7507709e068",
-                  "userId": "e930ae3a-e64e-47bd-bfe3-07ac06afcb43",
-                  "appointmentTime": "2021-12-30 02:58:03",
-                  "classId": null,
-                  "createTime": "2021-12-29 10:02:08",
-                  "isComplete": 1,
-                  "classHour": null,
-                  "coachId": "string"  
-                }
-              ];
-            // const list = res.data;
+        app.req.api.getAppointmentAllByDate({
+          date: this.data.selDate.replace(/\.|\-/g, '/'),
+          userId: this.data.userId
+        }).then(res=>{
+            // const  list = [
+            //     {
+            //       "appointmentId": "0f8705a0-b61e-4521-837d-e73d98e59b7b", 
+            //       "userId": "e930ae3a-e64e-47bd-bfe3-07ac06afcb43",        
+            //       "appointmentTime": "2021-12-30 01:58:03",                
+            //       "classId": null,
+            //       "createTime": "2021-12-29 10:01:16",                     
+            //       "isComplete": null,
+            //       "classHour": null,
+            //       "coachId": "string",                                      
+            //       "userName": "System1638917352612",
+            //       "avatar": "../../images/avatar.png"                   
+            //     },
+            //     {
+            //       "appointmentId": "17c6e995-b1ef-4251-bc2f-f7507709e068",
+            //       "userId": "e930ae3a-e64e-47bd-bfe3-07ac06afcb43",
+            //       "appointmentTime": "2021-12-30 02:58:03",
+            //       "classId": null,
+            //       "createTime": "2021-12-29 10:02:08",
+            //       "isComplete": 1,
+            //       "classHour": null,
+            //       "coachId": "string"  
+            //     }
+            //   ];
+            const list = res.data;
             this.setData({
                 list: list
             })
-        // })
+        })
     },
  
 //日历点击事件

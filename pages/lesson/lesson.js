@@ -32,6 +32,7 @@ Page({
         }],
         shareImg: '',    //分享图片本地临时地址
         imgHeight: 650, //分享图片高度
+        showCanvas: false,
     },
 
     /**
@@ -61,7 +62,11 @@ Page({
                 warmUp, 
                 relax,
                 actionList,
-                imgHeight: 180 + actionList.length * 470
+                imgHeight: 180 + actionList.length * 470,
+            }, ()=>{
+                this.setData({
+                    showCanvas: true
+                })
             })
         })
         // const data = {
@@ -106,7 +111,6 @@ Page({
         // this.setData({...data});
     },
     renderToCanvas() {
-
         this.widget = this.selectComponent('.widget');
         wx.showToast({
           title: '图片生成中',
@@ -117,7 +121,8 @@ Page({
         const userInfo = this.data.userInfo;
         const {sectionName, actionList} = this.data;
         const _wxml = wxml({sectionName, actionList, userInfo});
-        const p1 = this.widget.renderToCanvas({ wxml: _wxml, style })
+        const _style = style({height: this.data.imgHeight});
+        const p1 = this.widget.renderToCanvas({ wxml: _wxml, style: _style })
         p1.then((res) => {
             this.container = res
             this.extraImage()
@@ -160,6 +165,11 @@ Page({
     saveImage() {
         wx.saveImageToPhotosAlbum({
             filePath: this.data.shareImg,
+            success(res) { 
+                wx.showToast({
+                    title: '保存成功'
+                })
+            }
         })
     },
     closeShare(e){

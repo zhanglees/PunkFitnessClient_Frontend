@@ -1,4 +1,5 @@
 // pages/training/edit/edit.js
+const app = getApp()
 Page({
 
   /**
@@ -34,9 +35,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.userId = wx.getStorageSync('userInfo').id;
+    this.getData();
   },
-
+  getData(){
+    app.req.api.getUserExperienceLessonDetail({ userId: this.userId }).then(res => {
+      console.log(8888, res.data)
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

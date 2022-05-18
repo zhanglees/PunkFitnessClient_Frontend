@@ -77,9 +77,13 @@ return str;
  };
  //  <image class="sec-image" src="${item.thumbnailImage}"></image>
  //${item.thumbnailImage ? '<image class="sec-image" src="'+item.thumbnailImage+'"></image>' : ''}
-const style = {
+const style = (data)=>{ 
+  console.log(888989, data.height)
+  return {
+// const style = {
   container: {
     width: 375,
+    height: data.height,
     paddingTop: 43,
     paddingLeft: 24,
     paddingRight: 24,
@@ -280,6 +284,7 @@ const style = {
     marginRight: 16,
     verticalAlign: 'middle',
   },
+}
 }
 
 module.exports = {

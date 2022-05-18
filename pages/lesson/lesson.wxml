@@ -43,9 +43,6 @@
             </view>
         </view>
     </view>
-    <view class="share-hide">
-        <view class="widget-wrapper"><wxml-to-canvas class="widget" width="375" height="1000"></wxml-to-canvas></view>
-    </view>
     <view class="share-dialog{{ showShare ? ' share-dialog-show' : ''}}" bindtap="closeShare"></view>
     <view class="share-dialog-content">
         <view class="share-view">
@@ -59,6 +56,9 @@
             <view class="share-btn-item" bindtap="saveImage"><image class="share-btn-icon" src="/images/icons/share-download.png"></image>下载</view>
             <view open-type="share" class="share-btn-item"><image class="share-btn-icon" src="/images/icons/share-wechat.png"></image>微信</view>
         </view>
+    </view>
+    <view class="share-hide33" style="border:1px solid red;" wx:if="{{showCanvas}}">
+        <view class="widget-wrapper"><wxml-to-canvas class="widget" width="375" height="{{imgHeight}}"></wxml-to-canvas></view>
     </view>
     <!-- 
     <view class="share-dialog" title="" show="{{dialogShow}}" buttons="{{false}}" mask>    

@@ -63,7 +63,14 @@ function install(req, request) {
             const url = `${req.apiUrl}/userSystemLog/getUserLogById`;
             return request({ url, method: 'GET', data });
         },
-
+        getUserExperienceLessonDetail(data){
+            const url = `${req.apiUrl}/experienceLessonClient/getUserExperienceLessonDetail`;
+            return request({ url, method: 'GET', data });
+        },
+        getAppointmentAllByDate(data){
+            const url = `${req.apiUrl}/coachAppointment/getAppointmentAllByDate`;
+            return request({ url, method: 'GET', data });
+        },
     };
 }
 
