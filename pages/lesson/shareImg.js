@@ -22,47 +22,69 @@ const wxml = (data)=>{
       </view>
     </view>
   </view>`;
-  data.actionList.forEach(item=>{
-   str +=
+  data.actionList.forEach((item, index)=>{
+   str += 
   `
-
-  <text class="actionname">${item.actionName}</text>
-  <text class="actionindex">动作1</text>
+  <view class="actionlist">
+    <view class="actionitemgray"></view> 
+    <view class="actionitem">
+    ${item.thumbnailImage ? '<image class="sec-image" src="'+item.thumbnailImage+'"></image>' : ''}
+      <view class="actionitemright">
+        <text class="actionitemrightname">${item.actionName || '--'}</text>
+        <text class="actionindex">动作${index+1}</text>
+      </view>
+    </view>
+  </view>
   <view class="acitem">
     <view class="acitemleft">
         <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-0.png"></image>
         <text class="actionname">训练部位</text>
     </view>
-    <text class="actvalue">胸肌</text>
+    <text class="actvalue">${item.trainingAreaName || '--'}</text>
   </view>
   <view class="acitem">
-    <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-1.png"></image>
-    <text class="actionname">器械</text>
+    <view class="acitemleft">
+      <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-1.png"></image>
+      <text class="actionname">器械</text>
+    </view>
+    <text class="actvalue">${item.equipmentName || '--'}</text>
   </view>
   <view class="acitem">
-    <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-2.png"></image>
-    <text class="actionname">配重</text>
+    <view class="acitemleft">
+      <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-2.png"></image>
+      <text class="actionname">配重</text>
+    </view>
+    <text class="actvalue">${item.counterWeight || '--'}kg</text>
   </view>
   <view class="acitem">
-    <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-3.png"></image>
-    <text class="actionname">组数</text>
+    <view class="acitemleft">
+      <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-3.png"></image>
+      <text class="actionname">组数</text>
+    </view>
+    <text class="actvalue">${item.groups || '--'}组</text>
   </view>
   <view class="acitem">
-    <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-0.png"></image>
-    <text class="actionname">单组次数</text>
+    <view class="acitemleft">
+      <image class="acticon" src="https://www.zhangleixd.com/static/imgs/share-4.png"></image>
+      <text class="actionname">单组次数</text>
+    </view>
+    <text class="actvalue">${item.numberSinglegroup || '--'}次</text>
   </view>
 `;
 })
 str += '</view>';
 return str;
  };
- //  <image class="sec-image" src="https://www.zhangleixd.com/static/052fdb81-8d72-40fd-ab1b-b8496d16aaab/face/42852f3b-52b7-43d7-bc78-20c42a6b9e60.png"></image>
+ //  <image class="sec-image" src="${item.thumbnailImage}"></image>
+ //${item.thumbnailImage ? '<image class="sec-image" src="'+item.thumbnailImage+'"></image>' : ''}
 const style = {
   container: {
-    width: 280,
+    width: 375,
     paddingTop: 43,
     paddingLeft: 24,
     paddingRight: 24,
+    backgroundColor: '#fff',
+    borderRadius: 10,
     // flexDirection: 'column',
     // justifyContent: 'space-around',
     // backgroundColor: '#fff',
@@ -73,19 +95,21 @@ const style = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: 232,
+    width: 327,
     height: 24,
     marginBottom: 21,
   },
   title: {
-    width: 200,
+    width: 290,
     height: 24,
-    fontSize:16,
+    fontSize: 20,
+    color: '#222834',
+    fontWeight: 600,
   },
   avatar: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
+    width: 30,
+    height: 30,
+    borderRadius: 15,
     borderWidth: 1,
     borderColor: '#000',
     borderStyle: 'solid',
@@ -97,7 +121,7 @@ const style = {
   },
   schedule: {
     height: 64,
-    width: 100,
+    width: 150,
   },
   summarydata:{
     width: 115,
@@ -116,6 +140,13 @@ const style = {
     height: 32,
     fontSize:18,
     color: '#222834',
+  },
+  summarydatanumbig:{
+    width: 80,
+    height: 32,
+    textAlign: 'right',
+    color: '#386DF3',
+    fontSize: 32
   },
   summarydataunit:{
     width: 25,
@@ -156,15 +187,20 @@ const style = {
     borderRadius: 20,
   },
   secImage: {
-    width: 100,
-    height: 80,
+    width: 155,
+    height: 98,
+    borderRadius: 6,
   },
   actionindex:{
-    width: 50,
-    height: 20,
+    width: 48,
+    height: 22,
     display: 'block',
-    background: '#e4e9f6',
-    color: '#386DF3'
+    backgroundColor: '#e4e9f6',
+    color: '#386DF3',
+    textAlign: 'center',
+    fontSize: 12,
+    borderRadius: 2,
+    verticalAlign: 'middle',
   },
   acitem:{
     display: 'flex',
@@ -172,16 +208,59 @@ const style = {
     justifyContent: 'space-between',
     alignItems: 'center',
     height: 50,
-    background: '#F7F7F9',
+    backgroundColor: '#F7F7F9',
     borderRadius: 6,
-    width: '100%',
+    width: 327,
     color: '#222834',
     fontSize: 14,
+    marginBottom: 16,
   },
   acitemleft: {
     display: 'flex',
     flexDirection: 'row',
-    color: '#707784'
+    color: '#707784',
+    alignItems: 'center',
+    marginLeft: 16,
+  },
+
+  actionlist:{
+    width: 327,
+    height: 116,
+    marginBottom: 8,
+    marginTop: 24,
+  },
+  actionitemgray:{
+    backgroundColor: '#EFEFF1',
+    borderRadius: 6,
+    height: 50,
+    width: 311,
+    display: 'block',
+    position: 'absolute',
+    top: 0,
+    left: 8,
+  },
+  actionitem: {
+    borderRadius: 6,
+    width: 327,
+    height: 98,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F7F7F9',
+    marginTop: 8,
+  },
+  actionitemright:{
+    textAlign: 'left',
+    marginLeft: 12,
+    display: 'flex',
+    justifyContent: 'space-around',
+  },
+  actionitemrightname:{
+    fontSize: 16,
+    color: '#222834',
+    width: 148,
+    height: 22,
+    marginBottom: 8,
   },
   acticon:{
     width: 24,
@@ -191,11 +270,15 @@ const style = {
   actionname:{
     width: 100,
     height: 50,
+    display: 'block',
+    verticalAlign: 'middle',
   },
   actvalue:{
-      width: 100,
-      height: 50,
-      textAlign: 'right'
+    width: 100,
+    height: 50,
+    textAlign: 'right',
+    marginRight: 16,
+    verticalAlign: 'middle',
   },
 }
 

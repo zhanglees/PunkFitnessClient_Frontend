@@ -211,32 +211,67 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: -100;
+    display: none;
+    /* z-index: -100;
     opacity: 0;
-    left: 10000;
+    left: 10000; */
 }
 
 .share-view {
     margin-bottom: 32rpx;
     width: 560rpx;
-    height: 940rpx;
+    height: calc(100vh - 394rpx);
     flex: 1;
     background: #fff;
     overflow-y: scroll;
+    transform: rotate(0deg);
+    border-radius: 12rpx;
 }
 
 .share-tip {
     margin-bottom: 48rpx;
-    height: 28rpx;
+    height: 32rpx;
     font-size: 24rpx;
     color: #FFFFFF;
     line-height: 32rpx;
 }
 
 .share-btn {
-    height: 154rpx;
+    padding: 0 56rpx;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-
+.share-btn-item{
+    font-size: 24rpx;
+    color: #FFFFFF;
+    line-height: 32rpx;
+    text-align: center;
+}
+.share-btn-icon{
+    display: block;
+    height: 96rpx;
+    width: 96rpx;
+    margin-bottom: 16rpx;
+}
+.widget-wrapper{
+    z-index: -1000;
+}
+.share-img{
+    width: 100%;
+}
+.share-hide{
+    position: fixed;
+    top: 90rpx;
+    bottom: 48rpx;
+    left: 96rpx;
+    right: 96rpx;
+    z-index: -100;
+    opacity: 0;
+    left: 10000;
+}
 .share-dialog-content {
     display: flex;
     align-items: center;
@@ -248,24 +283,29 @@
     bottom: 48rpx;
     left: 96rpx;
     right: 96rpx;
-    z-index: -100;
-    opacity: 0;
-    left: 10000;
+    display: none;
+    text-align: center;
+    /* z-index: -100; */
+    /* opacity: 0;
+    left: 10000; */
+}
+.share-dialog-show, .share-dialog-show+.share-dialog-content{
+    display: block;
+    z-index: 1000;
 }
 
-.share-dialog-show,
+/* .share-dialog-show,
 .share-dialog-show+.share-dialog-content {
     z-index: 1000;
     opacity: 1;
 }
-
 .share-dialog-show {
     left: 0;
 }
 
 .share-dialog-show+.share-dialog-content {
     left: 96rpx;
-}
+} */
 
 .weui-canvas {
     width: 200px!important;
@@ -361,4 +401,10 @@
     height: 48rpx;
     width: 48rpx;
     margin-right: 16rpx;
+}
+.share-tip-icon {
+    height: 32rpx;
+    width: 32rpx;
+    margin-right: 8rpx;
+    vertical-align: text-bottom;
 }

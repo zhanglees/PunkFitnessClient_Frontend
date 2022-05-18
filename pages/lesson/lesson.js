@@ -31,6 +31,7 @@ Page({
             id: 'trainingAreaName'
         }],
         shareImg: '',    //分享图片本地临时地址
+        imgHeight: 650, //分享图片高度
     },
 
     /**
@@ -40,22 +41,27 @@ Page({
         const {coachId, usertrainSectionId, sectionName} = options;
         const userInfo = wx.getStorageSync('userInfo');
         this.data.userInfo = userInfo;
-        this.widget = this.selectComponent('.widget');
         this.getLesson(coachId, usertrainSectionId, sectionName, userInfo.id)
     },
+    // onShareAppMessage(res){
+    //     if(res.from == 'button')
+    // },
     getLesson(coachId, usertrainSectionId, sectionName, userId) {
         app.req.api.getUserClassSectionDetail({ coachId, userId, usertrainSectionId, sectionName }).then(res => {
             const data = res.data;
             const { warmUp, relax, sectionName } = data;
             const actionList = data.userTraionSectionDetails.map(i=>{
                 i.videourl && (!i.videourl.includes('https://')) && (i.videourl = 'https://' + i.videourl);
+                i.thumbnailImage && (!i.thumbnailImage.includes('https://')) && (i.thumbnailImage = 'https://' + i.thumbnailImage);
                 return i;
             })
+            // console.log(8989888, 180 + actionList.length * 470)
             this.setData({
                 sectionName,
                 warmUp, 
                 relax,
                 actionList,
+                imgHeight: 180 + actionList.length * 470
             })
         })
         // const data = {
@@ -100,6 +106,8 @@ Page({
         // this.setData({...data});
     },
     renderToCanvas() {
+
+        this.widget = this.selectComponent('.widget');
         wx.showToast({
           title: '图片生成中',
           mask: true,
@@ -108,7 +116,6 @@ Page({
         });
         const userInfo = this.data.userInfo;
         const {sectionName, actionList} = this.data;
-        console.log(8888, userInfo)
         const _wxml = wxml({sectionName, actionList, userInfo});
         const p1 = this.widget.renderToCanvas({ wxml: _wxml, style })
         p1.then((res) => {
@@ -120,16 +127,42 @@ Page({
     extraImage() {
         const p2 = this.widget.canvasToTempFilePath()
         p2.then(res => {
-          this.setData({
-            showShare: true,
-            shareImg: res.tempFilePath,
-            width: this.container.layoutBox.width,
-            height: this.container.layoutBox.height
-          })
+            console.log(888, this.container.layoutBox.width, this.container.layoutBox.height)
+            this.setData({
+                showShare: true,
+                shareImg: res.tempFilePath,
+                width: this.container.layoutBox.width,
+                height: this.container.layoutBox.height
+            })
+            wx.getImageInfo({
+                src: res.tempFilePath,
+                success (resl) {
+                    console.log(888, resl.height)
+                }
+            });
+        })
+    },
+    previewImage(){
+        wx.previewImage({
+            // current: 'String', // 当前显示图片的链接，不填则默认为 urls 的第一张
+            urls: [StringArray],
+            success: function(res){
+                // success
+            },
+            fail: function() {
+                // fail
+            },
+            complete: function() {
+                // complete
+            }
+        })
+    },
+    saveImage() {
+        wx.saveImageToPhotosAlbum({
+            filePath: this.data.shareImg,
         })
     },
     closeShare(e){
-        console.log(88888888, e.target)
         this.setData({
           showShare: false,
         })

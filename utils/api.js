@@ -57,8 +57,12 @@ function install(req, request) {
         getTrainerAssessmentByRecordList(data){
             const url = `${req.apiUrl}/assessment/getTrainerAssessmentByRecord`;
             return request({ url, method: 'POST', data });
-        }
+        },
 
+        getUserLogById(data){
+            const url = `${req.apiUrl}/userSystemLog/getUserLogById`;
+            return request({ url, method: 'GET', data });
+        },
 
     };
 }

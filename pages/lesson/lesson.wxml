@@ -43,18 +43,27 @@
             </view>
         </view>
     </view>
+    <view class="share-hide">
+        <view class="widget-wrapper"><wxml-to-canvas class="widget" width="375" height="1000"></wxml-to-canvas></view>
+    </view>
     <view class="share-dialog{{ showShare ? ' share-dialog-show' : ''}}" bindtap="closeShare"></view>
     <view class="share-dialog-content">
         <view class="share-view">
-            <wxml-to-canvas class="widget" width="280" height="1000"></wxml-to-canvas>
+            <image class="share-img" src="{{shareImg}}" show-menu-by-longpress="1" mode="widthFix" />
         </view>
-        <view class="share-tip">上滑</view>
-        <view class="share-btn"></view>
+        <view class="share-tip">
+            <image class="share-tip-icon" src="/images/icons/hand-up-icon.png"></image>
+            上滑可查看完整长图
+        </view>
+        <view class="share-btn">
+            <view class="share-btn-item" bindtap="saveImage"><image class="share-btn-icon" src="/images/icons/share-download.png"></image>下载</view>
+            <view open-type="share" class="share-btn-item"><image class="share-btn-icon" src="/images/icons/share-wechat.png"></image>微信</view>
+        </view>
     </view>
     <!-- 
     <view class="share-dialog" title="" show="{{dialogShow}}" buttons="{{false}}" mask>    
         <view class="share-view">
-            <image class="share-img" src="{{shareImg}}" />
+            <image class="share-img" src="{{shareImg}}" show-menu-by-longpress="1" />
         </view>
         <view class="share-tip">上滑</view>
         <view class="share-btn"></view>

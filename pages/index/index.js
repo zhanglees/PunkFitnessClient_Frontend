@@ -37,86 +37,136 @@ Page({
   },
   onShow(){
     if(this.data.userInfo){
-      this.getLogs();
+      this.getLogs(this.data.userInfo.id);
     }
   },
-  getLogs: function(){
-    const logs =  {
-        '#2021': {
-            '11.02': [{
-            date: '11.02',
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }, {
-            date: '11.02',
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥王祥'
-            }, {
-            date: '11.02',
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }, {
-            date: '11.02',
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }], 
-            '10.03': [{
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }, {
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }, {
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }, {
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }]
-        },
-        '#2020': {
-            '11.02': [{
-            date: '11.02',
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }, {
-            date: '11.02',
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }, {
-            date: '11.02',
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }, {
-            date: '11.02',
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }],
-            '02.11': [{
-            date: '11.02',
-            time: '12:10',
-            content: '训练计划',
-            coach:'王祥'
-            }]
-        }
-    };
-    this.setData({
-      logs: logs,
-      logsLen: Object.keys(logs).length
-    });
-  },
+
+  getLogs(userId) {
+    app.req.api.getUserLogById({
+        userId
+    }).then(res => {
+        let data = res.data || [];
+        let temp = {};
+        data.forEach(i => {
+            const time = i.createTime ? i.createTime.match(/([0-9]+)-([0-9]+-[0-9]+)\s([0-9]+:[0-9]+)/) : [];
+        
+            if (time.length > 3) {
+                console.log('time:', time)
+                const year = time[1],
+                    date = time[2].replace('-', '/'),
+                    t = time[3];
+                if (temp[year]) {
+                    let d = temp[year];
+                    if (d[date]) {
+                        d[date].push({
+                            date,
+                            time: t,
+                            content: i.controllerPath,
+                            coach: i.coachName
+                        })
+                    } else {
+                        d[date] = [{
+                            date,
+                            time: t,
+                            content: i.controllerPath,
+                            coach: i.coachName
+                        }];
+                    }
+                } else {
+                    temp[year] = {
+                        [`${date}`]: [{
+                            date,
+                            time: t,
+                            content: i.controllerPath,
+                            coach: i.coachName
+                        }]
+                    }
+                }
+            }
+            this.setData({
+                logs: temp,
+                logsLen: data.length
+            })
+        })
+    })
+},
+  // getLogs: function(){
+  //   const logs =  {
+  //       '#2021': {
+  //           '11.02': [{
+  //           date: '11.02',
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }, {
+  //           date: '11.02',
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥王祥'
+  //           }, {
+  //           date: '11.02',
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }, {
+  //           date: '11.02',
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }], 
+  //           '10.03': [{
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }, {
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }, {
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }, {
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }]
+  //       },
+  //       '#2020': {
+  //           '11.02': [{
+  //           date: '11.02',
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }, {
+  //           date: '11.02',
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }, {
+  //           date: '11.02',
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }, {
+  //           date: '11.02',
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }],
+  //           '02.11': [{
+  //           date: '11.02',
+  //           time: '12:10',
+  //           content: '训练计划',
+  //           coach:'王祥'
+  //           }]
+  //       }
+  //   };
+  //   this.setData({
+  //     logs: logs,
+  //     logsLen: Object.keys(logs).length
+  //   });
+  // },
    //跳转到其他页面
   gotoServer: function (e) {
     let link = e.currentTarget.dataset.link;
