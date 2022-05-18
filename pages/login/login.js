@@ -73,13 +73,19 @@ Page({
         console.log('用户信息：', userInfo)
         wx.setStorageSync('userInfo', userInfo);
         this.data.userInfo = userInfo;
-        if(!userInfo.userName){
+        if(!userInfo.headImg){
             this.showGetInfo();
         }else{
             wx.reLaunch({
               url: _this.data.backUrl,
             })
         }
+      }else{
+        wx.showModal({
+          title: "提示", // 提示的标题
+          content: res.message, // 提示的内容
+          showCancel: false // 是否显示取消按钮
+        });
       }
     }, err=>{
       wx.hideLoading();
