@@ -329,7 +329,7 @@ Page({
             userId: userInfo.id,
             ...this.data.formResource
         };
-        console.log(8888, userhealthcheckResource)
+        // console.log(8888, userhealthcheckResource)
         app.req.api.addHealthCheckReport({
             userhealthcheckReport,
             userhealthcheckResource

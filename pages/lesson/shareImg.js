@@ -9,7 +9,7 @@ const wxml = (data)=>{
     <view class="schedule">
       <text class="summarytitle">课程进度</text>
       <view class="summarydata">
-        <text class="summarydatanum">12/50</text><text class="summarydataunit">节</text>
+        <text class="summarydatanum">${data.userInfo.sign || '--'}/${data.userInfo.count || '--'}</text><text class="summarydataunit">节</text>
       </view>
     </view>
     <view class="divided"></view>
@@ -18,7 +18,7 @@ const wxml = (data)=>{
         累计训练
         </text>
       <view class="summarydata">
-        <text class="summarydatanum">1250</text><text class="summarydataunit">min</text>
+        <text class="summarydatanum">${data.userInfo.time || '--'}</text><text class="summarydataunit">min</text>
       </view>
     </view>
   </view>`;
@@ -78,7 +78,6 @@ return str;
  //  <image class="sec-image" src="${item.thumbnailImage}"></image>
  //${item.thumbnailImage ? '<image class="sec-image" src="'+item.thumbnailImage+'"></image>' : ''}
 const style = (data)=>{ 
-  console.log(888989, data.height)
   return {
 // const style = {
   container: {

@@ -38,47 +38,33 @@ Page({
      */
     onLoad: function (options) {
         console.log('用户：', wx.getStorageSync('userInfo'))
-        this.setData({
-            userInfo: wx.getStorageSync('userInfo'),
-            info: {
-                count: 50,
-                sign: 10,
-                last: 40,
-                time: 500
-            }
-        })
-        // app.req.api.getMyInfo()
-        //   .then((res) => {
-        //     console.log(res);
-        //   })
-        //   .catch(app.req.err.show);
-
+        this.data.userId = wx.getStorageSync('userInfo').id;
+        // this.setData({
+        //     userInfo: wx.getStorageSync('userInfo'),
+        //     info: {
+        //         count: 50,
+        //         sign: 10,
+        //         last: 40,
+        //         time: 500
+        //     }
+        // })
+        this.getMemberInfo();
     },
-    // getUserInfo() {
-    //     this.setData({
-    //         userInfoExt: {
-    //             phone: '123123123123'
-    //         }
-    //     })
-    // },
-    // getUserProfile(e) {
-    //     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    //     wx.getUserProfile({
-    //         desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-    //         success: (res) => {
-    //             console.log('*************', res)
-    //             // getApp().globalData.userInfo = res.userInfo;
-    //             wx.setStorage({
-    //                 key: "userInfo",
-    //                 data: res.userInfo
-    //             })
-    //             this.setData({
-    //                 userInfo: res.userInfo,
-    //                 hasUserInfo: true
-    //             })
-    //         }
-    //     })
-    // },
+    getMemberInfo() {
+        app.req.api.getUserById({ id: this.data.userId }).then(res => {
+            console.log('返回：', res.data);
+            const {trainClassNumbers, singInNum} = res.data;
+            this.setData({
+                info: {
+                    count: trainClassNumbers,
+                    sign: singInNum,
+                    last: trainClassNumbers - singInNum,
+                    time: singInNum
+                }
+            });
+            // console.log(886668, this.data.userInfoGet);
+        })
+    },
     gotoSetting() {
         wx.navigateTo({
             url: '/pages/setting/setting',

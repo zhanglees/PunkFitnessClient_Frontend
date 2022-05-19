@@ -62,9 +62,9 @@ Page({
   // 跳转课时详情并携带id
   gotoClassDeatil(e) {
     const index = e.currentTarget.dataset.index;
-    const {coachId, usertrainSectionId, sectionName} = this.data.courseData[this.data.type][index];
+    const {coachId, usertrainSectionId, sectionName, completeTime} = this.data.courseData[this.data.type][index];
     wx.navigateTo({
-      url: '/pages/lesson/lesson'+ ('?coachId=' + coachId + '&usertrainSectionId=' + usertrainSectionId+ '&sectionName=' + sectionName),
+      url: '/pages/lesson/lesson'+ ('?coachId=' + coachId + '&usertrainSectionId=' + usertrainSectionId+ '&sectionName=' + sectionName + '&completeTime=' + completeTime),
     })
   },
   /**

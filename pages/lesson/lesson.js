@@ -33,16 +33,21 @@ Page({
         shareImg: '',    //分享图片本地临时地址
         imgHeight: 650, //分享图片高度
         showCanvas: false,
+        viewVideoUrl: ''
     },
 
     /**
      * Lifecycle function--Called when page load
      */
     onLoad: function(options) {
-        const {coachId, usertrainSectionId, sectionName} = options;
+        const {coachId, usertrainSectionId, sectionName, completeTime} = options;
         const userInfo = wx.getStorageSync('userInfo');
-        this.data.userInfo = userInfo;
+        this.setData({
+            userInfo,
+            completeTime
+        });
         this.getLesson(coachId, usertrainSectionId, sectionName, userInfo.id)
+        this.getMemberInfo();
     },
     // onShareAppMessage(res){
     //     if(res.from == 'button')
@@ -50,7 +55,7 @@ Page({
     getLesson(coachId, usertrainSectionId, sectionName, userId) {
         app.req.api.getUserClassSectionDetail({ coachId, userId, usertrainSectionId, sectionName }).then(res => {
             const data = res.data;
-            const { warmUp, relax, sectionName } = data;
+            const { warmUp, relax, sectionName, completeTime } = data;
             const actionList = data.userTraionSectionDetails.map(i=>{
                 i.videourl && (!i.videourl.includes('https://')) && (i.videourl = 'https://' + i.videourl);
                 i.thumbnailImage && (!i.thumbnailImage.includes('https://')) && (i.thumbnailImage = 'https://' + i.thumbnailImage);
@@ -58,6 +63,7 @@ Page({
             })
             // console.log(8989888, 180 + actionList.length * 470)
             this.setData({
+                // completeTime,
                 sectionName,
                 warmUp, 
                 relax,
@@ -110,6 +116,23 @@ Page({
         // };
         // this.setData({...data});
     },
+    //分享图需要用到的课时数据
+    getMemberInfo() {
+        app.req.api.getUserById({ id: this.data.userInfo.id }).then(res => {
+            // console.log('返回：', res.data);
+            const {trainClassNumbers, singInNum} = res.data;
+            let userInfo = this.data.userInfo;
+            this.setData({
+                userInfo: {
+                    ...userInfo,
+                    count: trainClassNumbers,
+                    sign: singInNum,
+                    time: singInNum*60
+                }
+            });
+            // console.log(886668, this.data.userInfoGet);
+        })
+    },
     renderToCanvas() {
         this.widget = this.selectComponent('.widget');
         wx.showToast({
@@ -132,19 +155,12 @@ Page({
     extraImage() {
         const p2 = this.widget.canvasToTempFilePath()
         p2.then(res => {
-            console.log(888, this.container.layoutBox.width, this.container.layoutBox.height)
             this.setData({
                 showShare: true,
                 shareImg: res.tempFilePath,
                 width: this.container.layoutBox.width,
                 height: this.container.layoutBox.height
             })
-            wx.getImageInfo({
-                src: res.tempFilePath,
-                success (resl) {
-                    console.log(888, resl.height)
-                }
-            });
         })
     },
     previewImage(){
@@ -289,10 +305,50 @@ Page({
             }
         })
       },
+
+    playVideo(e){
+        const index = e.currentTarget.dataset.index;
+        const that = this;
+        this.setData({
+            viewVideoUrl: this.data.actionList[index].videourl || this.data.actionList[index].video
+        });
+        this.videoContext.requestFullScreen()
+        setTimeout(()=>{
+            that.videoContext.play()
+        }, 500)
+    },
+    leaveVideo(){
+        this.videoContext.pause();
+        this.setData({
+            viewVideoUrl: null
+        });
+    },
+    videometa(e) {
+        //视频的高
+        var height = e.detail.height;
+        //视频的宽
+        var width = e.detail.width;
+        const ratio = width/height;
+        const {index, type} = e.currentTarget.dataset;
+        var query = wx.createSelectorQuery(); 
+        if(ratio > 1){
+            query.select(`.action-${type}-video-wrapper`).boundingClientRect(rect=>{
+                const wrapperWidth = rect.width;
+                this.setData({
+                    [`actionList[${index}].videoStyle`]: `width:100%;height:${wrapperWidth/ratio}px;`
+                })
+            }).exec()
+        }else{
+            this.setData({
+                [`actionList[${index}].videoStyle`]: `width:${ratio*(type=="edit" ? 388 : 156)}rpx;height:100%;`
+            })
+        }
+    },
     /**
      * Lifecycle function--Called when page is initially rendered
      */
     onReady: function() {
+        this.videoContext = wx.createVideoContext('viewVideo');
 
     },
 

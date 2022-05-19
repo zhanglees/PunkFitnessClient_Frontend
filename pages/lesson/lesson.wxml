@@ -4,7 +4,7 @@
         <view class="classname">
             {{(showOrder?(showOrder + '. ') : '')+ sectionName}}
         </view>
-        <view class="show-share-btn" bindtap="renderToCanvas">
+        <view class="show-share-btn" bindtap="renderToCanvas" wx:if="{{completeTime != 'null'}}">
             <image class="share-icon" src="/images/icons/share-icon.png"></image>
             <text>晒成果</text>
         </view>
@@ -20,8 +20,11 @@
                 <view class="action-item-i" wx:for="{{actionList}}" wx:for-index="i" wx:key="action" wx:for-item="action">
                     <view class="action-item-head">
                         <view class="action-item-head-left">
-                            <view class="user-video-wrapper video-wrapper" wx:if="{{action.videourl}}">
-                                <video class="user-video" data-src="{{action.videourl}}" src="{{action.videourl}}" object-fit="cover"></video>
+                            <view class="user-video-wrapper video-wrapper" wx:if="{{action.videourl}}" bindtap="playVideo" data-index="{{i}}">
+                                <!-- <video class="user-video" data-src="{{action.videourl}}" src="{{action.videourl}}" object-fit="cover"></video>                             -->
+                                <image class="user-video" object-fit="contain" src="{{action.videoImg || action.thumbnailImage}}" style="{{action.videoStyle}}" data-index="{{i}}" data-type="view" bindload="videometa" />
+                                <image class="user-video-bg" object-fit="cover" src="{{action.videoImg || action.thumbnailImage}}"/>
+                                <image class="user-video-play" src="/images/icons/v-play.png" />
                             </view>
                             <view class="action-item-head-c">
                                 <view class="action-item-actionname">{{action.actionName}}</view>
@@ -57,9 +60,10 @@
             <view open-type="share" class="share-btn-item"><image class="share-btn-icon" src="/images/icons/share-wechat.png"></image>微信</view>
         </view>
     </view>
-    <view class="share-hide33" style="border:1px solid red;" wx:if="{{showCanvas}}">
+    <view class="share-hide" wx:if="{{showCanvas}}">
         <view class="widget-wrapper"><wxml-to-canvas class="widget" width="375" height="{{imgHeight}}"></wxml-to-canvas></view>
     </view>
+    <video src="{{viewVideoUrl}}" id="viewVideo" bindfullscreenchange="leaveVideo" class="video-shadow"></video>
     <!-- 
     <view class="share-dialog" title="" show="{{dialogShow}}" buttons="{{false}}" mask>    
         <view class="share-view">
