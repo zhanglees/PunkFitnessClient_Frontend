@@ -28,7 +28,7 @@ const wxml = (data)=>{
   <view class="actionlist">
     <view class="actionitemgray"></view> 
     <view class="actionitem">
-    ${item.thumbnailImage ? '<image class="sec-image" src="'+item.thumbnailImage+'"></image>' : ''}
+    ${item.thumbnailImage ? '<image class="sec-image" src="'+item.thumbnailImage+'"></image>'+(item.videoWidth ? '<image class="sec-image-i" src="'+item.thumbnailImage+'"></image>' : '') : ''}
       <view class="actionitemright">
         <text class="actionitemrightname">${item.actionName || '--'}</text>
         <text class="actionindex">动作${index+1}</text>
@@ -193,6 +193,13 @@ const style = (data)=>{
     width: 155,
     height: 98,
     borderRadius: 6,
+    fontSize: 100,
+  },
+  secImageI: {
+    width: data.videoWidth,
+    height: 98,
+    position: 'absolute',
+    left: 70
   },
   actionindex:{
     width: 48,
