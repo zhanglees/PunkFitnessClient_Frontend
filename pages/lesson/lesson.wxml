@@ -22,8 +22,8 @@
                         <view class="action-item-head-left">
                             <view class="user-video-wrapper video-wrapper" wx:if="{{action.videourl}}" bindtap="playVideo" data-index="{{i}}">
                                 <!-- <video class="user-video" data-src="{{action.videourl}}" src="{{action.videourl}}" object-fit="cover"></video>                             -->
-                                <image class="user-video" object-fit="contain" src="{{action.videoImg || action.thumbnailImage}}" style="{{action.videoStyle}}" data-index="{{i}}" data-type="view" bindload="videometa" />
-                                <image class="user-video-bg" object-fit="cover" src="{{action.videoImg || action.thumbnailImage}}"/>
+                                <image class="user-video-bg" object-fit="cover" src="{{action.videoImg || action.thumbnailImage}}" />
+                                <image class="user-video" object-fit="contain" src="{{action.videoImg || action.thumbnailImage}}" mode="aspectFit" data-index="{{i}}" data-type="view" bindload="videometa" />
                                 <image class="user-video-play" src="/images/icons/v-play.png" />
                             </view>
                             <view class="action-item-head-c">
@@ -56,12 +56,16 @@
             上滑可查看完整长图
         </view>
         <view class="share-btn">
-            <view class="share-btn-item" bindtap="saveImage"><image class="share-btn-icon" src="/images/icons/share-download.png"></image>下载</view>
-            <view open-type="share" class="share-btn-item"><image class="share-btn-icon" src="/images/icons/share-wechat.png"></image>微信</view>
+            <view class="share-btn-item" bindtap="saveImage">
+                <image class="share-btn-icon" src="/images/icons/share-download.png"></image>下载</view>
+            <view open-type="share" class="share-btn-item">
+                <image class="share-btn-icon" src="/images/icons/share-wechat.png"></image>微信</view>
         </view>
     </view>
     <view class="share-hide" wx:if="{{showCanvas}}">
-        <view class="widget-wrapper"><wxml-to-canvas class="widget" width="375" height="{{imgHeight}}"></wxml-to-canvas></view>
+        <view class="widget-wrapper">
+            <wxml-to-canvas class="widget" width="375" height="{{imgHeight}}"></wxml-to-canvas>
+        </view>
     </view>
     <video src="{{viewVideoUrl}}" id="viewVideo" bindfullscreenchange="leaveVideo" class="video-shadow"></video>
     <!-- 
