@@ -4,7 +4,7 @@
             <ul class="detail-tab">
                 <li wx:for="{{typeList}}" wx:key="index" bindtap="tabChange" data-type="{{index}}" data-typeId="{{item.id}}"
                     class="'tab-item' {{index == type ? 'tab-item-act' : ''}}">{{item.name}}</li>
-                    <!-- <li class="tab-item" wx:show="false"></li> -->
+                    <li class="tab-item" wx:show="false"></li>
             </ul>
         <my-chooseCoach topHeight="{{1}}" typeId="{{typeId}}"></my-chooseCoach>
         <li>{{coachId}}</li>
