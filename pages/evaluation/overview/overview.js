@@ -12,10 +12,12 @@ Page({
       {
         name: '健康体适能',
         id: 2
-      }, {
-        name: '动态评估',
-        id: 1
-      },],
+      },
+      //  {
+      //   name: '动态评估',
+      //   id: 1
+      // },
+    ],
     type: 0, //tab样式
     userId: '',
     testList: [],
