@@ -9,7 +9,9 @@ const wxml = (data)=>{
     <view class="schedule">
       <text class="summarytitle">课程进度</text>
       <view class="summarydata">
-        <text class="summarydatanum">${data.userInfo.sign || '--'}/${data.userInfo.count || '--'}</text><text class="summarydataunit">节</text>
+        <text class="summarydatanumbig">${data.userInfo.sign || '--'}</text>
+        <text class="summarydatanum">/ ${data.userInfo.count|| '--'}</text>
+        <text class="summarydataunit">节</text>
       </view>
     </view>
     <view class="divided"></view>
@@ -18,7 +20,7 @@ const wxml = (data)=>{
         累计训练
         </text>
       <view class="summarydata">
-        <text class="summarydatanum">${data.userInfo.time || '--'}</text><text class="summarydataunit">min</text>
+        <text class="summarydatanumtime">${data.userInfo.time || '--'}</text><text class="summarydataunit">min</text>
       </view>
     </view>
   </view>`;
@@ -78,6 +80,10 @@ return str;
  //  <image class="sec-image" src="${item.thumbnailImage}"></image>
  //${item.thumbnailImage ? '<image class="sec-image" src="'+item.thumbnailImage+'"></image>' : ''}
 const style = (data)=>{ 
+  const timeW = data.userInfo.time ? 20 * String(data.userInfo.time).length : 40;
+  const signW = data.userInfo.sign ? 20 * String(data.userInfo.sign).length : 40;
+  const countW = 20 + (data.userInfo.count ? 18 * String(data.userInfo.count).length : 30);
+ 
   return {
 // const style = {
   container: {
@@ -139,23 +145,32 @@ const style = (data)=>{
     color: '#707784',
   },
   summarydatanum:{
-    width: 80,
-    height: 32,
-    fontSize:18,
-    color: '#222834',
+    width: countW,
+    height: 24,
+    fontSize: 24,
+    color: '#707784',
+    verticalAlign: 'bottom',
   },
   summarydatanumbig:{
-    width: 80,
+    width: signW,
     height: 32,
-    textAlign: 'right',
     color: '#386DF3',
-    fontSize: 32
+    fontSize: 32,
+    verticalAlign: 'bottom',
   },
   summarydataunit:{
     width: 25,
-    height: 24,
+    height: 32,
     fontSize:12,
     color: '#707784',
+    verticalAlign: 'bottom',
+  },
+  summarydatanumtime:{
+    width: timeW,
+    height: 32,
+    fontSize: 32,
+    color: '#222834',
+    verticalAlign: 'bottom',
   },
   divided: {
     backgroundColor: '#F1F1F3',

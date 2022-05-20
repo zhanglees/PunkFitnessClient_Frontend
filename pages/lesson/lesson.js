@@ -120,7 +120,8 @@ Page({
     getMemberInfo() {
         app.req.api.getUserById({ id: this.data.userInfo.id }).then(res => {
             // console.log('返回：', res.data);
-            const {trainClassNumbers, singInNum} = res.data;
+            let {trainClassNumbers, singInNum} = res.data;
+            trainClassNumbers=200;singInNum = 40;
             let userInfo = this.data.userInfo;
             this.setData({
                 userInfo: {
@@ -144,7 +145,7 @@ Page({
         const userInfo = this.data.userInfo;
         const {sectionName, actionList} = this.data;
         const _wxml = wxml({sectionName, actionList, userInfo});
-        const _style = style({height: this.data.imgHeight, videoWidth: actionList[0].videoWidth});
+        const _style = style({height: this.data.imgHeight, videoWidth: actionList[0].videoWidth, userInfo});
         const p1 = this.widget.renderToCanvas({ wxml: _wxml, style: _style })
         p1.then((res) => {
             this.container = res
