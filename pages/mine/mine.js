@@ -36,24 +36,11 @@ Page({
     /**
      * Lifecycle function--Called when page load
      */
-    onLoad: function (options) {
-        console.log('用户：', wx.getStorageSync('userInfo'))
-        this.data.userId = wx.getStorageSync('userInfo').id;
-        // this.setData({
-        //     userInfo: wx.getStorageSync('userInfo'),
-        //     info: {
-        //         count: 50,
-        //         sign: 10,
-        //         last: 40,
-        //         time: 500
-        //     }
-        // })
-        this.getMemberInfo();
-    },
+    onLoad: function(options) {},
     getMemberInfo() {
-        app.req.api.getUserById({ id: this.data.userId }).then(res => {
+        app.req.api.getUserById({ id: this.data.userInfo.id }).then(res => {
             console.log('返回：', res.data);
-            const {trainClassNumbers, singInNum} = res.data;
+            const { trainClassNumbers, singInNum } = res.data;
             this.setData({
                 info: {
                     count: trainClassNumbers,
@@ -70,7 +57,7 @@ Page({
             url: '/pages/setting/setting',
         })
     },
-    gotoLogin(){
+    gotoLogin() {
         app.globalData.backUrl = '/pages/mine/mine';
         wx.navigateTo({
             url: '/pages/login/login',
@@ -79,49 +66,57 @@ Page({
     /**
      * Lifecycle function--Called when page is initially rendered
      */
-    onReady: function () {
+    onReady: function() {
 
     },
 
     /**
      * Lifecycle function--Called when page show
      */
-    onShow: function () {
+    onShow: function() {
+        console.log('用户：', wx.getStorageSync('userInfo'))
+        const userInfo = wx.getStorageSync('userInfo');
+        this.setData({
+            userInfo,
+        })
+        if (userInfo) {
+            this.getMemberInfo();
+        }
 
     },
 
     /**
      * Lifecycle function--Called when page hide
      */
-    onHide: function () {
+    onHide: function() {
 
     },
 
     /**
      * Lifecycle function--Called when page unload
      */
-    onUnload: function () {
+    onUnload: function() {
 
     },
 
     /**
      * Page event handler function--Called when user drop down
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
 
     },
 
     /**
      * Called when page reach bottom
      */
-    onReachBottom: function () {
+    onReachBottom: function() {
 
     },
 
     /**
      * Called when user click on the top right corner to share
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
 
     }
 })

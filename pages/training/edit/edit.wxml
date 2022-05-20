@@ -1,19 +1,20 @@
 <!--pages/training/edit/edit.wxml-->
-<view class="container"> 
-<my-chooseCoach></my-chooseCoach>
+<wxs src="/utils/util.wxs" module="utils" />
+<view class="container">
+    <my-chooseCoach></my-chooseCoach>
 
-<ul class="editUl">
-  <li wx:for="{{editData}}" wx:key="index"  class="editLi">
-    <view class="top-item">{{item.className}}</view>
-    <view class="bottom-item">
-      <view class="left-time">{{item.classTime}}</view>
-      <view class="right-container">
-         <image src="{{item.img}}"  class="right-img"></image>
-         <view class="right-name">{{item.name}}</view>
-      </view>
-    </view>
-  </li>
-  <!-- <li wx:for="{{100}}">00000000000000000000000</li> -->
-</ul>
+    <ul class="editUl">
+        <li wx:for="{{list}}" wx:key="index" class="editLi" bindtap="gotoDetail" data-index="{{index}}">
+            <view class="top-item">{{item.sectionName}}</view>
+            <view class="bottom-item">
+                <view class="left-time">{{utils.formatDate(item.createTime)}}</view>
+                <view class="right-container">
+                    <image src="{{item.img || '/images/avatar.png'}}" class="right-img"></image>
+                    <view class="right-name">{{item.coachName||'--'}}</view>
+                </view>
+            </view>
+        </li>
+        <!-- <li wx:for="{{100}}">00000000000000000000000</li> -->
+    </ul>
 
 </view>
