@@ -145,7 +145,6 @@ Page({
         const { sectionName, actionList } = this.data;
         const _wxml = wxml({ sectionName, actionList, userInfo });
         const videoWidth = actionList.map(i => i.videoWidth || 0);
-        console.log(9999, videoWidth);
         const _style = style({ height: this.data.imgHeight, videoWidth });
         const p1 = this.widget.renderToCanvas({ wxml: _wxml, style: _style })
         p1.then((res) => {

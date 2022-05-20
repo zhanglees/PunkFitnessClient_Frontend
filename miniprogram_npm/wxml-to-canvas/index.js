@@ -1,841 +1,914 @@
 (function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else {
-		var a = factory();
-		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
-	}
+    if (typeof exports === 'object' && typeof module === 'object')
+        module.exports = factory();
+    else if (typeof define === 'function' && define.amd)
+        define([], factory);
+    else {
+        var a = factory();
+        for (var i in a)(typeof exports === 'object' ? exports : root)[i] = a[i];
+    }
 })(window, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-const xmlParse = __webpack_require__(1)
-const {Widget} = __webpack_require__(2)
-const {Draw} = __webpack_require__(5)
-
-Component({
-  properties: {
-    width: {
-      type: Number,
-      value: 400
-    },
-    height: {
-      type: Number,
-      value: 300
-    }
-  },
-  lifetimes: {
-    attached() {
-      const dpr = wx.getSystemInfoSync().pixelRatio
-      const query = this.createSelectorQuery()
-      this.dpr = dpr
-      query.select('#canvas')
-        .fields({node: true, size: true})
-        .exec(res => {
-          const canvas = res[0].node
-          const ctx = canvas.getContext('2d')
-          canvas.width = res[0].width * dpr
-          canvas.height = res[0].height * dpr
-          ctx.scale(dpr, dpr)
-          this.ctx = ctx
-          this.canvas = canvas
+    return /******/ (function(modules) { // webpackBootstrap
+            /******/ // The module cache
+            /******/
+            var installedModules = {};
+            /******/
+            /******/ // The require function
+            /******/
+            function __webpack_require__(moduleId) {
+                /******/
+                /******/ // Check if module is in cache
+                /******/
+                if (installedModules[moduleId]) {
+                    /******/
+                    return installedModules[moduleId].exports;
+                    /******/
+                }
+                /******/ // Create a new module (and put it into the cache)
+                /******/
+                var module = installedModules[moduleId] = {
+                    /******/
+                    i: moduleId,
+                    /******/
+                    l: false,
+                    /******/
+                    exports: {}
+                    /******/
+                };
+                /******/
+                /******/ // Execute the module function
+                /******/
+                modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+                /******/
+                /******/ // Flag the module as loaded
+                /******/
+                module.l = true;
+                /******/
+                /******/ // Return the exports of the module
+                /******/
+                return module.exports;
+                /******/
+            }
+            /******/
+            /******/
+            /******/ // expose the modules object (__webpack_modules__)
+            /******/
+            __webpack_require__.m = modules;
+            /******/
+            /******/ // expose the module cache
+            /******/
+            __webpack_require__.c = installedModules;
+            /******/
+            /******/ // define getter function for harmony exports
+            /******/
+            __webpack_require__.d = function(exports, name, getter) {
+                /******/
+                if (!__webpack_require__.o(exports, name)) {
+                    /******/
+                    Object.defineProperty(exports, name, { enumerable: true, get: getter });
+                    /******/
+                }
+                /******/
+            };
+            /******/
+            /******/ // define __esModule on exports
+            /******/
+            __webpack_require__.r = function(exports) {
+                /******/
+                if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+                    /******/
+                    Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+                    /******/
+                }
+                /******/
+                Object.defineProperty(exports, '__esModule', { value: true });
+                /******/
+            };
+            /******/
+            /******/ // create a fake namespace object
+            /******/ // mode & 1: value is a module id, require it
+            /******/ // mode & 2: merge all properties of value into the ns
+            /******/ // mode & 4: return value when already ns object
+            /******/ // mode & 8|1: behave like require
+            /******/
+            __webpack_require__.t = function(value, mode) {
+                /******/
+                if (mode & 1) value = __webpack_require__(value);
+                /******/
+                if (mode & 8) return value;
+                /******/
+                if ((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+                /******/
+                var ns = Object.create(null);
+                /******/
+                __webpack_require__.r(ns);
+                /******/
+                Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+                /******/
+                if (mode & 2 && typeof value != 'string')
+                    for (var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+                /******/
+                return ns;
+                /******/
+            };
+            /******/
+            /******/ // getDefaultExport function for compatibility with non-harmony modules
+            /******/
+            __webpack_require__.n = function(module) {
+                /******/
+                var getter = module && module.__esModule ?
+                    /******/
+                    function getDefault() { return module['default']; } :
+                    /******/
+                    function getModuleExports() { return module; };
+                /******/
+                __webpack_require__.d(getter, 'a', getter);
+                /******/
+                return getter;
+                /******/
+            };
+            /******/
+            /******/ // Object.prototype.hasOwnProperty.call
+            /******/
+            __webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+            /******/
+            /******/ // __webpack_public_path__
+            /******/
+            __webpack_require__.p = "";
+            /******/
+            /******/
+            /******/ // Load entry module and return exports
+            /******/
+            return __webpack_require__(__webpack_require__.s = 0);
+            /******/
         })
-    }
-  },
-  methods: {
-    async renderToCanvas(args) {
-      const {wxml, style} = args
-
-      // 清空画布
-      const ctx = this.ctx
-      const canvas = this.canvas
-      if (!ctx || !canvas) {
-        return Promise.reject(new Error('renderToCanvas: fail canvas has not been created'))
-      }
-
-      ctx.clearRect(0, 0, this.data.width, this.data.height)
-      const {root: xom} = xmlParse(wxml)
-
-      const widget = new Widget(xom, style)
-      const container = widget.init()
-      this.boundary = {
-        top: container.layoutBox.top,
-        left: container.layoutBox.left,
-        width: container.computedStyle.width,
-        height: container.computedStyle.height,
-      }
-      const draw = new Draw(canvas, ctx)
-      await draw.drawNode(container)
-      return Promise.resolve(container)
-    },
-
-    canvasToTempFilePath(args = {}) {
-      return new Promise((resolve, reject) => {
-        const {
-          top, left, width, height
-        } = this.boundary
-        wx.canvasToTempFilePath({
-          x: left,
-          y: top,
-          width,
-          height,
-          destWidth: width * this.dpr,
-          destHeight: height * this.dpr,
-          canvas: this.canvas,
-          fileType: args.fileType || 'png',
-          quality: args.quality || 1,
-          success: resolve,
-          fail: reject
-        })
-      })
-    }
-  }
-})
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-
-/**
- * Module dependencies.
- */
-
-
-/**
- * Expose `parse`.
- */
-
-
-/**
- * Parse the given string of `xml`.
- *
- * @param {String} xml
- * @return {Object}
- * @api public
- */
-
-function parse(xml) {
-  xml = xml.trim()
-
-  // strip comments
-  xml = xml.replace(/<!--[\s\S]*?-->/g, '')
-
-  return document()
-
-  /**
-   * XML document.
-   */
-
-  function document() {
-    return {
-      declaration: declaration(),
-      root: tag()
-    }
-  }
-
-  /**
-   * Declaration.
-   */
-
-  function declaration() {
-    const m = match(/^<\?xml\s*/)
-    if (!m) return
-
-    // tag
-    const node = {
-      attributes: {}
-    }
-
-    // attributes
-    while (!(eos() || is('?>'))) {
-      const attr = attribute()
-      if (!attr) return node
-      node.attributes[attr.name] = attr.value
-    }
-
-    match(/\?>\s*/)
-
-    return node
-  }
-
-  /**
-   * Tag.
-   */
-
-  function tag() {
-    const m = match(/^<([\w-:.]+)\s*/)
-    if (!m) return
-
-    // name
-    const node = {
-      name: m[1],
-      attributes: {},
-      children: []
-    }
-
-    // attributes
-    while (!(eos() || is('>') || is('?>') || is('/>'))) {
-      const attr = attribute()
-      if (!attr) return node
-      node.attributes[attr.name] = attr.value
-    }
-
-    // self closing tag
-    if (match(/^\s*\/>\s*/)) {
-      return node
-    }
-
-    match(/\??>\s*/)
-
-    // content
-    node.content = content()
-
-    // children
-    let child
-    while (child = tag()) {
-      node.children.push(child)
-    }
-
-    // closing
-    match(/^<\/[\w-:.]+>\s*/)
-
-    return node
-  }
-
-  /**
-   * Text content.
-   */
-
-  function content() {
-    const m = match(/^([^<]*)/)
-    if (m) return m[1]
-    return ''
-  }
-
-  /**
-   * Attribute.
-   */
-
-  function attribute() {
-    const m = match(/([\w:-]+)\s*=\s*("[^"]*"|'[^']*'|\w+)\s*/)
-    if (!m) return
-    return {name: m[1], value: strip(m[2])}
-  }
-
-  /**
-   * Strip quotes from `val`.
-   */
-
-  function strip(val) {
-    return val.replace(/^['"]|['"]$/g, '')
-  }
-
-  /**
-   * Match `re` and advance the string.
-   */
-
-  function match(re) {
-    const m = xml.match(re)
-    if (!m) return
-    xml = xml.slice(m[0].length)
-    return m
-  }
-
-  /**
-   * End-of-source.
-   */
-
-  function eos() {
-    return xml.length == 0
-  }
-
-  /**
-   * Check for `prefix`.
-   */
-
-  function is(prefix) {
-    return xml.indexOf(prefix) == 0
-  }
-}
-
-module.exports = parse
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const Block = __webpack_require__(3)
-const {splitLineToCamelCase} = __webpack_require__(4)
-
-class Element extends Block {
-  constructor(prop) {
-    super(prop.style)
-    this.name = prop.name
-    this.attributes = prop.attributes
-  }
-}
-
-
-class Widget {
-  constructor(xom, style) {
-    this.xom = xom
-    this.style = style
-
-    this.inheritProps = ['fontSize', 'lineHeight', 'textAlign', 'verticalAlign', 'color']
-  }
-
-  init() {
-    this.container = this.create(this.xom)
-    this.container.layout()
-
-    this.inheritStyle(this.container)
-    return this.container
-  }
-
-  // 继承父节点的样式
-  inheritStyle(node) {
-    const parent = node.parent || null
-    const children = node.children || {}
-    const computedStyle = node.computedStyle
-
-    if (parent) {
-      this.inheritProps.forEach(prop => {
-        computedStyle[prop] = computedStyle[prop] || parent.computedStyle[prop]
-      })
-    }
-
-    Object.values(children).forEach(child => {
-      this.inheritStyle(child)
-    })
-  }
-
-  create(node) {
-    let classNames = (node.attributes.class || '').split(' ')
-    classNames = classNames.map(item => splitLineToCamelCase(item.trim()))
-    const style = {}
-    classNames.forEach(item => {
-      Object.assign(style, this.style[item] || {})
-    })
-
-    const args = {name: node.name, style}
-
-    const attrs = Object.keys(node.attributes)
-    const attributes = {}
-    for (const attr of attrs) {
-      const value = node.attributes[attr]
-      const CamelAttr = splitLineToCamelCase(attr)
-
-      if (value === '' || value === 'true') {
-        attributes[CamelAttr] = true
-      } else if (value === 'false') {
-        attributes[CamelAttr] = false
-      } else {
-        attributes[CamelAttr] = value
-      }
-    }
-    attributes.text = node.content
-    args.attributes = attributes
-    const element = new Element(args)
-    node.children.forEach(childNode => {
-      const childElement = this.create(childNode)
-      element.add(childElement)
-    })
-    return element
-  }
-}
-
-module.exports = {Widget}
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("widget-ui");
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-const hex = (color) => {
-  let result = null
-
-  if (/^#/.test(color) && (color.length === 7 || color.length === 9)) {
-    return color
-    // eslint-disable-next-line no-cond-assign
-  } else if ((result = /^(rgb|rgba)\((.+)\)/.exec(color)) !== null) {
-    return '#' + result[2].split(',').map((part, index) => {
-      part = part.trim()
-      part = index === 3 ? Math.floor(parseFloat(part) * 255) : parseInt(part, 10)
-      part = part.toString(16)
-      if (part.length === 1) {
-        part = '0' + part
-      }
-      return part
-    }).join('')
-  } else {
-    return '#00000000'
-  }
-}
-
-const splitLineToCamelCase = (str) => str.split('-').map((part, index) => {
-  if (index === 0) {
-    return part
-  }
-  return part[0].toUpperCase() + part.slice(1)
-}).join('')
-
-module.exports = {
-  hex,
-  splitLineToCamelCase
-}
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-class Draw {
-  constructor(canvas, context) {
-    this.canvas = canvas
-    this.ctx = context
-  }
-
-  roundRect(x, y, w, h, r, fill = true, stroke = false) {
-    if (r < 0) return
-    const ctx = this.ctx
-
-    ctx.beginPath()
-    ctx.arc(x + r, y + r, r, Math.PI, Math.PI * 3 / 2)
-    ctx.arc(x + w - r, y + r, r, Math.PI * 3 / 2, 0)
-    ctx.arc(x + w - r, y + h - r, r, 0, Math.PI / 2)
-    ctx.arc(x + r, y + h - r, r, Math.PI / 2, Math.PI)
-    ctx.lineTo(x, y + r)
-    if (stroke) ctx.stroke()
-    if (fill) ctx.fill()
-  }
-
-  drawView(box, style) {
-    const ctx = this.ctx
-    const {
-      left: x, top: y, width: w, height: h
-    } = box
-    const {
-      borderRadius = 0,
-      borderWidth = 0,
-      borderColor,
-      color = '#000',
-      backgroundColor = 'transparent',
-    } = style
-    ctx.save()
-    // 外环
-    if (borderWidth > 0) {
-      ctx.fillStyle = borderColor || color
-      this.roundRect(x, y, w, h, borderRadius)
-    }
-
-    // 内环
-    ctx.fillStyle = backgroundColor
-    const innerWidth = w - 2 * borderWidth
-    const innerHeight = h - 2 * borderWidth
-    const innerRadius = borderRadius - borderWidth >= 0 ? borderRadius - borderWidth : 0
-    this.roundRect(x + borderWidth, y + borderWidth, innerWidth, innerHeight, innerRadius)
-    ctx.restore()
-  }
-
-  async drawImage(img, box, style) {
-    await new Promise((resolve, reject) => {
-      const ctx = this.ctx
-      const canvas = this.canvas
-      const {
-        borderRadius = 0
-      } = style
-      const {
-        left: x, top: y, width: w, height: h
-      } = box
-      ctx.save()
-      this.roundRect(x, y, w, h, borderRadius, false, false)
-      ctx.clip()
-      const Image = canvas.createImage()
-      Image.onload = () => {
-        ctx.drawImage(Image, x, y, w, h)
-        if(style.fontSize == 100){
-          var data = ctx.getImageData(x, y, w, h);
-          //将图像数据进行高斯模糊 data.data是一个数组，每四个值代表一个像素点的rgba的值，data.width data.height 分别代表图像数据的宽高
-  
-          var emptyData = gaussBlur(data);
-  
-          console.log(8888888, x, y, w, h)
-          //将模糊的图像数据再渲染到画布上面
-  
-          ctx.putImageData(emptyData, x, y);
-        }
-        ctx.restore()
-        resolve()
-      }
-      Image.onerror = () => { reject() }
-      Image.src = img
-    })
-    
-    function gaussBlur(imgData) {
-
-      var pixes = imgData.data;
+        /************************************************************************/
+        /******/
+        ([
+            /* 0 */
+            /***/
+            (function(module, exports, __webpack_require__) {
+
+
+                const xmlParse = __webpack_require__(1)
+                const { Widget } = __webpack_require__(2)
+                const { Draw } = __webpack_require__(5)
+
+                Component({
+                    properties: {
+                        width: {
+                            type: Number,
+                            value: 400
+                        },
+                        height: {
+                            type: Number,
+                            value: 300
+                        }
+                    },
+                    lifetimes: {
+                        attached() {
+                            const dpr = wx.getSystemInfoSync().pixelRatio
+                            const query = this.createSelectorQuery()
+                            this.dpr = dpr
+                            query.select('#canvas')
+                                .fields({ node: true, size: true })
+                                .exec(res => {
+                                    const canvas = res[0].node
+                                    const ctx = canvas.getContext('2d')
+                                    canvas.width = res[0].width * dpr
+                                    canvas.height = res[0].height * dpr
+                                    ctx.scale(dpr, dpr)
+                                    this.ctx = ctx
+                                    this.canvas = canvas
+                                })
+                        }
+                    },
+                    methods: {
+                        async renderToCanvas(args) {
+                            const { wxml, style } = args
+
+                            // 清空画布
+                            const ctx = this.ctx
+                            const canvas = this.canvas
+                            if (!ctx || !canvas) {
+                                return Promise.reject(new Error('renderToCanvas: fail canvas has not been created'))
+                            }
+
+                            ctx.clearRect(0, 0, this.data.width, this.data.height)
+                            const { root: xom } = xmlParse(wxml)
+
+                            const widget = new Widget(xom, style)
+                            const container = widget.init()
+                            this.boundary = {
+                                top: container.layoutBox.top,
+                                left: container.layoutBox.left,
+                                width: container.computedStyle.width,
+                                height: container.computedStyle.height,
+                            }
+                            const draw = new Draw(canvas, ctx)
+                            await draw.drawNode(container)
+                            return Promise.resolve(container)
+                        },
+
+                        canvasToTempFilePath(args = {}) {
+                            return new Promise((resolve, reject) => {
+                                const {
+                                    top,
+                                    left,
+                                    width,
+                                    height
+                                } = this.boundary
+                                wx.canvasToTempFilePath({
+                                    x: left,
+                                    y: top,
+                                    width,
+                                    height,
+                                    destWidth: width * this.dpr,
+                                    destHeight: height * this.dpr,
+                                    canvas: this.canvas,
+                                    fileType: args.fileType || 'png',
+                                    quality: args.quality || 1,
+                                    success: resolve,
+                                    fail: reject
+                                })
+                            })
+                        }
+                    }
+                })
+
+
+                /***/
+            }),
+            /* 1 */
+            /***/
+            (function(module, exports) {
+
 
-      var width = imgData.width;
+                /**
+                 * Module dependencies.
+                 */
 
-      var height = imgData.height;
 
-      var gaussMatrix = [],
+                /**
+                 * Expose `parse`.
+                 */
 
-      gaussSum = 0,
 
-      x, y,
+                /**
+                 * Parse the given string of `xml`.
+                 *
+                 * @param {String} xml
+                 * @return {Object}
+                 * @api public
+                 */
 
-      r, g, b, a,
+                function parse(xml) {
+                    xml = xml.trim()
 
-      i, j, k, len;
+                    // strip comments
+                    xml = xml.replace(/<!--[\s\S]*?-->/g, '')
+
+                    return document()
+
+                    /**
+                     * XML document.
+                     */
+
+                    function document() {
+                        return {
+                            declaration: declaration(),
+                            root: tag()
+                        }
+                    }
+
+                    /**
+                     * Declaration.
+                     */
+
+                    function declaration() {
+                        const m = match(/^<\?xml\s*/)
+                        if (!m) return
+
+                        // tag
+                        const node = {
+                            attributes: {}
+                        }
+
+                        // attributes
+                        while (!(eos() || is('?>'))) {
+                            const attr = attribute()
+                            if (!attr) return node
+                            node.attributes[attr.name] = attr.value
+                        }
+
+                        match(/\?>\s*/)
+
+                        return node
+                    }
+
+                    /**
+                     * Tag.
+                     */
 
-      var radius = 10;
+                    function tag() {
+                        const m = match(/^<([\w-:.]+)\s*/)
+                        if (!m) return
+
+                        // name
+                        const node = {
+                            name: m[1],
+                            attributes: {},
+                            children: []
+                        }
+
+                        // attributes
+                        while (!(eos() || is('>') || is('?>') || is('/>'))) {
+                            const attr = attribute()
+                            if (!attr) return node
+                            node.attributes[attr.name] = attr.value
+                        }
+
+                        // self closing tag
+                        if (match(/^\s*\/>\s*/)) {
+                            return node
+                        }
+
+                        match(/\??>\s*/)
+
+                        // content
+                        node.content = content()
+
+                        // children
+                        let child
+                        while (child = tag()) {
+                            node.children.push(child)
+                        }
+
+                        // closing
+                        match(/^<\/[\w-:.]+>\s*/)
+
+                        return node
+                    }
+
+                    /**
+                     * Text content.
+                     */
+
+                    function content() {
+                        const m = match(/^([^<]*)/)
+                        if (m) return m[1]
+                        return ''
+                    }
+
+                    /**
+                     * Attribute.
+                     */
+
+                    function attribute() {
+                        const m = match(/([\w:-]+)\s*=\s*("[^"]*"|'[^']*'|\w+)\s*/)
+                        if (!m) return
+                        return { name: m[1], value: strip(m[2]) }
+                    }
+
+                    /**
+                     * Strip quotes from `val`.
+                     */
+
+                    function strip(val) {
+                        return val.replace(/^['"]|['"]$/g, '')
+                    }
+
+                    /**
+                     * Match `re` and advance the string.
+                     */
+
+                    function match(re) {
+                        const m = xml.match(re)
+                        if (!m) return
+                        xml = xml.slice(m[0].length)
+                        return m
+                    }
+
+                    /**
+                     * End-of-source.
+                     */
+
+                    function eos() {
+                        return xml.length == 0
+                    }
+
+                    /**
+                     * Check for `prefix`.
+                     */
+
+                    function is(prefix) {
+                        return xml.indexOf(prefix) == 0
+                    }
+                }
+
+                module.exports = parse
+
+
+                /***/
+            }),
+            /* 2 */
+            /***/
+            (function(module, exports, __webpack_require__) {
+
+                const Block = __webpack_require__(3)
+                const { splitLineToCamelCase } = __webpack_require__(4)
+
+                class Element extends Block {
+                    constructor(prop) {
+                        super(prop.style)
+                        this.name = prop.name
+                        this.attributes = prop.attributes
+                    }
+                }
+
+
+                class Widget {
+                    constructor(xom, style) {
+                        this.xom = xom
+                        this.style = style
+
+                        this.inheritProps = ['fontSize', 'lineHeight', 'textAlign', 'verticalAlign', 'color']
+                    }
+
+                    init() {
+                        this.container = this.create(this.xom)
+                        this.container.layout()
+
+                        this.inheritStyle(this.container)
+                        return this.container
+                    }
+
+                    // 继承父节点的样式
+                    inheritStyle(node) {
+                        const parent = node.parent || null
+                        const children = node.children || {}
+                        const computedStyle = node.computedStyle
+
+                        if (parent) {
+                            this.inheritProps.forEach(prop => {
+                                computedStyle[prop] = computedStyle[prop] || parent.computedStyle[prop]
+                            })
+                        }
+
+                        Object.values(children).forEach(child => {
+                            this.inheritStyle(child)
+                        })
+                    }
+
+                    create(node) {
+                        let classNames = (node.attributes.class || '').split(' ')
+                        classNames = classNames.map(item => splitLineToCamelCase(item.trim()))
+                        const style = {}
+                        classNames.forEach(item => {
+                            Object.assign(style, this.style[item] || {})
+                        })
+
+                        const args = { name: node.name, style }
+
+                        const attrs = Object.keys(node.attributes)
+                        const attributes = {}
+                        for (const attr of attrs) {
+                            const value = node.attributes[attr]
+                            const CamelAttr = splitLineToCamelCase(attr)
+
+                            if (value === '' || value === 'true') {
+                                attributes[CamelAttr] = true
+                            } else if (value === 'false') {
+                                attributes[CamelAttr] = false
+                            } else {
+                                attributes[CamelAttr] = value
+                            }
+                        }
+                        attributes.text = node.content
+                        args.attributes = attributes
+                        const element = new Element(args)
+                        node.children.forEach(childNode => {
+                            const childElement = this.create(childNode)
+                            element.add(childElement)
+                        })
+                        return element
+                    }
+                }
+
+                module.exports = { Widget }
+
+
+                /***/
+            }),
+            /* 3 */
+            /***/
+            (function(module, exports) {
+
+                module.exports = require("widget-ui");
+
+                /***/
+            }),
+            /* 4 */
+            /***/
+            (function(module, exports) {
+
+                const hex = (color) => {
+                    let result = null
+
+                    if (/^#/.test(color) && (color.length === 7 || color.length === 9)) {
+                        return color
+                            // eslint-disable-next-line no-cond-assign
+                    } else if ((result = /^(rgb|rgba)\((.+)\)/.exec(color)) !== null) {
+                        return '#' + result[2].split(',').map((part, index) => {
+                            part = part.trim()
+                            part = index === 3 ? Math.floor(parseFloat(part) * 255) : parseInt(part, 10)
+                            part = part.toString(16)
+                            if (part.length === 1) {
+                                part = '0' + part
+                            }
+                            return part
+                        }).join('')
+                    } else {
+                        return '#00000000'
+                    }
+                }
+
+                const splitLineToCamelCase = (str) => str.split('-').map((part, index) => {
+                    if (index === 0) {
+                        return part
+                    }
+                    return part[0].toUpperCase() + part.slice(1)
+                }).join('')
+
+                module.exports = {
+                    hex,
+                    splitLineToCamelCase
+                }
+
+
+                /***/
+            }),
+            /* 5 */
+            /***/
+            (function(module, exports) {
+
+                class Draw {
+                    constructor(canvas, context) {
+                        this.canvas = canvas
+                        this.ctx = context
+                    }
+
+                    roundRect(x, y, w, h, r, fill = true, stroke = false) {
+                        if (r < 0) return
+                        const ctx = this.ctx
+
+                        ctx.beginPath()
+                        ctx.arc(x + r, y + r, r, Math.PI, Math.PI * 3 / 2)
+                        ctx.arc(x + w - r, y + r, r, Math.PI * 3 / 2, 0)
+                        ctx.arc(x + w - r, y + h - r, r, 0, Math.PI / 2)
+                        ctx.arc(x + r, y + h - r, r, Math.PI / 2, Math.PI)
+                        ctx.lineTo(x, y + r)
+                        if (stroke) ctx.stroke()
+                        if (fill) ctx.fill()
+                    }
+                    drawView(box, style) {
+                        const ctx = this.ctx
+                        const {
+                            left: x,
+                            top: y,
+                            width: w,
+                            height: h
+                        } = box
+                        const {
+                            borderRadius = 0,
+                                borderWidth = 0,
+                                borderColor,
+                                color = '#000',
+                                backgroundColor = 'transparent',
+                        } = style
+                        ctx.save()
+                            // 外环
+                        if (borderWidth > 0) {
+                            ctx.fillStyle = borderColor || color
+                            this.roundRect(x, y, w, h, borderRadius)
+                        }
+
+                        // 内环
+                        ctx.fillStyle = backgroundColor
+                        const innerWidth = w - 2 * borderWidth
+                        const innerHeight = h - 2 * borderWidth
+                        const innerRadius = borderRadius - borderWidth >= 0 ? borderRadius - borderWidth : 0
+                        this.roundRect(x + borderWidth, y + borderWidth, innerWidth, innerHeight, innerRadius)
+                        ctx.restore()
+                    }
+
+                    async drawImage(img, box, style) {
+                        await new Promise((resolve, reject) => {
+                            const ctx = this.ctx
+                            const canvas = this.canvas
+                            const {
+                                borderRadius = 0
+                            } = style
+                            const {
+                                left: x,
+                                top: y,
+                                width: w,
+                                height: h
+                            } = box
+                            ctx.save()
+                            this.roundRect(x, y, w, h, borderRadius, false, false)
+                            ctx.clip()
+                            const Image = canvas.createImage()
+                            Image.onload = () => {
+                                ctx.drawImage(Image, x, y, w, h)
+                                if (style.fontSize == 100) {
+                                    const dpr = wx.getSystemInfoSync().pixelRatio
+                                    var data = ctx.getImageData(x * dpr, y * dpr, w * dpr, h * dpr);
+                                    //将图像数据进行高斯模糊 data.data是一个数组，每四个值代表一个像素点的rgba的值，data.width data.height 分别代表图像数据的宽高
+                                    var emptyData = gaussBlur(data);
+                                    //将模糊的图像数据再渲染到画布上面
+                                    ctx.putImageData(emptyData, x * dpr, y * dpr);
+                                }
+                                ctx.restore()
+                                resolve()
+                            }
+                            Image.onerror = () => { reject() }
+                            Image.src = img
+                        })
+
+                        function gaussBlur(imgData) {
+
+                            var pixes = imgData.data;
+
+                            var width = imgData.width;
 
-      var sigma = 5;
+                            var height = imgData.height;
 
-      a = 1 / (Math.sqrt(2 * Math.PI) * sigma);
+                            var gaussMatrix = [],
 
-      b = -1 / (2 * sigma * sigma);
+                                gaussSum = 0,
 
-      //生成高斯矩阵
+                                x, y,
 
-      for (i = 0, x = -radius; x <= radius; x++, i++) {
+                                r, g, b, a,
 
-          g = a * Math.exp(b * x * x);
+                                i, j, k, len;
 
-          gaussMatrix[i] = g;
+                            var radius = 50;
 
-          gaussSum += g;
+                            var sigma = 50;
 
-      }
+                            a = 1 / (Math.sqrt(2 * Math.PI) * sigma);
 
-      //归一化, 保证高斯矩阵的值在[0,1]之间
+                            b = -1 / (2 * sigma * sigma);
 
-      for (i = 0, len = gaussMatrix.length; i < len; i++) {
+                            //生成高斯矩阵
 
-          gaussMatrix[i] /= gaussSum;
+                            for (i = 0, x = -radius; x <= radius; x++, i++) {
 
-      }
+                                g = a * Math.exp(b * x * x);
 
-      //x 方向一维高斯运算
+                                gaussMatrix[i] = g;
 
-      for (y = 0; y < height; y++) {
+                                gaussSum += g;
 
-          for (x = 0; x < width; x++) {
+                            }
 
-              r = g = b = a = 0;
+                            //归一化, 保证高斯矩阵的值在[0,1]之间
 
-              gaussSum = 0;
+                            for (i = 0, len = gaussMatrix.length; i < len; i++) {
 
-              for (j = -radius; j <= radius; j++) {
+                                gaussMatrix[i] /= gaussSum;
 
-                  k = x + j;
+                            }
 
-                  if (k >= 0 && k < width) {//确保 k 没超出 x 的范围
+                            //x 方向一维高斯运算
 
-                  //r,g,b,a 四个一组
+                            for (y = 0; y < height; y++) {
 
-                      i = (y * width + k) * 4;
+                                for (x = 0; x < width; x++) {
 
-                      r += pixes[i] * gaussMatrix[j + radius];
+                                    r = g = b = a = 0;
 
-                      g += pixes[i + 1] * gaussMatrix[j + radius];
+                                    gaussSum = 0;
 
-                      b += pixes[i + 2] * gaussMatrix[j + radius];
+                                    for (j = -radius; j <= radius; j++) {
 
-                      // a += pixes[i + 3] * gaussMatrix[j];
+                                        k = x + j;
 
-                      gaussSum += gaussMatrix[j + radius];
+                                        if (k >= 0 && k < width) { //确保 k 没超出 x 的范围
 
-                  }
+                                            //r,g,b,a 四个一组
 
-              }
+                                            i = (y * width + k) * 4;
 
-              i = (y * width + x) * 4;
+                                            r += pixes[i] * gaussMatrix[j + radius];
 
-              // 除以 gaussSum 是为了消除处于边缘的像素, 高斯运算不足的问题
+                                            g += pixes[i + 1] * gaussMatrix[j + radius];
 
-              // console.log(gaussSum)
+                                            b += pixes[i + 2] * gaussMatrix[j + radius];
 
-              pixes[i] = r / gaussSum;
+                                            // a += pixes[i + 3] * gaussMatrix[j];
 
-              pixes[i + 1] = g / gaussSum;
+                                            gaussSum += gaussMatrix[j + radius];
 
-              pixes[i + 2] = b / gaussSum;
+                                        }
 
-          // pixes[i + 3] = a ;
+                                    }
 
-          }
+                                    i = (y * width + x) * 4;
 
-      }
+                                    // 除以 gaussSum 是为了消除处于边缘的像素, 高斯运算不足的问题
 
-      //y 方向一维高斯运算
+                                    // console.log(gaussSum)
 
-      for (x = 0; x < width; x++) {
+                                    pixes[i] = r / gaussSum;
 
-          for (y = 0; y < height; y++) {
+                                    pixes[i + 1] = g / gaussSum;
 
-              r = g = b = a = 0;
+                                    pixes[i + 2] = b / gaussSum;
 
-              gaussSum = 0;
+                                    // pixes[i + 3] = a ;
 
-              for (j = -radius; j <= radius; j++) {
+                                }
 
-                  k = y + j;
+                            }
 
-                  if (k >= 0 && k < height) {//确保 k 没超出 y 的范围
+                            //y 方向一维高斯运算
 
-                      i = (k * width + x) * 4;
+                            for (x = 0; x < width; x++) {
 
-                      r += pixes[i] * gaussMatrix[j + radius];
+                                for (y = 0; y < height; y++) {
 
-                      g += pixes[i + 1] * gaussMatrix[j + radius];
+                                    r = g = b = a = 0;
 
-                      b += pixes[i + 2] * gaussMatrix[j + radius];
+                                    gaussSum = 0;
 
-                      // a += pixes[i + 3] * gaussMatrix[j];
+                                    for (j = -radius; j <= radius; j++) {
 
-                      gaussSum += gaussMatrix[j + radius];
+                                        k = y + j;
+
+                                        if (k >= 0 && k < height) { //确保 k 没超出 y 的范围
 
-                  }
+                                            i = (k * width + x) * 4;
 
-              }
+                                            r += pixes[i] * gaussMatrix[j + radius];
 
-              i = (y * width + x) * 4;
+                                            g += pixes[i + 1] * gaussMatrix[j + radius];
+
+                                            b += pixes[i + 2] * gaussMatrix[j + radius];
 
-              pixes[i] = r / gaussSum;
-
-              pixes[i + 1] = g / gaussSum;
-
-              pixes[i + 2] = b / gaussSum;
-
-          }
-
-      }
-      return imgData;
-  }
-  }
-
-  // eslint-disable-next-line complexity
-  drawText(text, box, style) {
-    const ctx = this.ctx
-    let {
-      left: x, top: y, width: w, height: h
-    } = box
-    let {
-      color = '#000',
-      lineHeight = '1.4em',
-      fontSize = 14,
-      textAlign = 'left',
-      verticalAlign = 'top',
-      backgroundColor = 'transparent'
-    } = style
-
-    if (!text || (lineHeight > h)) return
-
-    ctx.save()
-    if (lineHeight) { // 2em
-      lineHeight = Math.ceil(parseFloat(lineHeight.replace('em')) * fontSize)
-    }
-    ctx.textBaseline = 'top'
-    ctx.font = `${fontSize}px sans-serif`
-    ctx.textAlign = textAlign
-
-    // 背景色
-    ctx.fillStyle = backgroundColor
-    this.roundRect(x, y, w, h, 0)
-
-    // 文字颜色
-    ctx.fillStyle = color
-
-    // 水平布局
-    switch (textAlign) {
-      case 'left':
-        break
-      case 'center':
-        x += 0.5 * w
-        break
-      case 'right':
-        x += w
-        break
-      default: break
-    }
-
-    const textWidth = ctx.measureText(text).width
-    const actualHeight = Math.ceil(textWidth / w) * lineHeight
-    let paddingTop = Math.ceil((h - actualHeight) / 2)
-    if (paddingTop < 0) paddingTop = 0
-
-    // 垂直布局
-    switch (verticalAlign) {
-      case 'top':
-        break
-      case 'middle':
-        y += paddingTop
-        break
-      case 'bottom':
-        y += 2 * paddingTop
-        break
-      default: break
-    }
-
-    const inlinePaddingTop = Math.ceil((lineHeight - fontSize) / 2)
-
-    // 不超过一行
-    if (textWidth <= w) {
-      ctx.fillText(text, x, y + inlinePaddingTop)
-      return
-    }
-
-    // 多行文本
-    const chars = text.split('')
-    const _y = y
-
-    // 逐行绘制
-    let line = ''
-    for (const ch of chars) {
-      const testLine = line + ch
-      const testWidth = ctx.measureText(testLine).width
-
-      if (testWidth > w) {
-        ctx.fillText(line, x, y + inlinePaddingTop)
-        y += lineHeight
-        line = ch
-        if ((y + lineHeight) > (_y + h)) break
-      } else {
-        line = testLine
-      }
-    }
-
-    // 避免溢出
-    if ((y + lineHeight) <= (_y + h)) {
-      ctx.fillText(line, x, y + inlinePaddingTop)
-    }
-    ctx.restore()
-  }
-
-  async drawNode(element) {
-    const {layoutBox, computedStyle, name} = element
-    const {src, text} = element.attributes
-    if (name === 'view') {
-      this.drawView(layoutBox, computedStyle)
-    } else if (name === 'image') {
-      await this.drawImage(src, layoutBox, computedStyle)
-    } else if (name === 'text') {
-      this.drawText(text, layoutBox, computedStyle)
-    }
-    const childs = Object.values(element.children)
-    for (const child of childs) {
-      await this.drawNode(child)
-    }
-  }
-}
-
-
-module.exports = {
-  Draw
-}
-
-
-/***/ })
-/******/ ]);
+                                            // a += pixes[i + 3] * gaussMatrix[j];
+
+                                            gaussSum += gaussMatrix[j + radius];
+
+                                        }
+
+                                    }
+
+                                    i = (y * width + x) * 4;
+
+                                    pixes[i] = r / gaussSum;
+
+                                    pixes[i + 1] = g / gaussSum;
+
+                                    pixes[i + 2] = b / gaussSum;
+
+                                }
+
+                            }
+                            return imgData;
+                        }
+                    }
+
+                    // eslint-disable-next-line complexity
+                    drawText(text, box, style) {
+                        const ctx = this.ctx
+                        let {
+                            left: x,
+                            top: y,
+                            width: w,
+                            height: h
+                        } = box
+                        let {
+                            color = '#000',
+                                lineHeight = '1.4em',
+                                fontSize = 14,
+                                textAlign = 'left',
+                                verticalAlign = 'top',
+                                backgroundColor = 'transparent'
+                        } = style
+
+                        if (!text || (lineHeight > h)) return
+
+                        ctx.save()
+                        if (lineHeight) { // 2em
+                            lineHeight = Math.ceil(parseFloat(lineHeight.replace('em')) * fontSize)
+                        }
+                        ctx.textBaseline = 'top'
+                        ctx.font = `${fontSize}px sans-serif`
+                        ctx.textAlign = textAlign
+
+                        // 背景色
+                        ctx.fillStyle = backgroundColor
+                        this.roundRect(x, y, w, h, 0)
+
+                        // 文字颜色
+                        ctx.fillStyle = color
+
+                        // 水平布局
+                        switch (textAlign) {
+                            case 'left':
+                                break
+                            case 'center':
+                                x += 0.5 * w
+                                break
+                            case 'right':
+                                x += w
+                                break
+                            default:
+                                break
+                        }
+
+                        const textWidth = ctx.measureText(text).width
+                        const actualHeight = Math.ceil(textWidth / w) * lineHeight
+                        let paddingTop = Math.ceil((h - actualHeight) / 2)
+                        if (paddingTop < 0) paddingTop = 0
+
+                        // 垂直布局
+                        switch (verticalAlign) {
+                            case 'top':
+                                break
+                            case 'middle':
+                                y += paddingTop
+                                break
+                            case 'bottom':
+                                y += 2 * paddingTop
+                                break
+                            default:
+                                break
+                        }
+
+                        const inlinePaddingTop = Math.ceil((lineHeight - fontSize) / 2)
+
+                        // 不超过一行
+                        if (textWidth <= w) {
+                            ctx.fillText(text, x, y + inlinePaddingTop)
+                            return
+                        }
+
+                        // 多行文本
+                        const chars = text.split('')
+                        const _y = y
+
+                        // 逐行绘制
+                        let line = ''
+                        for (const ch of chars) {
+                            const testLine = line + ch
+                            const testWidth = ctx.measureText(testLine).width
+
+                            if (testWidth > w) {
+                                ctx.fillText(line, x, y + inlinePaddingTop)
+                                y += lineHeight
+                                line = ch
+                                if ((y + lineHeight) > (_y + h)) break
+                            } else {
+                                line = testLine
+                            }
+                        }
+
+                        // 避免溢出
+                        if ((y + lineHeight) <= (_y + h)) {
+                            ctx.fillText(line, x, y + inlinePaddingTop)
+                        }
+                        ctx.restore()
+                    }
+
+                    async drawNode(element) {
+                        const { layoutBox, computedStyle, name } = element
+                        const { src, text } = element.attributes
+                        if (name === 'view') {
+                            this.drawView(layoutBox, computedStyle)
+                        } else if (name === 'image') {
+                            await this.drawImage(src, layoutBox, computedStyle)
+                        } else if (name === 'text') {
+                            this.drawText(text, layoutBox, computedStyle)
+                        }
+                        const childs = Object.values(element.children)
+                        for (const child of childs) {
+                            await this.drawNode(child)
+                        }
+                    }
+                }
+
+
+                module.exports = {
+                    Draw
+                }
+
+
+                /***/
+            })
+            /******/
+        ]);
 });
