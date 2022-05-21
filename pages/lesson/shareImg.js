@@ -32,8 +32,8 @@ const wxml = (data) => {
     <view class="actionitem">
     ${item.thumbnailImage ? ((item.videoWidth ? '<image class="sec-image" src="'+item.thumbnailImage+'"></image>' : '') + `<image class="sec-image-i sec-image-i${item.videoWidth || 0}" src="${item.thumbnailImage}"></image>`) : ''}
       
-    <image class="sec-image-rb" src="http://192.168.1.3:3000/rectb.png"></image>
-    <image class="sec-image-r" src="http://192.168.1.3:3000/rectt.png"></image>
+    <image class="sec-image-rb" src="https://www.zhangleixd.com/static/imgs/rectb.png"></image>
+    <image class="sec-image-r" src="https://www.zhangleixd.com/static/imgs/rectt.png"></image>
       <view class="actionitemright">
         <text class="actionitemrightname">${item.actionName || '--'}</text>
         <text class="actionindex">动作${index+1}</text>
