@@ -175,9 +175,9 @@ Page({
         } else {
             //未登录跳转登录
             wx.redirectTo({
-                url: '/pages/login/login',
-            })
-            app.globalData.backUrl = link;
+                    url: '/pages/login/login?back=' + link,
+                })
+                // app.globalData.backUrl = link;
         }
     }
 })
