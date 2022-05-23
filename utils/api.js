@@ -53,8 +53,12 @@ function install(req, request) {
             return request({ url, method: 'POST', data });
         },
         // 评估测试详情
+        // getTrainerAssessmentDetail(data) {
+        //     const url = `${req.apiUrl}/assessment/getTrainerAssessmentDetail`;
+        //     return request({ url, method: 'POST', data });
+        // },
         getTrainerAssessmentDetail(data) {
-            const url = `${req.apiUrl}/assessment/getTrainerAssessmentDetail`;
+            const url = `${req.apiUrl}/assessmentClient/getTrainerAssessmentDetail`;
             return request({ url, method: 'POST', data });
         },
         // 得到全部教练

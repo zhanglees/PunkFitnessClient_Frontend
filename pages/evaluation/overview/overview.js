@@ -108,7 +108,7 @@ Page({
   },
   onShow() {
     // this.getList();
-    this.getTestList(0,this.data.userId)
+    this.getTestList(this.data.typeId,this.data.userId)
     // this.getCoachAllList()
   }
 })

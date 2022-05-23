@@ -8,7 +8,7 @@ Page({
   data: {
     positiveList: {},//正面
     sideList: {}, //侧面
-    userId: '052fdb81-8d72-40fd-ab1b-b8496d16aaab',
+    userId: '09cc20bc-3e3e-46bd-bcb2-d7a85bbf68be',
     coachId: 'f15371d7-975b-4ae9-98fb-df54453ef0a5',
     createTime: '2022-01-04 16:06:43',
     assessmentType: 0,
@@ -21,6 +21,7 @@ Page({
    */
   onLoad: function (options) {
     const { coachId, createTime, assessmentType } = options
+    console.log('------------',coachId, createTime, assessmentType);
     this.data.userId = wx.getStorageSync('userInfo').id;
     this.data.createTime = createTime;
     this.data.coachId = coachId;
@@ -36,12 +37,14 @@ Page({
       createTime,
       userId
     }).then((res) => {
-      // console.log('详情',res);
+      console.log('详情',res);
+      if(res.data){
       this.setData({
         list:res.data,
         sideList: res.data[0].assessmentName == '侧面' ? res.data[0] : res.data[1],
         positiveList: res.data[1].assessmentName == '侧面' ? res.data[0] : res.data[1]
       })
+      }
       // console.log('侧面', this.data.sideList);
       // console.log('正面', this.data.positiveList);
     })
