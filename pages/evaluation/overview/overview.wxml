@@ -6,10 +6,9 @@
                     class="'tab-item' {{index == type ? 'tab-item-act' : ''}}">{{item.name}}</li>
                     <li class="tab-item" wx:show="false"></li>
             </ul>
-        <my-chooseCoach topHeight="{{1}}" typeId="{{typeId}}" userID="{{userId}}"></my-chooseCoach>
-        <li>{{coachId}}</li>
-        <ul class="detail-ul" wx:if="{{testList[typeId].length}}">
-            <li class="detail-li" wx:for="{{testList[typeId]}}" wx:key="index" bindtap="gotoDetail" data-testType="{{item.assessmentType}}" data-index="{{index}}">
+        <my-chooseCoach topHeight="{{1}}" typeId="{{typeId}}" userID="{{userId}}" wx:if="{{testList.length >0}}"></my-chooseCoach>
+        <ul class="detail-ul" wx:if="{{testList.length >0}}">
+            <li class="detail-li" wx:for="{{testList}}" wx:key="index" bindtap="gotoDetail" data-testType="{{item.assessmentType}}" data-index="{{index}}">
                 <image src="/images/icons/icon-assessment{{type}}.png" class="li-btn" />
                 <view class="detail-li-right">
                     <view class="detail-li-title">
@@ -21,6 +20,6 @@
             </li>
             <!-- <li wx:for="{{100}}">2222222222222222</li> -->
         </ul>
-        <view class="no-data" wx:else>暂无数据~</view>
+        <view class="no-data no-data1" wx:else>暂无数据~</view>
     </view>
 </view>

@@ -44,8 +44,12 @@ function install(req, request) {
             return request({ url, method: 'POST', data });
         },
         // 评估测试列表
+        // getTrainersAssessmentList(data) {
+        //     const url = `${req.apiUrl}/assessment/getTrainersAssessment?assessmentType=${data}`;
+        //     return request({ url, method: 'POST', data });
+        // },
         getTrainersAssessmentList(data) {
-            const url = `${req.apiUrl}/assessment/getTrainersAssessment?assessmentType=${data}`;
+            const url = `${req.apiUrl}/assessmentClient/getTrainerAssessmentByRecord`;
             return request({ url, method: 'POST', data });
         },
         // 评估测试详情

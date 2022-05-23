@@ -103,4 +103,7 @@
     color: #222834;
     text-align: left;
 }
+.no-data1{
+    margin-top: 110rpx;
+}
 

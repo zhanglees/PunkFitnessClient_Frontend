@@ -22,14 +22,14 @@ Page({
     userId: '',
     testList: [],
     typeId: 0, //获取数据分类type
-    // userId: '',
+    userId: '052fdb81-8d72-40fd-ab1b-b8496d16aaab',
     // coachList:[],
-    coachId:''
+    coachId: ''
 
   },
 
   // 子传父
-  selcetCoach (e) {
+  selcetCoach(e) {
     this.setData({
       coachId: e.detail.coachName
     })
@@ -45,22 +45,29 @@ Page({
   watch: {
     typeId: function (newVal, oldVal) {
       console.log(newVal, oldVal);
-      this.getTestList(newVal)
+      this.getTestList(newVal,this.data.userId)
       // this.getCoachAllList()
     }
   },
 
   // 获取列表
-  getTestList(typeId) {
-    app.req.api.getTrainersAssessmentList(typeId).then((res) => {
+  getTestList(typeId,userId) {
+    // const { userId } = this.data
+    app.req.api.getTrainersAssessmentList({
+      "assessmentType": typeId,
+      "userId": userId
+      // "assessmentType": typeId,
+      // "userId": '09cc20bc-3e3e-46bd-bcb2-d7a85bbf68be'
+
+    }).then((res) => {
       console.log('测试列表', res);
       this.setData({
-        [`testList[${typeId}]`]: res.data
+        testList: res.data
       })
     })
   },
 
- 
+
 
   //查看详情
   gotoDetail(e) {
@@ -100,7 +107,7 @@ Page({
   },
   onShow() {
     // this.getList();
-    this.getTestList(0)
+    this.getTestList(0,this.data.userId)
     // this.getCoachAllList()
   }
 })
