@@ -21,6 +21,10 @@ Component({
         this.getCoachList();
       }
     },
+    userId:{
+      type: String,
+      value: '',
+    }
 
   },
 
@@ -44,8 +48,8 @@ Component({
   methods: {
     // 获取教练列表
     getCoachList() {
-      const { userId } = this.data
-      const { typeId } = this.properties
+      // const { userId } = this.data
+      const { typeId ,userId} = this.properties
       app.req.api.getTrainerAssessmentByRecordList({
         userId,
         assessmentType: typeId || 0

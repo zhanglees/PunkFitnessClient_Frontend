@@ -22,7 +22,7 @@ Page({
     userId: '',
     testList: [],
     typeId: 0, //获取数据分类type
-    userId: '052fdb81-8d72-40fd-ab1b-b8496d16aaab',
+    // userId: '',
     // coachList:[],
     coachId:''
 
@@ -39,7 +39,7 @@ Page({
 
   onLoad(options) {
     watch.setWatcher(this);
-    // this.data.userId = wx.getStorageSync('userInfo').id;
+    this.data.userId = wx.getStorageSync('userInfo').id;
     // this.getList();
   },
   watch: {
