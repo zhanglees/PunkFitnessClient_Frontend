@@ -21,22 +21,38 @@ Page({
         }, {
             title: '未上课时',
             id: 'last'
-        }]
+        }],
+        isLogin: false
     },
 
 
     // 跳转到课时详情
     gotoDeatil(e) {
-        console.log('e', e.currentTarget.dataset.index);
-        wx.navigateTo({
-            url: `/pages/training/stagelist/stagelist?type=record&i=${e.currentTarget.dataset.index}`
-        })
+        if (this.data.userInfo.phone) {
+            console.log('e', e.currentTarget.dataset.index);
+            wx.navigateTo({
+                url: `/pages/training/stagelist/stagelist?type=record&i=${e.currentTarget.dataset.index}`
+            })
+        } else {
+            wx.redirectTo({
+                url: '/pages/login/login?back=/pages/mine/mine',
+            })
+        }
     },
 
     /**
      * Lifecycle function--Called when page load
      */
-    onLoad: function(options) {},
+    onLoad: function(options) {
+        console.log('用户：', wx.getStorageSync('userInfo'))
+        const userInfo = wx.getStorageSync('userInfo');
+        this.setData({
+            userInfo,
+        })
+        if (userInfo.phone) {
+            this.getMemberInfo();
+        }
+    },
     getMemberInfo() {
         app.req.api.getUserById({ id: this.data.userInfo.id }).then(res => {
             console.log('返回：', res.data);
@@ -58,9 +74,9 @@ Page({
         })
     },
     gotoLogin() {
-        app.globalData.backUrl = '/pages/mine/mine';
+        // app.globalData.backUrl = '/pages/mine/mine';
         wx.navigateTo({
-            url: '/pages/login/login',
+            url: '/pages/login/login?back=/pages/mine/mine',
         })
     },
     /**
@@ -74,14 +90,6 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow: function() {
-        console.log('用户：', wx.getStorageSync('userInfo'))
-        const userInfo = wx.getStorageSync('userInfo');
-        this.setData({
-            userInfo,
-        })
-        if (userInfo) {
-            this.getMemberInfo();
-        }
 
     },
 
