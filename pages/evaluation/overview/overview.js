@@ -22,7 +22,7 @@ Page({
     userId: '',
     testList: [],
     typeId: 0, //获取数据分类type
-    userId: '052fdb81-8d72-40fd-ab1b-b8496d16aaab',
+    userId: '09cc20bc-3e3e-46bd-bcb2-d7a85bbf68be',
     // coachList:[],
     coachId: ''
 
@@ -72,7 +72,8 @@ Page({
   //查看详情
   gotoDetail(e) {
     const { index, testtype } = e.currentTarget.dataset
-    const data = this.data.testList[testtype][index];
+    // console.log('-----------',this.data.testList[index]);
+    const data = this.data.testList[index];
     // console.log('评估测试', e, testtype,data);
 
     // wx.navigateTo({
