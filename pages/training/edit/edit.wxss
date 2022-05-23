@@ -1,49 +1,51 @@
 /* pages/training/edit/edit.wxss */
+
 .editUl {
-  width: 100%;
+    width: 100%;
 }
 
 .editUl li:first-child {
-  margin-top: 116rpx;
+    /* margin-top: 116rpx; */
 }
 
 .editLi {
-  margin: 32rpx 32rpx 20rpx 32rpx;
-  border-bottom: 1px solid #F1F1F3;
+    margin: 32rpx 32rpx 20rpx 32rpx;
+    border-bottom: 1px solid #F1F1F3;
 }
 
 .top-item {
-  /* width: 100%; */
-  line-height: 40rpx;
-  font-size: 32rpx;
-  font-weight: 500;
-  color: #222834;
-  line-height: 40rpx;
-  word-break: break-all;
-  word-wrap: break-word;
-  text-align: left;
-  margin-bottom: 20rpx;
+    /* width: 100%; */
+    line-height: 40rpx;
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #222834;
+    line-height: 40rpx;
+    word-break: break-all;
+    word-wrap: break-word;
+    text-align: left;
+    margin-bottom: 20rpx;
 }
 
 .bottom-item {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .left-time {
-  font-size: 24rpx;
-  font-weight: 400;
-  color: #707784;
-  line-height: 32rpx;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #707784;
+    line-height: 32rpx;
 }
 
-.right-container{
- display: flex;
+.right-container {
+    display: flex;
 }
+
 .right-img {
-  width: 40rpx;
-  height: 40rpx;
-  border: 1px solid rgba(34, 40, 52, 0.03);
-  margin:-4rpx 8rpx 24rpx 0;
-  border-radius: 50%;
+    width: 40rpx;
+    height: 40rpx;
+    border: 1px solid rgba(34, 40, 52, 0.03);
+    margin: -4rpx 8rpx 24rpx 0;
+    border-radius: 50%;
 }

@@ -6,6 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        list: null,
         editData: [{
                 id: 0,
                 className: '徒手胸肌撕裂者训练入门',
@@ -39,7 +40,6 @@ Page({
     },
     getData() {
         app.req.api.getUserExperienceLessonDetail({ userId: this.userId }).then(res => {
-            console.log(8888, res.data)
             this.setData({
                 list: res.data || []
             })

@@ -1,9 +1,9 @@
 <!--pages/training/edit/edit.wxml-->
 <wxs src="/utils/util.wxs" module="utils" />
 <view class="container">
-    <my-chooseCoach></my-chooseCoach>
+    <!-- <my-chooseCoach></my-chooseCoach> -->
 
-    <ul class="editUl">
+    <ul class="editUl" wx:if="{{list && list.length}}">
         <li wx:for="{{list}}" wx:key="index" class="editLi" bindtap="gotoDetail" data-index="{{index}}">
             <view class="top-item">{{item.sectionName}}</view>
             <view class="bottom-item">
@@ -16,5 +16,6 @@
         </li>
         <!-- <li wx:for="{{100}}">00000000000000000000000</li> -->
     </ul>
+    <view class="no-data" wx:elif="list">暂无数据~</view>
 
 </view>
