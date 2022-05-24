@@ -67,7 +67,7 @@
             <wxml-to-canvas class="widget" width="375" height="{{imgHeight}}"></wxml-to-canvas>
         </view>
     </view>
-    <video src="{{viewVideoUrl}}" id="viewVideo" bindfullscreenchange="leaveVideo" class="video-shadow"></video>
+    <video src="{{viewVideoUrl}}" direction="{{viewVideoDirection}}" id="viewVideo" bindfullscreenchange="leaveVideo" class="video-shadow"></video>
     <!-- 
     <view class="share-dialog" title="" show="{{dialogShow}}" buttons="{{false}}" mask>    
         <view class="share-view">

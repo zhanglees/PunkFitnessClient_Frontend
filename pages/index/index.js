@@ -29,14 +29,11 @@ Page({
         logsLen: 0
     },
 
-    onLoad(options) {
+    onLoad(options) {},
+    onShow() {
         const userInfo = wx.getStorageSync("userInfo");
         if (userInfo) {
             this.data.userInfo = userInfo;
-        }
-    },
-    onShow() {
-        if (this.data.userInfo) {
             this.getLogs(this.data.userInfo.id);
         }
     },

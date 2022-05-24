@@ -45,13 +45,6 @@ Page({
      */
     onLoad: function(options) {
         console.log('用户：', wx.getStorageSync('userInfo'))
-        const userInfo = wx.getStorageSync('userInfo');
-        this.setData({
-            userInfo,
-        })
-        if (userInfo.phone) {
-            this.getMemberInfo();
-        }
     },
     getMemberInfo() {
         app.req.api.getUserById({ id: this.data.userInfo.id }).then(res => {
@@ -90,7 +83,13 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow: function() {
-
+        const userInfo = wx.getStorageSync('userInfo');
+        this.setData({
+            userInfo,
+        })
+        if (userInfo.phone) {
+            this.getMemberInfo();
+        }
     },
 
     /**

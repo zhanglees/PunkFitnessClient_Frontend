@@ -77,9 +77,15 @@ Page({
                 if (!userInfo.headImg) {
                     this.showGetInfo();
                 } else {
-                    wx.redirectTo({
-                        url: _this.data.backUrl,
-                    })
+                    if (_this.data.backUrl.includes('mine')) {
+                        wx.switchTab({
+                            url: _this.data.backUrl,
+                        })
+                    } else {
+                        wx.redirectTo({
+                            url: _this.data.backUrl,
+                        })
+                    }
                 }
             } else {
                 wx.showModal({
@@ -122,16 +128,29 @@ Page({
                             }).then(res => {
                                 const data = res.data;
                                 wx.setStorageSync('userInfo', {..._this.data.userInfo, ...data });
-                                wx.redirectTo({
-                                    url: _this.data.backUrl,
-                                })
+
+                                if (_this.data.backUrl.includes('mine')) {
+                                    wx.switchTab({
+                                        url: _this.data.backUrl,
+                                    })
+                                } else {
+                                    wx.redirectTo({
+                                        url: _this.data.backUrl,
+                                    })
+                                }
                             })
                         },
                         fail: e => {
                             // 用户拒绝授权
-                            wx.redirectTo({
-                                url: _this.data.backUrl,
-                            })
+                            if (_this.data.backUrl.includes('mine')) {
+                                wx.switchTab({
+                                    url: _this.data.backUrl,
+                                })
+                            } else {
+                                wx.redirectTo({
+                                    url: _this.data.backUrl,
+                                })
+                            }
                         },
                         complete: e => {
                             // 接口调用结束（调用成功、失败都会执行）
@@ -142,8 +161,8 @@ Page({
         });
     },
     goback: function() {
-        wx.redirectTo({
-            url: this.data.backUrl.includes('mine') ? this.data.backUrl : '/pages/index/index',
+        wx.switchTab({
+            url: this.data.backUrl.includes('mine') ? '/pages/mine/mine' : '/pages/index/index',
         })
     },
     /**

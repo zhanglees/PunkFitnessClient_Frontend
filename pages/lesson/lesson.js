@@ -311,7 +311,8 @@ Page({
         const index = e.currentTarget.dataset.index;
         const that = this;
         this.setData({
-            viewVideoUrl: this.data.actionList[index].videourl || this.data.actionList[index].video
+            viewVideoUrl: this.data.actionList[index].videourl || this.data.actionList[index].video,
+            viewVideoDirection: this.data.actionList[index].videoWidth ? '0' : '90'
         });
         this.videoContext.requestFullScreen()
         setTimeout(() => {
