@@ -15,11 +15,12 @@ Page({
      */
     onLoad: function(options) {
         const { type, i } = options; //用来区分是训练规划还是训练记录,记录则每条跳转到该阶段对应的课程，规划则每条跳转到该阶段的详情
-        console.log('options11111111', i);
+        //i用来判断我的页面过来的课程状态 
+        // console.log('options11111111', i);
         console.log('type', type);
         // const coachId = wx.getStorageSync('mp-req-user-id');
         wx.setNavigationBarTitle({
-            title: '训练' + { plan: '规划', record: '记录' }[type],
+            title: '训练' + (type == 'plan' ? '规划' : '记录'),
         })
         this.setData({
             //     userId,
