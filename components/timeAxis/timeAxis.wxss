@@ -13,6 +13,8 @@
     z-index: 1;
     position: relative;
     border: 4rpx solid #f0f2f5;
+    margin-bottom: 8rpx;
+    margin-left: 16rpx
   }
   .timeAsix .itemTimeZ:first-child .leftLine{
     background: transparent;
@@ -23,7 +25,7 @@
   }
   .leftContent{
     font-size: 28rpx;
-    font-family: Roboto-Medium, Roboto;
+    font-family: Roboto-Medium;
     font-weight: 500;
     color: #222834;
     line-height: 36rpx;
@@ -36,20 +38,28 @@
     margin-bottom: 32rpx;
     box-sizing: border-box;
     padding: 24rpx 32rpx;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    /* display: flex; */
+    /* align-items: flex-start; */
+    /* justify-content: space-between; */
   }
-  .rightContent-left{
+.rightContent-top{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6rpx
+}
+
+
+
+  /* .rightContent-left{
     flex: 1;
-  }
-  .rightContent-right{
+  } */
+  /* .rightContent-right{
     flex: 1;
     display: flex;
     flex-direction: column;
     text-align: right;
     align-items: flex-end;
-  }
+  } */
   .outTime{
     font-size: 24rpx;
     color: #222834;
@@ -57,11 +67,17 @@
     margin-bottom: 14rpx;
   }
   .outTitle{
+    display: block;
+    width: 422rpx;
     font-size: 28rpx;
     color: #222834;
     line-height: 36rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .coach-info{
+    float: right;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -96,10 +112,11 @@
     content: '';
     display: block;
     position: absolute;
-    background: #C5D0F1;
+    background: rgb(56,109,243,0.6 );
+    border-radius: 2rpx;
     width: 4rpx;
     height: calc(100% - 176rpx);
     z-index: 0;
     top: 88rpx;
-    left: 88rpx;
+    left: 101rpx;
   }

@@ -1,14 +1,16 @@
 /**memberinfo.wxss**/
-.container{
+.container {
   background-color: #eee;
 }
-.userserver{
-  background: #fff;
+
+.userserver {
+  background: #FAFAFC;
   width: 100%;
   padding: 0 30rpx;
   box-sizing: border-box;
 }
-.member-title{
+
+.member-title {
   font-size: 32rpx;
   font-weight: 500;
   color: #222834;
@@ -16,7 +18,9 @@
   position: relative;
   padding-left: 50rpx;
 }
-.member-title::after, .member-title::before{
+
+.member-title::after,
+.member-title::before {
   content: "";
   display: inline-block;
   width: 28rpx;
@@ -29,19 +33,23 @@
   opacity: .8;
   vertical-align: baseline;
 }
-.member-title::before{
-    left: 0;
-    opacity: .8;
-    background: #386DF3;
+
+.member-title::before {
+  z-index: 9;
+  left: 0;
+  opacity: .8;
+  background: #386DF3;
 }
-.userserver-list{
+
+.userserver-list {
   padding: 12rpx 0;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-.userserver-li{
+
+.userserver-li {
   display: inline-block;
   /* margin-right: 20rpx; */
   margin-top: 36rpx;
@@ -57,21 +65,25 @@
   flex-direction: column;
   align-items: center;
 }
-.userserver-li-image{
+
+.userserver-li-image {
   width: 104rpx;
   height: 114rpx;
 }
-.usernews{
+
+.usernews {
   padding: 48rpx 30rpx;
   text-align: left;
   width: 100%;
   box-sizing: border-box;
-  background: #f0f2f5;
+  background: #fff;
 }
-.usernews-view{
+
+.usernews-view {
   margin-bottom: 20rpx;
 }
-.usernews-title{
+
+.usernews-title {
   color: var(--base);
   line-height: 32rpx;
   position: relative;

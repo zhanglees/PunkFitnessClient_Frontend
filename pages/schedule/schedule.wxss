@@ -52,9 +52,9 @@
 .training-status{
     width: 120rpx;
     height: 56rpx;
-    background: #386DF3;
+    background: #F1F1F5;
     border-radius: 0 12rpx 0 12rpx;
-    color: #fff;
+    color: #707784;
     font-weight: 500;
     line-height: 56rpx;
     position: absolute;
@@ -64,6 +64,6 @@
     font-size: 24rpx;
 }
 .have-done{
-    color: #BCC0C7;
-    background: #F4F4F7;
+    color: #fff;
+    background: #386DF3;
 }

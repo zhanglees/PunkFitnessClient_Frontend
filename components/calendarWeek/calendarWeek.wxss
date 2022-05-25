@@ -1,79 +1,86 @@
-/* components/calendarWeek/calendarWeek.wxss */ 
+/* components/calendarWeek/calendarWeek.wxss */
 .date-choose {
-    background: transparent;
-    overflow: hidden;
-    height: auto;
-  }
-  
-  .data-month {
-    width: 100%;
-    align-items: center;
-    padding: 28rpx 0 10rpx 32rpx;
-    text-align: left;
-    font-size: 32rpx;
-    font-family: Roboto-Medium, Roboto;
-    font-weight: 500;
-    color: #386DF3;
-  }
-  
-  .date-choose-swiper {
-    flex-grow: 1;
-    height: 90rpx;
-  }
-  
-  .swiper-item {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .weekday,
-  .dateday {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
-    flex-grow: 1;
-  }
-  
-  .week,
-  .day {
-    width: 14.286%;
-    flex-basis: 14.286%;
-  }
-  
-  .week {
-    font-size: 24rpx;
-    color: #BCC0C7;
-    line-height: 34px;
-  }
-  
+  background: transparent;
+  overflow: hidden;
+  height: auto;
+}
+
+.data-month {
+  width: 100%;
+  align-items: center;
+  padding: 28rpx 0 10rpx 32rpx;
+  text-align: left;
+  font-size: 32rpx;
+  font-family: Roboto-Medium;
+  font-weight: 500;
+  color: #386DF3;
+}
+
+.date-choose-swiper {
+  flex-grow: 1;
+  height: 90rpx;
+}
+
+.swiper-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.weekday,
+.dateday {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.week,
+.day {
+  width: 14.286%;
+  flex-basis: 14.286%;
+  font-family: Roboto-Regular;
+}
+
+.week {
+  font-size: 24rpx;
+  color: #BCC0C7;
+  line-height: 34px;
+}
+
 .day text {
-    position: relative;
-    color: #707784;
-  }
-  
+  position: relative;
+  color: #707784;
+}
+
 .day .active::before {
-    /* 圈圈 */
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    height: 56rpx;
-    width: 56rpx;
-    border-radius: 56rpx;
-    background: #386DF3;
-  }
-  
-  .day text.active{
-    color: #fff;
-  }
-  .weekday .active{
-    color: #707784;
-  }
-  .day text.reds:not(.active) {
-    color: #386DF3;
-  }
-  
+  /* 圈圈 */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  height: 56rpx;
+  width: 56rpx;
+  border-radius: 56rpx;
+  background: #386DF3;
+}
+
+.day text.active {
+  color: #fff;
+}
+
+.weekday .active {
+  color: #707784;
+}
+
+.day text.reds:not(.active) {
+  color: #386DF3;
+}
+
+.data-text {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+}

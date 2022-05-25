@@ -164,8 +164,8 @@ Component({
       var dDateFormat = this.data.dateList[currentIndex].days[3].ids.split(',');
       this.setData({
         swiperCurrent: currentIndex,
-        dateMonth: dDateFormat[1] + '月',
-        dateYear: dDateFormat[0] + "年"
+        dateMonth: dDateFormat[1] ,
+        dateYear: dDateFormat[0] 
       })
     },
     // 获得日期字符串

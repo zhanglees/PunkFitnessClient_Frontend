@@ -47,8 +47,9 @@
     <view class="info-time">
         <image class="info-time-bg" src="/images/bgs/bg-mine.png" mode="widthFix" />
         <view class="info-time-content">
-            累计运动时长：
-            <text class="info-time-content-count">\r\n{{info.time || '--'}}</text> 小时
+           <text class="info-time-content-title">累计运动时长：</text> 
+            <text class="info-time-content-count">\r\n{{info.time || '--'}}</text> 
+            小时
         </view>
     </view>
 </view>

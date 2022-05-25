@@ -1,7 +1,9 @@
 <!--components/calendarWeek/calendarWeek.wxml-->
 <view class="date-choose shrink border-bottom10">
   <picker mode="date" bindchange="tiaotime">
-    <view class="data-month">{{dateYear}}{{dateMonth}}</view>
+    <view class="data-month">{{dateYear}} <text class="data-text">年</text>
+      {{dateMonth}}
+      <text class="data-text">月</text></view>
   </picker>
   <view class="weekday">
     <block wx:for-item="weekday" wx:for="{{dateListArray}}" wx:key="index">
