@@ -8,7 +8,7 @@ Page({
   data: {
     positiveList: {},//正面
     sideList: {}, //侧面
-    userId: '09cc20bc-3e3e-46bd-bcb2-d7a85bbf68be',
+    userId: '052fdb81-8d72-40fd-ab1b-b8496d16aaab',
     coachId: 'f15371d7-975b-4ae9-98fb-df54453ef0a5',
     createTime: '2022-01-04 16:06:43',
     assessmentType: 0,

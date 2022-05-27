@@ -22,7 +22,7 @@ Page({
     userId: '',
     testList: [],
     typeId: 0, //获取数据分类type
-    userId: '09cc20bc-3e3e-46bd-bcb2-d7a85bbf68be',
+    userId: '052fdb81-8d72-40fd-ab1b-b8496d16aaab',
     // coachList:[],
     coachId: ''
 
