@@ -4,24 +4,37 @@
   <ul wx:if="{{list.length>0}}">
     <li class="left-container">
       <!-- <view class="img-container" > -->
-        <image class="img-item img-container" style=" margin-bottom: -9rpx;" src="{{sideList.currentUserResource.resourceUrl}}" mode="scaleToFill"> 
-          <text class="test-style">侧面</text>
-        </image>
+      <image class="img-item img-container" style=" margin-bottom: -9rpx;"
+        src="{{sideList.currentUserResource.resourceUrl}}" mode="scaleToFill">
+        <text class="test-style">侧面</text>
+      </image>
       <!-- </view> -->
-      <view class="text-container" wx:for="{{sideList.feedbacks}}" wx:key="index" style="border-right: 1px soild #f1f1f3; ">
+      <view class="text-container" wx:for="{{sideList.feedbacks}}" wx:key="index"
+        style="border-right: 1px soild #f1f1f3; ">
         <text class="text-top">{{item.feedbackItem}}</text>
         <text class="text-bottom">{{item.childFeedbacks[0].feedbackItem ||'--'}}</text>
+      </view>
+      <view class="text-container"  style="border-right: 1px soild #f1f1f3; border-bottom: 1px soild #f1f1f3; margin-bottom: 160rpx;">
+        <text class="text-top">教练备注</text>
+        <text class="text-bottom">{{sideList.coachRemark ||'--'}}</text>
       </view>
     </li>
     <li class="left-container">
       <!-- <view class="img-container"> -->
-        <image class="img-item  img-container"  src="{{positiveList.currentUserResource.resourceUrl}}" style=" margin-bottom: -9rpx;">
-          <text class="test-style">正面</text>
-        </image>    
+      <image class="img-item  img-container" src="{{positiveList.currentUserResource.resourceUrl}}"
+        style=" margin-bottom: -9rpx;">
+        <text class="test-style">正面</text>
+      </image>
       <!-- </view> -->
-      <view class="text-container" wx:for="{{positiveList.feedbacks}}" wx:key="index" style="border-left: 1px soild #f1f1f3; ">
+      <view class="text-container" wx:for="{{positiveList.feedbacks}}" wx:key="index"
+        style="border-left: 1px soild #f1f1f3; ">
         <text class="text-top">{{item.feedbackItem}}</text>
         <text class="text-bottom">{{item.childFeedbacks[0].feedbackItem ||'--'}}</text>
+
+      </view>
+      <view class="text-container"  style="border-right: 1px soild #f1f1f3; border-bottom: 1px soild #f1f1f3; margin-bottom: 160rpx;">
+        <text class="text-top">教练备注</text>
+        <text class="text-bottom">{{positiveList.coachRemark ||'--'}}</text>
       </view>
     </li>
   </ul>
