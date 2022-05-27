@@ -29,15 +29,18 @@ Page({
         logsLen: 0
     },
 
-    onLoad(options) {
-        const userInfo = wx.getStorageSync("userInfo");
-        if (userInfo) {
-            this.data.userInfo = userInfo;
-        }
-    },
+    onLoad(options) {},
     onShow() {
-        if (this.data.userInfo) {
+        const userInfo = wx.getStorageSync('userInfo');
+        if (userInfo && userInfo.phone) {
+            this.data.userInfo = userInfo;
             this.getLogs(this.data.userInfo.id);
+        } else {
+            this.setData({
+                logs: [],
+                logsLen: 0,
+                userInfo: null
+            })
         }
     },
 

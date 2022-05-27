@@ -46,8 +46,22 @@ Page({
     onLoad: function(options) {
         console.log('用户：', wx.getStorageSync('userInfo'))
     },
+    getUserInfo() {
+        const id = this.data.id;
+        app.req.api.getUserById({
+            id
+        }).then(res => {
+            let data = res.data;
+            if (!data.headImg.includes('https://')) {
+                data.headImg = 'https://' + data.headImg
+            }
+            this.setData({
+                userInfo: data
+            })
+        })
+    },
     getMemberInfo() {
-        app.req.api.getUserById({ id: this.data.userInfo.id }).then(res => {
+        app.req.api.getUserById({ id: this.data.id }).then(res => {
             console.log('返回：', res.data);
             const { trainClassNumbers, singInNum } = res.data;
             this.setData({
@@ -84,11 +98,15 @@ Page({
      */
     onShow: function() {
         const userInfo = wx.getStorageSync('userInfo');
-        this.setData({
-            userInfo,
-        })
-        if (userInfo.phone) {
+        if (userInfo && userInfo.phone) {
+            this.data.id = userInfo.id;
+            this.getUserInfo();
             this.getMemberInfo();
+        } else {
+            this.setData({
+                userInfo: {},
+                info: {}
+            })
         }
     },
 

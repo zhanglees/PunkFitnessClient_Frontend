@@ -1,7 +1,7 @@
 <!--pages/mine/mine.wxml-->
 <view class="container">
     <view class="top-layout">
-        <view class="userinfo" bindtap="{{userInfo.phone ? '' : 'gotoLogin'}}">
+        <view class="userinfo" bindtap="{{userInfo.phone ? 'gotoSetting' : 'gotoLogin'}}">
             <view class="userinfo-avatar">
                 <image src="{{userInfo.headImg || '/images/avatar.png'}}" class="userinfo-avatar-img"></image>
             </view>
@@ -39,17 +39,15 @@
         </view>
     </view>
     <view class="info-list">
-        <view class="info-item" wx:for="{{infoList}}" wx:key="index"  bindtap="gotoDeatil" data-index="{{index}}">
-            <text class="info-item-v">{{info[item.id] || '--'}}</text>
-            {{item.title}}
+        <view class="info-item" wx:for="{{infoList}}" wx:key="index" bindtap="gotoDeatil" data-index="{{index}}">
+            <text class="info-item-v">{{info[item.id] || '--'}}</text> {{item.title}}
         </view>
     </view>
     <view class="info-time">
         <image class="info-time-bg" src="/images/bgs/bg-mine.png" mode="widthFix" />
         <view class="info-time-content">
-           <text class="info-time-content-title">累计运动时长：</text> 
-            <text class="info-time-content-count">\r\n{{info.time || '--'}}</text> 
-            小时
+            <text class="info-time-content-title">累计运动时长：</text>
+            <text class="info-time-content-count">\r\n{{info.time || '--'}}</text> 小时
         </view>
     </view>
 </view>

@@ -84,6 +84,26 @@ function install(req, request) {
             const url = `${req.apiUrl}/experienceLessonClient/getUserExperienceLessonDetail`;
             return request({ url, method: 'GET', data });
         },
+
+        uploadFile(data) {
+            console.log('上传参数：', data.formData)
+            wx.uploadFile({
+                url: `${req.apiUrl}/resource/uploadFile`,
+                filePath: data.path,
+                name: 'files',
+                formData: data.formData,
+                header: { 'content-type': 'multipart/form-data' },
+                complete(res) {
+                    //do something
+                    console.log('图片上传完：', res.data)
+                    data.success && data.success(JSON.parse(res.data));
+                }
+            })
+        },
+        modifyUserInfoById(data) {
+            const url = `${req.apiUrl}/user/modifyUserInfoById`;
+            return request({ url, method: 'POST', data });
+        },
     };
 }
 

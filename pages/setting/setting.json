@@ -1,6 +1,7 @@
 {
-  "usingComponents": {
-    "mp-cell": "weui-miniprogram/cell/cell"
-  },
-  "navigationBarTitleText": "资料设置"
+    "usingComponents": {
+        "mp-cell": "weui-miniprogram/cell/cell",
+        "mp-icon": "weui-miniprogram/icon/icon"
+    },
+    "navigationBarTitleText": "账号信息"
 }
