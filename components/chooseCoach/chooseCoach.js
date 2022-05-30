@@ -80,6 +80,11 @@ Component({
         isShow: false
       })
     },
+    changeIsShow(){
+      this.setData({
+        isShow: false
+      })
+    }
 
   },
 

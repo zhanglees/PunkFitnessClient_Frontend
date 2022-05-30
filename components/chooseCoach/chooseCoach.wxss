@@ -83,6 +83,7 @@ ul li {
   height: 1800rpx;
   background-color: rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
+  z-index: 9;
 }
 
 .footerStrip {

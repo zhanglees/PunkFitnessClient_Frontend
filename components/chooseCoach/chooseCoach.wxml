@@ -10,7 +10,7 @@
 </view>
 <view class="tancengContainer">
   <!-- -->
-  <view class='pickerview' hidden="{{ !isShow}}" >
+  <view class='pickerview' hidden="{{ !isShow}}" bindtap="changeIsShow">
  <ul class="tanceng"  wx:if="{{isShow}}" style="z-index: 9;" >
    <li wx:if="{{coachList.length==0}}">暂无教练</li>
    <li wx:for="{{coachList}}" wx:key="id" bindtap="selcetSingle" data-test="{{item}}" >{{item.coachName}}</li>
