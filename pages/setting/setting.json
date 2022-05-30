@@ -3,5 +3,6 @@
         "mp-cell": "weui-miniprogram/cell/cell",
         "mp-icon": "weui-miniprogram/icon/icon"
     },
-    "navigationBarTitleText": "账号信息"
+    "navigationBarTitleText": "账号信息",
+    "navigationBarBackgroundColor": "#FAFAFC"
 }

@@ -10,6 +10,9 @@
                 <text wx:else>{{formData[item.id]}}{{item.unit || ''}}</text>
             </block>
             <text wx:else class="v-placeholder">--</text>
+            <view slot="footer" wx:if="{{item.id=='headImg'}}">
+                <image class="img-icon" src="/images/icons/arrow.png"></image>
+            </view>
         </mp-cell>
     </view>
     <!-- <mp-half-screen-dialog extClass="change-dialog" bindbuttontap="buttontap" show="{{show}}" title="{{changeItem.name}}" buttons="{{buttons}}">

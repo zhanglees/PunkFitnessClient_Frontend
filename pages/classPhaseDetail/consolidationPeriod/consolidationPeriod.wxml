@@ -6,7 +6,7 @@
     </view>
 </view>
 
-<ul class="detail-ul" >
+<ul class="detail-ul"  wx:if="{{courseData[type].length>0}}">
   <!-- <li class="detail-li" wx:for="{{questionnaire}}" wx:key="index">
       <view class="detail-li-q">{{index+1}}. {{item.q}}</view>
       <view class="detail-li-a">{{item.a}}</view>
@@ -22,7 +22,7 @@
       </view> 
   </li>
 </ul>
-<!-- <view class="no-data" wx:else>暂无数据~</view> -->
+<view class="no-data" wx:else>暂无数据~</view>
 
 </view>
 

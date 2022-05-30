@@ -24,10 +24,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const {userTrainitemId, trainingPlanId, classId, coachId, className, coachName} = options;
+    const {userTrainitemId, trainingPlanId, classId, coachId, className, coachName ,classIndex} = options;
     const userId = wx.getStorageSync('userInfo').id;
     wx.setNavigationBarTitle({
       title: className,
+    })
+    this.setData({
+      type:classIndex
     })
     this.getClasses(userTrainitemId, trainingPlanId, classId, coachId, userId, coachName)
   },
@@ -44,9 +47,9 @@ Page({
     app.req.api.getUserClassSection({
         classId,                         
         trainingPlanId,                   
-        userId,                              
+        userId:'',                              
         userTrainitemId,                     
-        coachId
+        coachId:''
     }).then(res=>{
       const data = res.data;
       let arr1=[], arr2=[];
