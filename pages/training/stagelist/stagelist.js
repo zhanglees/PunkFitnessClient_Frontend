@@ -8,12 +8,13 @@ Page({
         type: 'plan', //默认是训练计划进来
         list: [],
         classIndex: 0
+
     },
 
     /**
      * Lifecycle function--Called when page load
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         const { type, i } = options; //用来区分是训练规划还是训练记录,记录则每条跳转到该阶段对应的课程，规划则每条跳转到该阶段的详情
         //i用来判断我的页面过来的课程状态 
         // console.log('options11111111', i);
@@ -70,8 +71,9 @@ Page({
     /***查看该阶段课程列表 */
     gotoDetail(e) {
         const index = e.currentTarget.dataset.index;
-        const { trainingPlanId, coachId, classId, userTrainitemId, className, coachName } = this.data.list[index];
-        const url = (this.data.type == 'plan' ? '/pages/training/stagedetail/stagedetail?' : `/pages/classPhaseDetail/consolidationPeriod/consolidationPeriod?userTrainitemId=${userTrainitemId}&className=${className}&coachName=${coachName}`) + '&classId=' + classId + '&trainingPlanId=' + trainingPlanId + '&coachId=' + coachId;
+        const { trainingPlanId, coachId, classId, userTrainitemId, className, coachName, } = this.data.list[index];
+        const { classIndex } = this.data
+        const url = (this.data.type == 'plan' ? '/pages/training/stagedetail/stagedetail?' : `/pages/classPhaseDetail/consolidationPeriod/consolidationPeriod?userTrainitemId=${userTrainitemId}&className=${className}&coachName=${coachName}`) + '&classId=' + classId + '&trainingPlanId=' + trainingPlanId + '&coachId=' + coachId + '&classIndex=' + classIndex;
 
         console.log('url:', url);
         wx.navigateTo({
@@ -83,49 +85,49 @@ Page({
     /**
      * Lifecycle function--Called when page is initially rendered
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * Lifecycle function--Called when page show
      */
-    onShow: function() {
+    onShow: function () {
 
     },
 
     /**
      * Lifecycle function--Called when page hide
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * Lifecycle function--Called when page unload
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * Page event handler function--Called when user drop down
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * Called when page reach bottom
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * Called when user click on the top right corner to share
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })
