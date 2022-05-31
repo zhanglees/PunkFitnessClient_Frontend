@@ -1,22 +1,22 @@
 <!--memberinfo.wxml-->
 <view class="container">
-  <view class="userserver">
-    <ul class="userserver-list">
-      <li class="userserver-li" wx:for="{{serverList}}" wx:key="name" data-link="{{item.link}}" bindtap="gotoServer">
-        <image class="userserver-li-image" src="/images/main/menu{{index}}@3x.png" mode="cover"></image>
-        {{item.name}}
-      </li>
-    </ul>
-  </view>
-  <view class="usernews" wx-if="{{logs && logsLen}}">
-    <view class="member-title">
-        我的动态
+    <view class="userserver">
+        <ul class="userserver-list">
+            <li class="userserver-li" wx:for="{{serverList}}" wx:key="name" data-link="{{item.link}}" bindtap="gotoServer">
+                <image class="userserver-li-image" src="/images/main/menu{{index}}@3x.png" mode="cover"></image>
+                {{item.name}}
+            </li>
+        </ul>
     </view>
-    <view class='usernews-view'> 
-      <view wx:for="{{logs}}" wx:key="key" wx:for-index="key"  wx:for-item="value">
-        <view class="usernews-title">{{key}}</view>
-        <timeAxis axisArr="{{value}}"></timeAxis>
-      </view>
+    <view class="usernews" wx-if="{{logs && logsLen}}">
+        <view class="member-title">
+            <image src="/images/icons/yuandian.svg" class="title-icon" />我的动态
+        </view>
+        <view class='usernews-view'>
+            <view wx:for="{{logs}}" wx:key="key" wx:for-index="key" wx:for-item="value">
+                <view class="usernews-title">{{key}}</view>
+                <timeAxis axisArr="{{value}}"></timeAxis>
+            </view>
+        </view>
     </view>
-  </view>
 </view>

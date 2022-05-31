@@ -17,10 +17,17 @@
     color: #222834;
     line-height: 40rpx;
     position: relative;
-    padding-left: 50rpx;
+    /* padding-left: 50rpx; */
 }
 
-.member-title::after,
+.member-title .title-icon {
+    height: 28rpx;
+    width: 42rpx;
+    margin-right: 8rpx;
+}
+
+
+/* .member-title::after,
 .member-title::before {
     content: "";
     display: inline-block;
@@ -40,7 +47,7 @@
     left: 0;
     opacity: .8;
     background: #386DF3;
-}
+} */
 
 .userserver-list {
     padding: 12rpx 0;
