@@ -105,5 +105,5 @@
 }
 
 .no-data1 {
-    margin-top: 110rpx;
+    margin-top: calc(50% + 110rpx);
 }

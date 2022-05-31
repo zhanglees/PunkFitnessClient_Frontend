@@ -1,34 +1,40 @@
 /**app.wxss**/
-page{
-  --base:#4182E9;
-  --base-light:#5DA0E6;
-  --base-gradient: linear-gradient(#5DA0E6, #4182E9);
-  /* --base-gradient: linear-gradient(rgba(93, 160, 230, .2), rgba(65, 130, 233 .2)); */
-  --base-bg: rgba(0, 141, 234, .1);
+
+page {
+    --base: #4182E9;
+    --base-light: #5DA0E6;
+    --base-gradient: linear-gradient(#5DA0E6, #4182E9);
+    /* --base-gradient: linear-gradient(rgba(93, 160, 230, .2), rgba(65, 130, 233 .2)); */
+    --base-bg: rgba(0, 141, 234, .1);
 }
+
 .container {
-  height: 100%;
-  /* display: flex;
+    height: 100%;
+    /* display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between; */
-  box-sizing: border-box;
-  position: relative;
-  font-size: 28rpx;
-  color: #333;
-} 
-.page-form{
-  width: 100%;
-  padding: 10rpx 10rpx 20rpx;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 28rpx;
+    color: #333;
 }
-.container .form-btn-confirm{
-  background: var(--base);
-  border-radius: 10rpx;
-  color: #fff;
+
+.page-form {
+    width: 100%;
+    padding: 10rpx 10rpx 20rpx;
 }
-.container .form-btn-confirm:hover{
-  background: var(--base);
+
+.container .form-btn-confirm {
+    background: var(--base);
+    border-radius: 10rpx;
+    color: #fff;
 }
+
+.container .form-btn-confirm:hover {
+    background: var(--base);
+}
+
 
 /* .container .toptips--weui-toptips_error{
   background: rgba(238, 238, 238, 0.8);
@@ -38,24 +44,38 @@ page{
   left: 0;
   right: 0;
 } */
+
+
 /*radio 选项框大小  */
+
 radio .wx-radio-input {
-  width: 20rpx;
-  height: 20rpx;
-  font-size: 20rpx;
+    width: 20rpx;
+    height: 20rpx;
+    font-size: 20rpx;
 }
+
+
 /*checkbox 选项框大小  */
+
 checkbox .wx-checkbox-input {
-  width: 20rpx;
-  height: 20rpx;
-  font-size: 20rpx;
+    width: 20rpx;
+    height: 20rpx;
+    font-size: 20rpx;
 }
+
+
 /*checkbox选中后样式  */
+
+
 /* checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   background: var(--base);
   border: var(--base);
 } */
+
+
 /*checkbox选中后图标样式  */
+
+
 /* checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   text-align: center;
   font-size: 20rpx;
@@ -63,55 +83,63 @@ checkbox .wx-checkbox-input {
   background: transparent;
   transform: translate(-50%, -50%) scale(1);
 } */
-.del-act-btn{
-  border-radius: 50%;
-  background: #999;
-  position: absolute;
-  right: 5%;
-  top: 5%;
-  height: 20rpx;
-  width: 20rpx;
-}
-.del-act-btn .weui-icon{
-  height: 10rpx;
-  width: 10rpx;
-  vertical-align: top;
-}
-.border-gradient{
-  border-image: var(--base-gradient);
-  border-image-slice: 10;
-}
-.btn-gradient{
-  background: var(--base-gradient);
-  color: #fff;
-  border-radius: 20rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  padding: 0 80rpx;
-  display: inline-block;
-}
-.btn-hollow-gradient{
-  border: 1px solid var(--base-light);
-  color: var(--base);
-  border-radius: 20rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  padding: 0 80rpx;
+
+.del-act-btn {
+    border-radius: 50%;
+    background: #999;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    height: 20rpx;
+    width: 20rpx;
 }
 
-.footer{
-  width: 100%;
-  position: fixed;
-  bottom: 80rpx;
-  text-align: center;
+.del-act-btn .weui-icon {
+    height: 10rpx;
+    width: 10rpx;
+    vertical-align: top;
 }
-.no-data{
-  font-size: 24rpx;
-  color: #ddd;
-  width: 100%;
-  text-align: center;
+
+.border-gradient {
+    border-image: var(--base-gradient);
+    border-image-slice: 10;
 }
-.hide{
-  position:fixed;
-  left:9000px;
+
+.btn-gradient {
+    background: var(--base-gradient);
+    color: #fff;
+    border-radius: 20rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 0 80rpx;
+    display: inline-block;
+}
+
+.btn-hollow-gradient {
+    border: 1px solid var(--base-light);
+    color: var(--base);
+    border-radius: 20rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 0 80rpx;
+}
+
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 80rpx;
+    text-align: center;
+}
+
+.no-data {
+    font-size: 24rpx;
+    color: #ddd;
+    width: 100%;
+    text-align: center;
+    margin-top: 50%;
+}
+
+.hide {
+    position: fixed;
+    left: 9000px;
 }
