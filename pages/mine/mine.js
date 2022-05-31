@@ -63,10 +63,12 @@ Page({
             }
             this.setData({
                 userInfo: data,
-                count: trainClassNumbers,
-                sign: singInNum,
-                last: trainClassNumbers - singInNum,
-                time: singInNum
+                info: {
+                    count: trainClassNumbers,
+                    sign: singInNum,
+                    last: trainClassNumbers - singInNum,
+                    time: singInNum
+                }
             })
         })
     },
