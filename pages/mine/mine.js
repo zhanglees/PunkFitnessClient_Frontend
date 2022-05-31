@@ -44,6 +44,11 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad: function(options) {
+        wx.loadFontFace({
+            family: 'Roboto-Bold',
+            source: 'url("https://www.zhangleixd.com/static/imgs/Roboto-Bold-3.ttf")',
+            success: console.log
+        })
         console.log('用户：', wx.getStorageSync('userInfo'))
     },
     getUserInfo() {
@@ -52,27 +57,17 @@ Page({
             id
         }).then(res => {
             let data = res.data;
+            const { trainClassNumbers, singInNum } = data;
             if (!data.headImg.includes('https://')) {
                 data.headImg = 'https://' + data.headImg
             }
             this.setData({
-                userInfo: data
+                userInfo: data,
+                count: trainClassNumbers,
+                sign: singInNum,
+                last: trainClassNumbers - singInNum,
+                time: singInNum
             })
-        })
-    },
-    getMemberInfo() {
-        app.req.api.getUserById({ id: this.data.id }).then(res => {
-            console.log('返回：', res.data);
-            const { trainClassNumbers, singInNum } = res.data;
-            this.setData({
-                info: {
-                    count: trainClassNumbers,
-                    sign: singInNum,
-                    last: trainClassNumbers - singInNum,
-                    time: singInNum
-                }
-            });
-            // console.log(886668, this.data.userInfoGet);
         })
     },
     gotoSetting() {
@@ -102,7 +97,6 @@ Page({
         if (userInfo && userInfo.phone) {
             this.data.id = userInfo.id;
             this.getUserInfo();
-            this.getMemberInfo();
         } else {
             this.setData({
                 userInfo: {},
