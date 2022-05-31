@@ -5,7 +5,7 @@
     <view class="lesson-list">
         <block wx:if="{{list.length}}">
             <view class="lesson-item lesson-item-stage {{((item.completeSections > 0) && (item.completeSections < item.classNum)) ? 'lesson-item-act' : ''}}" wx:for="{{list}}" wx:key="item" bindtap="gotoDetail" data-index="{{index}}">
-                <view class="lesson-item-left">
+                <!-- <view class="lesson-item-left">
                     <view class="lesson-item-name">
                         {{item.className}}
                         <view class="lesson-item-status" wx:if="{{item.status}}">进行中</view>
@@ -20,9 +20,26 @@
                         <image class="lesson-item-avatar" src="{{item.avatar || '/images/avatar.png'}}" mode="cover" />
                         <view class="lesson-item-coach">{{item.coachName}}</view>
                     </view>
+                </view> -->
+                <view class="lesson-item-top">
+                    <view class="lesson-item-name">
+                        {{item.className}}
+                        <view class="lesson-item-status" wx:if="{{item.status}}">进行中</view>
+                    </view>
+                    <view class="lesson-item-time">{{item.createTime}}</view>
+                </view>
+
+                <view class="lesson-item-bottom">
+                    <view class="lesson-item-counts">
+                        <text class="lesson-item-count">{{item.completeSections || 0}}</text> /{{item.classNum}}
+                    </view>
+                    <view class="lesson-item-bottom">
+                        <image class="lesson-item-avatar" src="{{item.avatar || '/images/avatar.png'}}" mode="cover" />
+                        <view class="lesson-item-coach">{{item.coachName}}</view>
+                    </view>
                 </view>
             </view>
         </block>
-        <view wx:else class="no-data">暂无数据</view>
+        <view wx:else class="no-data no-data1">暂无数据</view>
     </view>
 </view>

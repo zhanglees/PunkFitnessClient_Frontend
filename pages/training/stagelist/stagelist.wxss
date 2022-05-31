@@ -1,4 +1,7 @@
 /* pages/lesson/lesson.wxss */
+page {
+    position: relative;
+}
 
 .container {
     padding: 32rpx;
@@ -10,9 +13,9 @@
 } */
 
 .lesson-item {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
     flex-wrap: nowrap;
     width: 100%;
     box-sizing: border-box;
@@ -41,7 +44,11 @@
     font-size: 32rpx;
     font-weight: 500;
     color: #222834;
-    line-height: 52rpx;
+    line-height: 44rpx;
+    height: 44rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+
 }
 
 .lesson-item-time {
@@ -86,7 +93,7 @@
     font-family: Roboto-Medium, Roboto;
     font-weight: 500;
     line-height: 40rpx;
-    margin-top: 8rpx;
+    /* margin-top: 8rpx; */
     color: #BCC0C7;
 }
 
@@ -120,7 +127,7 @@
     font-size: 24rpx;
     color: #222834;
     line-height: 32rpx;
-    margin-bottom: 14rpx;
+    /* margin-bottom: 14rpx; */
 }
 
 .no-data {
@@ -129,3 +136,22 @@
     width: 100%;
     text-align: center;
 }
+
+.lesson-item-top,
+.lesson-item-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* .lesson-item-top {
+    margin-bottom: 8rpx;
+} */
+.lesson-item-bottom {
+    margin-top: 8rpx;
+}
+
+/* .no-data1 {
+    position: fixed;
+    top: 50%;
+} */
