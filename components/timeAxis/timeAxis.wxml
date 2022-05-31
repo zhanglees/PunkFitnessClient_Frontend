@@ -15,7 +15,7 @@
                 </view>
                 <view class="rightContent-bottom">
                     <view class="coach-info">
-                        <image class="avatar" src="{{item.avatar || '/images/avatar.png'}}" mode="cover" />
+                        <image class="avatar" src="{{item.caochHeadImg || '/images/avatar.png'}}" mode="cover" />
                         <text class="coach">{{item.coach}}</text>
                     </view>
                 </view>

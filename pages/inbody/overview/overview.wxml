@@ -6,8 +6,11 @@
             <view class="top-title">体重记录</view>
             <view class="top-date">{{dataTitle}}</view>
         </view>
+        <view class="chart-tooltip" wx:if="{{currentPoint.weight}}">
+            {{currentPoint.weight}}kg<text class="chart-tooltip-v">{{currentPoint.time}}</text>
+        </view>
         <view class="canvas-wrapper">
-            <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchcanvas"></canvas>
+            <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandlerr"></canvas>
         </view>
     </view>
     <view class="report-area">
@@ -29,7 +32,7 @@
                             腰臀比{{item.waistHipRatio || '--'}}
                         </view>
                     </view>
-                    <view>{{utils.timestampDate(item.createTime)}}</view>
+                    <view>{{utils.formatDate(item.createTime)}}</view>
                 </view>
             </li>
         </ul>
