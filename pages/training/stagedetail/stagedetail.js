@@ -20,6 +20,8 @@ Page({
             unit: '次',
             id: 'frequencies'
         }],
+        toggleShow: false,
+        toggleFlag: true,
         stageItems: ['训练重点', '训练项目', '训练目标'],
     },
 
@@ -46,7 +48,32 @@ Page({
             this.setData({
                 stageList: classInfos,
                 userTrainingPlan
+            }, () => {
+                Promise.all([
+                    this._getFields('#stageRemarkWrapper'),
+                    this._getFields('#stageRemark')
+                ]).then(res => {
+                    let parentWidth = res[0];
+                    let childWidth = res[1];
+                    console.log(88888, parentWidth, childWidth, (parentWidth - childWidth))
+                    if ((parentWidth - childWidth) < 0) {
+                        this.setData({
+                            toggleFlag: true,
+                            toggleShow: true
+                        })
+                    } else {
+                        this.setData({
+                            toggleShow: false
+                        })
+                    }
+                })
             })
+        })
+    },
+    expandRemark() {
+        const { toggleFlag } = this.data;
+        this.setData({
+            toggleFlag: !toggleFlag
         })
     },
     // getStageDetail(){
@@ -152,6 +179,18 @@ Page({
     //         })
     //     // })
     // },
+    _getFields(id) {
+        return new Promise((resolve, reject) => {
+            wx.createSelectorQuery().select(id).boundingClientRect().exec(function(res) {
+                if (res && res.length) {
+                    let w = res[0].width;
+                    resolve(w)
+                } else {
+                    reject()
+                }
+            })
+        })
+    },
     dataFormate(stage) {
         let classContents = stage.classContents;
         let detail = [];

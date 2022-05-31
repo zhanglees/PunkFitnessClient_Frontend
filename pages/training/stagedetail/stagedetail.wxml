@@ -56,12 +56,12 @@
                     <text class="plan-info-item-v">{{item.classNum || '--'}}</text> 节</view>
             </view>
         </view>
-        <view class="stage-remark">
+        <view class="stage-remark" id="stageRemarkWrapper">
             备注：
-            <view class="stage-remark-d">
+            <view class="stage-remark-d {{toggleShow ? (toggleFlag ? 'stage-remark-toggle':'stage-remark-expand') : ''}}" id="stageRemark">
                 {{item.coachRemarks || '无'}}
             </view>
-            <view class="stage-remark-isShow" >展开</view>
+            <view class="stage-remark-isShow" wx:if="{{toggleShow}}" bindtap="expandRemark">{{toggleFlag ? '展开' : '收起'}}</view>
         </view>
         <view class="stage-coach">
             <image class="coach-avatar" src="{{item.coachAvatar || '/images/avatar.png'}}" />{{item.coachName}}
