@@ -1,4 +1,5 @@
 /* pages/mine/mine.wxss */
+
 page {
     background-color: #FAFAFC;
 }
@@ -93,7 +94,7 @@ page {
 .info-item-v {
     display: block;
     font-size: 36rpx;
-    font-family: Roboto-Bold ;
+    font-family: Roboto-Bold;
     font-weight: bold;
     color: #222834;
     line-height: 44rpx;
@@ -123,9 +124,8 @@ page {
 .info-time-content-count {
     color: #60D481;
     font-size: 48rpx;
-    font-family: Roboto-Black;
+    font-family: Roboto-Bold, Roboto;
     font-weight: 900;
-
 }
 
 .info-time-bg {
@@ -141,4 +141,3 @@ page {
     font-size: 28rpx !important;
     font-family: PingFangSC-Medium, PingFang SC;
 }
-
