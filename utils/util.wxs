@@ -5,7 +5,7 @@ function tofixed(n, digits){
   return n.toFixed(digits);
 }
 function formatDate(date) {
-  return date ? date.match(getRegExp('[0-9]+-[0-9]+-[0-9]+')) : '--';
+  return date ? date.match(getRegExp('[0-9]+-[0-9]+-[0-9]+'))[0].replace(getRegExp('-', 'g'), '/') : '--';
 }
 function formatNumber(n) {
   n = n.toString()
@@ -13,7 +13,7 @@ function formatNumber(n) {
 }
 function timestampDate(time) {
   var t = getDate(time);
-  return t ? [t.getFullYear(), t.getMonth() + 1, t.getDate()].map(formatNumber).join('-') : '--'
+  return t ? [t.getFullYear(), t.getMonth() + 1, t.getDate()].map(formatNumber).join('/') : '--'
 }
 
 function formatHMS(date){

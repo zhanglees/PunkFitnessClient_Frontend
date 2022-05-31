@@ -1,4 +1,5 @@
 <!--pages/packageA/training/stagelist/stagelist.wxml-->
+<wxs src="/utils/util.wxs" module="utils" />
 <!-- 训练规划列表-->
 <view class="container">
     <!-- <my-chooseCoach></my-chooseCoach> -->
@@ -26,7 +27,7 @@
                         {{item.className}}
                         <view class="lesson-item-status" wx:if="{{item.status}}">进行中</view>
                     </view>
-                    <view class="lesson-item-time">{{item.createTime}}</view>
+                    <view class="lesson-item-time">{{utils.formatDate(item.createTime)}}</view>
                 </view>
 
                 <view class="lesson-item-bottom">

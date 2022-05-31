@@ -18,7 +18,7 @@
                         {{['健身问卷', '健康问卷'][type]}}
                         <view class="detail-li-coach">由{{item.coachName}}创建</view>
                     </view>
-                    <view class="detail-li-date">{{item.recordTime}}</view>
+                    <view class="detail-li-date">{{utils.formatDate(item.recordTime)}}</view>
                 </view>
             </li>
         </ul>
