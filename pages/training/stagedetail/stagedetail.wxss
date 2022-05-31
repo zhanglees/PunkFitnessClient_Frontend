@@ -1,18 +1,20 @@
 /* pages/packageA/training/stagedetail/stagedetail.wxss */
-.stage-detail{
+.stage-detail {
     min-height: 100vh;
     display: block;
     padding-top: 48rpx;
 }
-.plan-target-title{
-    font-size: 24rpx;
+
+.plan-target-title {
+    font-size: 24rpx !important;
     color: #BCC0C7;
     line-height: 32rpx;
     text-align: center;
-    font-size: 32rpx;
+
     width: 100%;
 }
-.plan-target-list{
+
+.plan-target-list {
     text-align: center;
     flex-wrap: nowrap;
     margin: 16rpx 0 48rpx;
@@ -21,19 +23,23 @@
     color: #386DF3;
     line-height: 56rpx;
 }
-.plan-target-list-item{
+
+.plan-target-list-item {
     margin-right: 20rpx;
     display: inline-block;
 }
-.plan-info{
+
+.plan-info {
     width: 100%;
     text-align: center;
-    margin-bottom: 64rpx;
+    margin-bottom: 64rpx !important;
 }
-.plan-info{
+
+.plan-info {
     margin-bottom: 20rpx;
 }
-.plan-info-item{
+
+.plan-info-item {
     display: inline-block;
     box-sizing: border-box;
     width: 33%;
@@ -42,7 +48,8 @@
     color: #222834;
     line-height: 44rpx;
 }
-.plan-info .plan-info-item:not(:last-child)::after{
+
+.plan-info .plan-info-item:not(:last-child)::after {
     content: '';
     position: absolute;
     right: 0;
@@ -51,21 +58,25 @@
     height: 48rpx;
     top: 20rpx;
 }
-.plan-info-item-v{
+
+.plan-info-item-v {
     font-size: 36rpx;
     font-weight: bold;
 }
-.plan-info-item-g{
+
+.plan-info-item-g {
     color: #707784;
 }
-.stage-item{
+
+.stage-item {
     border-top: 1px solid #F1F1F3;
     color: #222834;
     padding: 0 32rpx 32rpx;
     width: 100%;
     box-sizing: border-box;
 }
-.stage-title{
+
+.stage-title {
     width: 100%;
     box-sizing: border-box;
     padding: 0 40rpx 0 32rpx;
@@ -77,7 +88,7 @@
     line-height: 40rpx;
 }
 
-.stage-title::after{
+.stage-title::after {
     content: "";
     position: absolute;
     left: 0;
@@ -88,79 +99,101 @@
     background: #386DF3;
     display: block;
 }
-.stage-list-item{
+
+.stage-list-item {
     margin-bottom: 20rpx;
     border-bottom: 1px solid #F1F1F3;
     padding-bottom: 24rpx;
 }
-.stage-list .stage-list-item:last-child{
+
+.stage-list .stage-list-item:last-child {
     border: none;
     padding-bottom: 0;
 }
-.stage-detail-title{
+
+.stage-detail-title {
     position: relative;
     font-size: 28rpx;
     color: #222834;
     line-height: 36rpx;
     margin: 32rpx 0 16rpx;
 }
-.item-detail{
+
+.item-detail {
     display: inline-block;
 }
-.item-detail-item{
+
+.item-detail-item {
     font-size: 24rpx;
     color: #707784;
     line-height: 32rpx;
     display: inline;
 }
-.item-detail .item-detail-item:not(:last-child)::after{
+
+.item-detail .item-detail-item:not(:last-child)::after {
     content: '、';
 }
-.stage-list{
+
+.stage-list {
     width: 100%;
     box-sizing: border-box;
 }
-.stage-remark{
+
+.stage-remark {
     font-size: 28rpx;
     color: #222834;
     line-height: 36rpx;
     margin-top: 32rpx;
 }
-.stage-remark-d{
+
+.stage-remark-d {
     color: #707784;
     font-size: 24rpx;
     margin-top: 16rpx;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    /* 这里是超出几行省略 */
+    overflow: hidden;
 }
-.stage-detail-target-w{
+
+.stage-detail-target-w {
     padding: 32rpx 32rpx 10rpx;
     border-radius: 12rpx;
     color: #222834;
     background: #F7F7F9;
 }
-.stage-detail-target-n{
+
+.stage-detail-target-n {
     color: #707784;
 }
-.stage-detail-target{
+
+.stage-detail-target {
     display: flex;
     margin-bottom: 20rpx;
     justify-content: space-between;
     font-size: 24rpx;
     line-height: 32rpx;
 }
-.stage-detail-target-icon{
+
+.stage-detail-target-icon {
     height: 24rpx;
     width: 24rpx;
     margin-right: 8rpx;
     vertical-align: middle;
 }
-.coach-avatar{
+
+.coach-avatar {
     width: 80rpx;
     height: 80rpx;
     border-radius: 50%;
     border: 1px solid rgba(34, 40, 52, 0.03);
     margin-right: 16rpx;
 }
-.stage-coach{
+
+.stage-coach {
     width: 100%;
     display: flex;
     align-items: center;
@@ -168,4 +201,18 @@
     color: #222834;
     line-height: 36rpx;
     margin-top: 32rpx;
+}
+
+.stage-detail-target-down {
+    display: flex;
+    align-items: center;
+}
+
+.stage-remark-isShow {
+    z-index: 9;
+    font-size: 12px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #386DF3;
+    line-height: 16px;
 }
