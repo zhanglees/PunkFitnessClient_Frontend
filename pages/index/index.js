@@ -63,14 +63,16 @@ Page({
                                 date,
                                 time: t,
                                 content: i.controllerPath,
-                                coach: i.coachName
+                                coach: i.coachName,
+                                avatar: i.caochHeadImg
                             })
                         } else {
                             d[date] = [{
                                 date,
                                 time: t,
                                 content: i.controllerPath,
-                                coach: i.coachName
+                                coach: i.coachName,
+                                avatar: i.caochHeadImg
                             }];
                         }
                     } else {
@@ -79,7 +81,8 @@ Page({
                                 date,
                                 time: t,
                                 content: i.controllerPath,
-                                coach: i.coachName
+                                coach: i.coachName,
+                                avatar: i.caochHeadImg
                             }]
                         }
                     }

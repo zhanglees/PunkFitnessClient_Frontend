@@ -1,9 +1,11 @@
 /* pages/packageA/inbody/inbody.wxss */
-.container{
+
+.container {
     background-color: #eee;
     color: #333;
-  }
-.top__layout{
+}
+
+.top__layout {
     background: #3D4257;
     position: relative;
     width: 100%;
@@ -11,7 +13,8 @@
     box-sizing: border-box;
     padding-bottom: 16rpx;
 }
-.top-top{
+
+.top-top {
     color: #fff;
     height: 50rpx;
     line-height: 50rpx;
@@ -21,53 +24,91 @@
     font-size: 28rpx;
     padding: 0 32rpx;
 }
+
 .canvas {
     width: 100%;
     height: 378rpx;
     box-sizing: border-box;
 }
-.canvas-wrapper{
+
+.canvas-wrapper {
     width: 100%;
     box-sizing: border-box;
 }
-.report-area{
+
+.report-area {
     width: 100%;
     box-sizing: border-box;
     padding: 32rpx;
     background: #fff;
 }
-.report-item{
+
+.report-item {
     border-bottom: 1px solid #F1F1F3;
     padding: 32rpx 0 24rpx;
     position: relative;
     display: block;
 }
-.report-item-cell{
+
+.report-item-cell {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
 }
-.report-item-top{
+
+.report-item-top {
     font-size: 32rpx;
     color: #222834;
     line-height: 36rpx;
 }
-.report-item-cell-data{
+
+.report-item-cell-data {
     font-size: 24rpx;
     color: #707784;
     line-height: 32rpx;
     margin-top: 16rpx;
 }
-.report-item-cell-left{
+
+.report-item-cell-left {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
 }
-.report-item-title{
+
+.report-item-title {
     font-weight: 500;
 }
-.report-item-cell-d-i{
+
+.report-item-cell-d-i {
     margin-right: 32rpx;
+}
+
+.chart-tooltip {
+    padding-left: 52rpx;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    line-height: 90rpx;
+    margin: 32rpx 32rpx 46rpx 32rpx;
+    height: 90rpx;
+    background: #303750;
+    border-radius: 12rpx;
+    position: relative;
+}
+
+.chart-tooltip::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 24rpx;
+    top: 39rpx;
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 6rpx;
+    background: #5586EB;
+}
+
+.chart-tooltip-v {
+    margin-left: 32rpx;
 }

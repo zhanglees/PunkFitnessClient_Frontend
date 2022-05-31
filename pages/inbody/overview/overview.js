@@ -12,13 +12,17 @@ Page({
         textcolor1: '#014f8e',
         textcolor2: '#bfbfbf',
         dataTitle: '',
-        reportList: []
+        reportList: [],
+        currentPoint: {},
+        xData: [],
+        yData: []
     },
 
     /**
      * Lifecycle function--Called when page load
      */
     onLoad: function(options) {
+        this.OnWxChart();
         this.getReportList();
     },
     getReportList() {
@@ -42,10 +46,13 @@ Page({
                 });
                 startDate = x_data[0];
                 endDate = x_data[x_data.length - 1];
-                this.OnWxChart(x_data, y_data);
+                this.updateData(x_data, y_data);
                 this.setData({
                     dataTitle: startDate + ' ~ ' + endDate,
-                    reportList: data
+                    reportList: data,
+                    xData: x_data,
+                    yData: y_data,
+                    currentPoint: { weight: y_data[y_data.length - 1], time: endDate }
                 })
             }
         })
@@ -116,7 +123,37 @@ Page({
         //   }]
         // })
     },
-    OnWxChart: function(x_data, y_data, name) {
+    touchHandlerr: function(e) {
+        let index = lineChart.getCurrentDataIndex(e);
+        if (index == -1) {
+            return
+        } else {
+            this.setData({
+                currentPoint: { weight: this.data.yData[index], time: this.data.xData[index] }
+            })
+        }
+        // lineChart.showToolTip(e, {
+        //     // background: '#7cb5ec',
+        //     format: function(item, category) {
+        //         return category + ' ' + item.name + ':' + item.data
+        //     }
+        // });
+    },
+
+    updateData: function(x_data, y_data) {
+        var series = [{
+            name: "体重",
+            data: y_data,
+            format: function(val, name) {
+                return val + '';
+            }
+        }];
+        lineChart.updateData({
+            categories: x_data,
+            series: series
+        });
+    },
+    OnWxChart: function() {
         var windowWidth = 320;
         try {
             var res = wx.getSystemInfoSync();
@@ -127,7 +164,7 @@ Page({
         lineChart = new wxCharts({
             canvasId: 'lineCanvas', //输入wxml中canvas的id
             type: 'line',
-            categories: x_data, //模拟的x轴横坐标参数
+            categories: ["12-05"], //模拟的x轴横坐标参数
             background: '#3D4257',
             animation: true, //是否开启动画
             legend: false,
@@ -135,7 +172,7 @@ Page({
             dataPointShape: true,
             series: [{
                 name: "体重",
-                data: y_data,
+                data: ['55'],
                 format: function(val, name) {
                     return val + '';
                 }
