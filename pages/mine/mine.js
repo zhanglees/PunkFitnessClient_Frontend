@@ -98,6 +98,7 @@ Page({
      */
     onShow: function() {
         const userInfo = wx.getStorageSync('userInfo');
+        console.log('user:', userInfo)
         if (userInfo && userInfo.phone) {
             this.data.id = userInfo.id;
             this.getUserInfo();
