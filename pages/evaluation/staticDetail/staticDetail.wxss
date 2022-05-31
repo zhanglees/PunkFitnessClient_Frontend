@@ -17,7 +17,7 @@ ul {
   flex: 1;
   width: 100%;
   padding-left: 7rpx;
-  border-left: 1px solid #F1F1F3;
+  /* border-left: 1px solid #F1F1F3; */
 }
 
 /* .img-container{
@@ -66,8 +66,8 @@ text {
   font-size: 24rpx;
   /* background-color: #F1F1F3; */
   border-bottom: 1px solid #F1F1F3;
-  border-right: 1px solid #F1F1F3;
-  border-left: 1px solid #F1F1F3;
+  /* border-right: 1px solid #F1F1F3;
+  border-left: 1px solid #F1F1F3; */
 
 }
 
@@ -82,4 +82,12 @@ text {
   font-weight: 500;
   color: #222834;
   margin-bottom: 32rpx;
+}
+.left-style {
+  /* margin-right: 7rpx; */
+  border-right: 1px solid #F1F1F3;
+}
+.right-style {
+  /* margin-left: 7rpx; */
+  border-left: 1px solid #F1F1F3;
 }

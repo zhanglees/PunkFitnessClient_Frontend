@@ -61,6 +61,7 @@
             <view class="stage-remark-d">
                 {{item.coachRemarks || '无'}}
             </view>
+            <view class="stage-remark-isShow" >展开</view>
         </view>
         <view class="stage-coach">
             <image class="coach-avatar" src="{{item.coachAvatar || '/images/avatar.png'}}" />{{item.coachName}}

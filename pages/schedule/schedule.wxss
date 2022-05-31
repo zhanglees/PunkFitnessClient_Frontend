@@ -1,10 +1,11 @@
 /* pages/schedule/schedule.wxss */
-.container{
+.container {
     padding: 48rpx 32rpx;
     background: #FAFAFC;
     min-height: 100vh;
 }
-.top-layout{
+
+.top-layout {
     width: 100%;
     color: #707784;
     height: 262rpx;
@@ -12,17 +13,19 @@
     box-shadow: 0px 12px 28px 0px rgba(34, 40, 52, 0.04);
     border-radius: 12px;
 }
+
 /* .top-title{
     width: 100%;
     text-align: center;
     line-height: 80rpx;
 } */
-.training-list{
+.training-list {
     width: 100%;
     box-sizing: border-box;
     margin-top: 48rpx;
 }
-.training-item{
+
+.training-item {
     box-sizing: border-box;
     padding: 32rpx 24rpx;
     margin-bottom: 32rpx;
@@ -32,24 +35,32 @@
     display: flex;
     align-content: center;
 }
-.training-user{
+
+.training-user {
     font-size: 32rpx;
     color: #222834;
     line-height: 40rpx;
 }
-.training-time{
+
+.training-time {
     font-size: 24rpx;
     color: #707784;
     line-height: 40rpx;
 }
-.training-avatar{
-  overflow: hidden;
-  width: 84rpx;
-  height: 84rpx;
-  margin-right: 24rpx;
-  border-radius: 50%;
+
+.training-avatar {
+    display: inline-block;
+    overflow: hidden;
+    width: 84rpx;
+    height: 84rpx;
+    margin-right: 24rpx;
+    border-radius: 50%;
+    /* border: 1px soild rgba(34, 40, 52, 0.03); */
+
+
 }
-.training-status{
+
+.training-status {
     width: 120rpx;
     height: 56rpx;
     background: #F1F1F5;
@@ -63,7 +74,8 @@
     text-align: center;
     font-size: 24rpx;
 }
-.have-done{
+
+.have-done {
     color: #fff;
     background: #386DF3;
 }
