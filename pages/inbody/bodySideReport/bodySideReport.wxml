@@ -1,45 +1,45 @@
 <!--pages/inbody/bodySideReport/bodySideReport.wxml-->
 <view class="container">
-  <ul>
-    <li class="li-style" wx:for="{{detailList}}" wx:key="index" >
-      <view class="left-container">
-        <image class="icon-style" src="{{item.icon}}"></image>
-        <text class="left-text">{{item.name}}</text>
-      </view>
-      <view class="right-container">{{userhealthcheckReportList[item.id]}}{{item.danwei}}</view>
-    </li>
-  </ul>
-  <view class="report-style" >
-    <text class="report-title">体测报告</text>
-    <image class="report-img" src="{{userhealthcheckResourceList.healthReportPath}}"></image>
-  </view>
+    <ul>
+        <li class="li-style" wx:for="{{detailList}}" wx:key="index">
+            <view class="left-container">
+                <image class="icon-style" src="{{item.icon}}"></image>
+                <text class="left-text">{{item.name}}</text>
+            </view>
+            <view class="right-container">{{userhealthcheckReportList[item.id] || '--'}}{{item.danwei}}</view>
+        </li>
+    </ul>
+    <view class="report-style" wx:if="{{userhealthcheckResourceList.healthReportPath}}">
+        <text class="report-title">体测报告</text>
+        <image class="report-img" src="{{userhealthcheckResourceList.healthReportPath}}"></image>
+    </view>
 
-  <view >
-    <text class="report-title">身体测量</text>
-    <ul class="body-ul">
-      <li class="body-container" wx:for="{{bodyMeasurementList}}" >
-        <view class="body-sum">{{userhealthcheckReportList[item.id]}}</view>
-        <view class="body-company">{{item.name}} {{item.danwei?(item.danwei):''}}</view>
-      </li>
-    </ul >
-   </view>
-   <view>
-    <ul class="body-ul" style="margin-bottom: 80rpx;">
-      <li style="border-radius: 4rpx;">
-       <image class="bottom-imgs" src="{{userhealthcheckResourceList[itemLeftPath]}}">
-        <view class="bottom-imgs-imgs">左侧面照片</view>
-      </image>
-      </li>
-      <li style="border-radius: 4rpx;">
-        <image class="bottom-imgs" src="{{userhealthcheckResourceList[itemRightPath]}}">
-         <view class="bottom-imgs-imgs">右侧面照片</view>
-       </image>
-       </li>
-       <li  style="border-radius: 4rpx;">
-        <image class="bottom-imgs" src="{{userhealthcheckResourceList[itemBackPath]}}">
-         <view class="bottom-imgs-imgs">背面照片</view>
-       </image>
-       </li>
-    </ul >
-   </view>
+    <view>
+        <text class="report-title">身体测量</text>
+        <ul class="body-ul">
+            <li class="body-container" wx:for="{{bodyMeasurementList}}" wx:key="index">
+                <view class="body-sum">{{userhealthcheckReportList[item.id] || '--'}}</view>
+                <view class="body-company">{{item.name}} {{item.danwei?(item.danwei):''}}</view>
+            </li>
+        </ul>
+    </view>
+    <view>
+        <ul class="body-ul" style="margin-bottom: 80rpx;">
+            <li style="border-radius: 4rpx;">
+                <image class="bottom-imgs" src="{{userhealthcheckResourceList.itemLeftPath}}">
+                    <view class="bottom-imgs-imgs">左侧面照片</view>
+                </image>
+            </li>
+            <li style="border-radius: 4rpx;">
+                <image class="bottom-imgs" src="{{userhealthcheckResourceList.itemRightPath}}">
+                    <view class="bottom-imgs-imgs">右侧面照片</view>
+                </image>
+            </li>
+            <li style="border-radius: 4rpx;">
+                <image class="bottom-imgs" src="{{userhealthcheckResourceList.itemBackPath}}">
+                    <view class="bottom-imgs-imgs">背面照片</view>
+                </image>
+            </li>
+        </ul>
+    </view>
 </view>

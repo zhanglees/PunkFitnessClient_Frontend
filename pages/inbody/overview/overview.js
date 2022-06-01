@@ -22,7 +22,6 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad: function(options) {
-        this.OnWxChart();
         this.getReportList();
     },
     getReportList() {
@@ -44,15 +43,20 @@ Page({
                         y_data.push(i.weight);
                     }
                 });
-                startDate = x_data[0];
-                endDate = x_data[x_data.length - 1];
-                this.updateData(x_data, y_data);
                 this.setData({
-                    dataTitle: startDate + ' ~ ' + endDate,
                     reportList: data,
-                    xData: x_data,
-                    yData: y_data,
-                    currentPoint: { weight: y_data[y_data.length - 1], time: endDate }
+                }, () => {
+                    if (y_data.length) {
+                        startDate = x_data[0];
+                        endDate = x_data[x_data.length - 1];
+                        this.setData({
+                            dataTitle: startDate ? (startDate + ' ~ ' + endDate) : '',
+                            xData: x_data,
+                            yData: y_data,
+                            currentPoint: { weight: y_data[y_data.length - 1], time: endDate }
+                        })
+                        this.OnWxChart(x_data, y_data);
+                    }
                 })
             }
         })
@@ -153,7 +157,7 @@ Page({
             series: series
         });
     },
-    OnWxChart: function() {
+    OnWxChart: function(x_data, y_data) {
         var windowWidth = 320;
         try {
             var res = wx.getSystemInfoSync();
@@ -164,7 +168,7 @@ Page({
         lineChart = new wxCharts({
             canvasId: 'lineCanvas', //输入wxml中canvas的id
             type: 'line',
-            categories: ["12-05"], //模拟的x轴横坐标参数
+            categories: x_data, //模拟的x轴横坐标参数
             background: '#3D4257',
             animation: true, //是否开启动画
             legend: false,
@@ -172,7 +176,7 @@ Page({
             dataPointShape: true,
             series: [{
                 name: "体重",
-                data: ['55'],
+                data: y_data,
                 format: function(val, name) {
                     return val + '';
                 }

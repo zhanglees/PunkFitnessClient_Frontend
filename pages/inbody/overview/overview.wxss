@@ -116,3 +116,7 @@
 .no-data {
     margin-top: calc(50% - 90rpx);
 }
+
+.hide {
+    display: none;
+}
