@@ -35,7 +35,7 @@
                         <text class="lesson-item-count">{{item.completeSections || 0}}</text> /{{item.classNum}}
                     </view>
                     <view class="lesson-item-bottom">
-                        <image class="lesson-item-avatar" src="{{item.avatar || '/images/avatar.png'}}" mode="cover" />
+                        <image class="lesson-item-avatar" src="{{item.caochHeadImg || '/images/avatar.png'}}" mode="cover" />
                         <view class="lesson-item-coach">{{item.coachName}}</view>
                     </view>
                 </view>

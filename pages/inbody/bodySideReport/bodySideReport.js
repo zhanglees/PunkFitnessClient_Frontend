@@ -147,9 +147,9 @@ Page({
             console.log('体侧详情：', res.data)
             const { userhealthcheckReport, userhealthcheckResource } = res.data
             let formResourceUrl = {};
-            for (var i in userhealthcheckResource) {
-                userhealthcheckResource[i] && (formResourceUrl[i] = 'https://' + userhealthcheckResource[i]);
-            }
+            // for (var i in userhealthcheckResource) {
+            //     userhealthcheckResource[i] && (formResourceUrl[i] = 'https://' + userhealthcheckResource[i]);
+            // }
             this.setData({
                 userhealthcheckReportList: userhealthcheckReport,
                 userhealthcheckResourceList: formResourceUrl

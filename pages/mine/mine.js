@@ -58,9 +58,9 @@ Page({
         }).then(res => {
             let data = res.data;
             const { trainClassNumbers, singInNum } = data;
-            if (!data.headImg.includes('https://')) {
-                data.headImg = 'https://' + data.headImg
-            }
+            // if (!data.headImg.includes('https://')) {
+            //     data.headImg = 'https://' + data.headImg
+            // }
             this.setData({
                 userInfo: data,
                 info: {

@@ -56,12 +56,8 @@ Page({
         app.req.api.getUserClassSectionDetail({ coachId, userId, usertrainSectionId, sectionName }).then(res => {
                 const data = res.data;
                 const { warmUp, relax, sectionName, completeTime } = data;
-                const actionList = data.userTraionSectionDetails.map(i => {
-                        i.videourl && (!i.videourl.includes('https://')) && (i.videourl = 'https://' + i.videourl);
-                        i.thumbnailImage && (!i.thumbnailImage.includes('https://')) && (i.thumbnailImage = 'https://' + i.thumbnailImage);
-                        return i;
-                    })
-                    // console.log(8989888, 180 + actionList.length * 470)
+                const actionList = data.userTraionSectionDetails;
+                // console.log(8989888, 180 + actionList.length * 470)
                 this.setData({
                     // completeTime,
                     sectionName,

@@ -42,9 +42,10 @@ Page({
                 classInfos[i] = this.dataFormate(stage);
                 console.log('详情返回stage:', stage)
             })
-            console.log('详情返回:', classInfos)
             let userTrainingPlan = res.data.userTrainingPlan;
             if (userTrainingPlan && userTrainingPlan.goalsMethod) { userTrainingPlan.goalsMethod = userTrainingPlan.goalsMethod.split(','); }
+
+            console.log('详情返回:', userTrainingPlan)
             this.setData({
                 stageList: classInfos,
                 userTrainingPlan
@@ -55,7 +56,6 @@ Page({
                 ]).then(res => {
                     let parentWidth = res[0];
                     let childWidth = res[1];
-                    console.log(88888, parentWidth, childWidth, (parentWidth - childWidth))
                     if ((parentWidth - childWidth) < 0) {
                         this.setData({
                             toggleFlag: true,

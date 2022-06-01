@@ -64,7 +64,7 @@
             <view class="stage-remark-isShow" wx:if="{{toggleShow}}" bindtap="expandRemark">{{toggleFlag ? '展开' : '收起'}}</view>
         </view>
         <view class="stage-coach">
-            <image class="coach-avatar" src="{{item.coachAvatar || '/images/avatar.png'}}" />{{item.coachName}}
+            <image class="coach-avatar" src="{{userTrainingPlan.caochHeadImg || '/images/avatar.png'}}" />{{userTrainingPlan.coachName}}
         </view>
     </view>
 </view>

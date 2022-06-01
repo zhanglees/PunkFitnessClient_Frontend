@@ -9,7 +9,7 @@
             <view class="bottom-item">
                 <view class="left-time">{{utils.formatDate(item.createTime)}}</view>
                 <view class="right-container">
-                    <image src="{{item.img || '/images/avatar.png'}}" class="right-img"></image>
+                    <image src="{{item.caochHeadImg || '/images/avatar.png'}}" class="right-img"></image>
                     <view class="right-name">{{item.coachName||'--'}}</view>
                 </view>
             </view>

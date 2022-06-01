@@ -1,4 +1,5 @@
 /* pages/lesson/lesson.wxss */
+
 page {
     position: relative;
 }
@@ -48,7 +49,6 @@ page {
     height: 44rpx;
     font-size: 32rpx;
     font-family: PingFangSC-Medium, PingFang SC;
-
 }
 
 .lesson-item-time {
@@ -60,7 +60,8 @@ page {
 .lesson-item-avatar {
     width: 48rpx;
     height: 48rpx;
-    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    border: 1px solid rgba(34, 40, 52, 0.03);
     margin-right: 8rpx;
     display: inline-block;
 }
@@ -144,12 +145,15 @@ page {
     justify-content: space-between;
 }
 
+
 /* .lesson-item-top {
     margin-bottom: 8rpx;
 } */
+
 .lesson-item-bottom {
     margin-top: 8rpx;
 }
+
 
 /* .no-data1 {
     position: fixed;

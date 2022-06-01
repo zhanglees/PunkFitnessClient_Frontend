@@ -17,7 +17,7 @@
                 <view class="time-style">{{item.createTime}}</view>
             </view>
             <view class="detail-li-right">
-                <image src="/images/avatar.png" class="img-style" mode="cover" />
+                <image src="{{item.caochHeadImg || '/images/avatar.png'}}" class="img-style" mode="cover" />
                 <view class="time-style" style="line-height: 42px;">{{item.coachName}}</view>
             </view>
         </li>
