@@ -33,9 +33,11 @@ Page({
         wx.setNavigationBarTitle({
             title: className,
         })
-        this.setData({
-            type: classIndex
-        })
+        if (classIndex != 'undefined') {
+            this.setData({
+                type: classIndex
+            })
+        }
         this.getClasses(userTrainitemId, trainingPlanId, classId, userId, coachId, coachName)
     },
 
@@ -60,6 +62,7 @@ Page({
                 arr2 = [];
             data.forEach(i => {
                 i.coachName = coachName;
+                i.createTime = i.createTime.replace(/-/g, '/')
                 i.completeTime ? arr1.push(i) : arr2.push(i);
             })
             this.setData({

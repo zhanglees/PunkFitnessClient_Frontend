@@ -1,12 +1,11 @@
 <wxs src="/utils/util.wxs" module="utils" />
 <view class="container">
     <view class="detail">
-            <ul class="detail-tab">
-                <li wx:for="{{typeList}}" wx:key="index" bindtap="tabChange" data-type="{{index}}" data-typeId="{{item.id}}"
-                    class="'tab-item' {{index == type ? 'tab-item-act' : ''}}">{{item.name}}</li>
-                    <li class="tab-item" wx:show="false"></li>
-            </ul>
-        <my-chooseCoach topHeight="{{1}}" typeId="{{typeId}}" userID="{{userId}}" wx:if="{{testList.length >0}}"></my-chooseCoach>
+        <ul class="detail-tab">
+            <li wx:for="{{typeList}}" wx:key="index" bindtap="tabChange" data-type="{{index}}" data-typeId="{{item.id}}" class="'tab-item' {{index == type ? 'tab-item-act' : ''}}">{{item.name}}</li>
+            <li class="tab-item" wx:show="false"></li>
+        </ul>
+        <!-- <my-chooseCoach topHeight="{{1}}" typeId="{{typeId}}" userID="{{userId}}" wx:if="{{testList.length >0}}"></my-chooseCoach> -->
         <ul class="detail-ul" wx:if="{{testList.length >0}}">
             <li class="detail-li" wx:for="{{testList}}" wx:key="index" bindtap="gotoDetail" data-testType="{{item.assessmentType}}" data-index="{{index}}">
                 <image src="/images/icons/icon-assessment{{type}}.png" class="li-btn" />
@@ -15,7 +14,7 @@
                         {{['静态评估', '健康体适能','动态评估'][type]}}
                         <view class="detail-li-coach">由{{item.coachName}}创建</view>
                     </view>
-                    <view class="detail-li-coach">{{item.createTime}}</view>
+                    <view class="detail-li-coach">{{utils.formatDate(item.createTime)}}</view>
                 </view>
             </li>
             <!-- <li wx:for="{{100}}">2222222222222222</li> -->

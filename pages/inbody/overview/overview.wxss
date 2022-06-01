@@ -112,3 +112,7 @@
 .chart-tooltip-v {
     margin-left: 32rpx;
 }
+
+.no-data {
+    margin-top: calc(50% - 90rpx);
+}
