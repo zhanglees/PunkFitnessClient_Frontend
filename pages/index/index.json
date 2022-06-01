@@ -3,5 +3,6 @@
     "timeAxis": "/components/timeAxis/timeAxis",
     "mp-dialog": "weui-miniprogram/dialog/dialog"
   },
-  "navigationBarTitleText": "Link健身"
+  "navigationBarTitleText": "Link健身",
+  "navigationBarBackgroundColor": "#FAFAFC"
 }

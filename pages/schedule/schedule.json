@@ -4,6 +4,7 @@
     "mp-icon": "weui-miniprogram/icon/icon",
     "calendarWeek": "/components/calendarWeek/calendarWeek"
   },
-  "navigationBarTitleText": "课程预约"
+  "navigationBarTitleText": "课程预约",
+  "navigationBarBackgroundColor": "#FAFAFC"
 
 }
