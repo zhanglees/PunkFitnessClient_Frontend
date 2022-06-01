@@ -4,10 +4,15 @@
   <ul wx:if="{{list.length>0}}">
     <li class="left-container" style="margin-right: 7rpx;">
       <!-- <view class="img-container" > -->
-      <image class="img-item img-container" style=" margin-bottom: -9rpx;"
+      <!-- <image class="img-item img-container" style=" margin-bottom: -9rpx;"
         src="{{'https://'+ sideList.currentUserResource.resourceUrl}}" mode="scaleToFill">
         <text class="test-style">侧面</text>
+      </image> -->
+      <image class="img-item img-container" style=" margin-bottom: -9rpx;"
+        src="{{ sideList.currentUserResource.resourceUrl}}" mode="scaleToFill" wx:if="{{sideList.currentUserResource.resourceUrl || positiveList.currentUserResource.resourceUrl}}"> 
+        <text class="test-style">侧面</text>
       </image>
+      <view  wx:else style="text-align: center;">侧面</view>
       <!-- </view> -->
       <view class="text-container  left-style" wx:for="{{sideList.feedbacks}}" wx:key="index"
         style="border-right: 1px soild #f1f1f3; ">
@@ -21,10 +26,12 @@
     </li>
     <li class="left-container" style="margin-left: 7rpx;">
       <!-- <view class="img-container"> -->
-      <image class="img-item  img-container" src="{{'https://'+positiveList.currentUserResource.resourceUrl}}"
-        style=" margin-bottom: -9rpx;">
+      <!-- <image class="img-item  img-container" src="{{'https://'+positiveList.currentUserResource.resourceUrl}}" -->
+      <image class="img-item  img-container" src="{{positiveList.currentUserResource.resourceUrl}}"
+        style=" margin-bottom: -9rpx;" wx:if="{{sideList.currentUserResource.resourceUrl || positiveList.currentUserResource.resourceUrl}}">
         <text class="test-style">正面</text>
       </image>
+      <view  wx:else style="text-align: center;" >正面</view>
       <!-- </view> -->
       <view class="text-container  right-style" wx:for="{{positiveList.feedbacks}}" wx:key="index"
         style="border-left: 1px soild #f1f1f3; ">
