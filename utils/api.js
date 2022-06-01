@@ -22,8 +22,8 @@ function install(req, request) {
         },
 
         getHealthReportDetail(data) {
-            const url = `${req.apiUrl}/healthCheck/getHealthReportDetail?reportId=${data}`;
-            return request({ url, method: 'POST', data });
+            const url = `${req.apiUrl}/healthCheck/getHealthReportDetail`;
+            return request({ url, method: 'POST', data, header: { 'content-type': 'application/x-www-form-urlencoded' } });
         },
         GetUserClassByUserId(data) {
             const url = `${req.apiUrl}/trainPlanClient/GetUserClassByUserId`;
