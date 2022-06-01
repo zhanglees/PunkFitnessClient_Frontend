@@ -5,7 +5,7 @@
     <li class="left-container" style="margin-right: 7rpx;">
       <!-- <view class="img-container" > -->
       <image class="img-item img-container" style=" margin-bottom: -9rpx;"
-        src="{{sideList.currentUserResource.resourceUrl}}" mode="scaleToFill">
+        src="{{'https://'+ sideList.currentUserResource.resourceUrl}}" mode="scaleToFill">
         <text class="test-style">侧面</text>
       </image>
       <!-- </view> -->
@@ -21,7 +21,7 @@
     </li>
     <li class="left-container" style="margin-left: 7rpx;">
       <!-- <view class="img-container"> -->
-      <image class="img-item  img-container" src="{{positiveList.currentUserResource.resourceUrl}}"
+      <image class="img-item  img-container" src="{{'https://'+positiveList.currentUserResource.resourceUrl}}"
         style=" margin-bottom: -9rpx;">
         <text class="test-style">正面</text>
       </image>
