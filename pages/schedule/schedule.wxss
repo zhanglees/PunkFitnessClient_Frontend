@@ -55,7 +55,7 @@
     height: 84rpx;
     margin-right: 24rpx;
     border-radius: 50%;
-    /* border: 1px soild rgba(34, 40, 52, 0.03); */
+    border: 1px solid rgba(34, 40, 52, 0.03);
 
 
 }
@@ -78,4 +78,12 @@
 .have-done {
     color: #fff;
     background: #386DF3;
+}
+
+.img-container {
+    border-radius: 50%;
+    border: 1px solid rgba(34, 40, 52, 0.03);
+    width: 84rpx;
+    height: 84rpx;
+    margin-right: 24rpx
 }

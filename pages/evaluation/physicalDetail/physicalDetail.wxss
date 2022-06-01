@@ -60,6 +60,7 @@ page{
   font-weight: 700;
   color: #222834;
   line-height: 48rpx;
+  margin-right: 16rpx;
 }
 
 .danwei-style {
