@@ -71,7 +71,7 @@
 .stage-item {
     border-top: 1px solid #F1F1F3;
     color: #222834;
-    padding: 0 32rpx 32rpx;
+    padding: 0 0 32rpx;
     width: 100%;
     box-sizing: border-box;
 }
@@ -79,7 +79,7 @@
 .stage-title {
     width: 100%;
     box-sizing: border-box;
-    padding: 0 40rpx 0 32rpx;
+    padding: 0 72rpx 0 64rpx;
     position: relative;
     margin-top: 48rpx;
     font-size: 32rpx;
@@ -91,7 +91,7 @@
 .stage-title::after {
     content: "";
     position: absolute;
-    left: 0;
+    left: 32rpx;
     top: 12rpx;
     width: 16rpx;
     height: 16rpx;
@@ -137,6 +137,7 @@
 .stage-list {
     width: 100%;
     box-sizing: border-box;
+    padding: 0 32rpx;
 }
 
 .stage-remark {
@@ -145,6 +146,8 @@
     line-height: 36rpx;
     margin-top: 32rpx;
     width: 100%;
+    box-sizing: border-box;
+    padding: 0 32rpx;
     overflow: visible;
 }
 
@@ -211,6 +214,8 @@
 
 .stage-coach {
     width: 100%;
+    box-sizing: border-box;
+    padding: 0 32rpx;
     display: flex;
     align-items: center;
     font-size: 28rpx;

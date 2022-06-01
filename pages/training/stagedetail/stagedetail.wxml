@@ -9,7 +9,7 @@
             </view>
         </view>
     </block>
-    <view class="plan-info">
+    <view class="plan-info stage-plan-info">
         <view class="plan-info-item" wx:for="{{infoList}}" wx:key="index">
             <view><text class="plan-info-item-v">{{userTrainingPlan[item.id] || '--'}} </text>{{item.unit}}</view>
             <view class="plan-info-item-g">{{item.name}}</view>
@@ -41,19 +41,24 @@
                 </view>
             </block>
         </view>
-        <view class="plan-info stage-plan-info">
+        <view class="plan-info ">
             <view class="plan-info-item">
-                阶段频率
                 <view>
                     <text class="plan-info-item-v">{{item.stageFrequency || '--'}}</text> 次/周</view>
+
+                <text class="plan-info-item-g">阶段频率</text>
             </view>
-            <view class="plan-info-item">阶段周期
+            <view class="plan-info-item">
                 <view>
                     <text class="plan-info-item-v">{{item.stagePeriod || '--'}}</text> 周</view>
+
+                <text class="plan-info-item-g">阶段周期</text>
             </view>
-            <view class="plan-info-item">所需课时
+            <view class="plan-info-item">
                 <view>
                     <text class="plan-info-item-v">{{item.classNum || '--'}}</text> 节</view>
+
+                <text class="plan-info-item-g">所需课时</text>
             </view>
         </view>
         <view class="stage-remark" id="stageRemarkWrapper">
