@@ -22,6 +22,6 @@
             </view>
         </li>
     </ul>
-    <view class="no-data no-data1" wx:else>暂无数据~</view>
+    <view class="no-data " wx:else>暂无数据~</view>
 
 </view>

@@ -1,8 +1,8 @@
 /* pages/classPhaseDetail/consolidationPeriod/consolidationPeriod.wxss */
 
-page {
+/* page {
     position: relative;
-}
+} */
 
 .info-list {
     width: 100%;
