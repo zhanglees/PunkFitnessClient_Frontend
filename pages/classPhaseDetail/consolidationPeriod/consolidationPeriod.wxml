@@ -13,7 +13,7 @@
   </li> -->
         <li class="detail-li" wx:for="{{courseData[type]}}" wx:key="item" bindtap="gotoClassDeatil" data-index="{{index}}">
             <view class="detail-li-left">
-                <view class="name-style">{{item.sectionName}}</view>
+                <view class="name-style">{{item.showOrder}}.{{item.sectionName}}</view>
                 <view class="time-style">{{item.createTime}}</view>
             </view>
             <view class="detail-li-right">

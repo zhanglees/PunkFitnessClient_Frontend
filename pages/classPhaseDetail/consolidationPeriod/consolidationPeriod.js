@@ -68,6 +68,7 @@ Page({
             this.setData({
                 courseData: [data, arr1, arr2]
             })
+            console.log('courseData',this.data.courseData);
         })
     },
     // 跳转课时详情并携带id
