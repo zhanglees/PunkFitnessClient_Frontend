@@ -201,8 +201,9 @@
     height: 24rpx;
     width: 24rpx;
     margin-right: 8rpx;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
+
 
 .coach-avatar {
     width: 80rpx;
@@ -225,6 +226,10 @@
 }
 
 .stage-detail-target-down {
+    display: flex;
+    align-items: center;
+}
+.stage-detail-target-up {
     display: flex;
     align-items: center;
 }
