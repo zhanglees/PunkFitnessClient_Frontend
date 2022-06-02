@@ -150,9 +150,9 @@ page {
     margin-bottom: 8rpx;
 } */
 
-.lesson-item-bottom {
+/* .lesson-item-bottom {
     margin-top: 8rpx;
-}
+} */
 
 
 /* .no-data1 {

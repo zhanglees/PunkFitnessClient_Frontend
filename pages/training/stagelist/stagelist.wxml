@@ -30,9 +30,9 @@
                     <view class="lesson-item-time">{{utils.formatDate(item.createTime)}}</view>
                 </view>
 
-                <view class="lesson-item-bottom">
+                <view class="lesson-item-bottom" style="margin-top: 8rpx;">
                     <view class="lesson-item-counts">
-                        <text class="lesson-item-count">{{item.completeSections || 0}}</text> /{{item.classNum}}
+                        <text class="lesson-item-count">{{item.completeSections || 0}}</text>/{{item.classNum}}
                     </view>
                     <view class="lesson-item-bottom">
                         <image class="lesson-item-avatar" src="{{item.caochHeadImg || '/images/avatar.png'}}" mode="cover" />
