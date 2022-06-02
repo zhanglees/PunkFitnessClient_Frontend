@@ -174,7 +174,8 @@ Page({
     //跳转到其他页面
     gotoServer: function(e) {
         let link = e.currentTarget.dataset.link;
-        if (this.data.userInfo) {
+        const userInfo = this.data.userInfo;
+        if (userInfo && userInfo.phone) {
             wx.navigateTo({
                 url: link
             })
