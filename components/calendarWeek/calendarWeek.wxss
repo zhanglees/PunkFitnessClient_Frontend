@@ -41,7 +41,7 @@
 .day {
     width: 14.286%;
     flex-basis: 14.286%;
-    font-family: Roboto-Medium;
+    font-family: Roboto-Regular;
 }
 
 .week {
