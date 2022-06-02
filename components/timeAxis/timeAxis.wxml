@@ -8,7 +8,7 @@
             <!-- <view class="'leftLine' + {{index != 0 ? '' : ' noLeftLine'}}"></view> -->
             <!-- <view class="outRoundVIew"></view>
             </view> -->
-            <view class='rightContent {{(index == value.length-1) ? "last-one" : ""}}'>
+            <view class='rightContent'>
                 <view class="rightContent-top">
                     <text wx:if="{{item.content!=''}}" class='outTitle'>{{item.content}}</text>
                     <text class='outTime'>{{item.time}}</text>

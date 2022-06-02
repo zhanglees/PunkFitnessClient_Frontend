@@ -12,7 +12,7 @@
     padding: 28rpx 0 10rpx 32rpx;
     text-align: left;
     font-size: 32rpx;
-    font-family: Roboto-Medium;
+    font-family: Roboto-Regular;
     font-weight: 500;
     color: #386DF3;
 }

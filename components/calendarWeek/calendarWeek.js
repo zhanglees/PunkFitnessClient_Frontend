@@ -24,8 +24,8 @@ Component({
     },
     ready: function() {
         wx.loadFontFace({
-            family: 'Roboto-Medium',
-            source: 'url("https://www.zhangleixd.com/static/imgs/Roboto-Medium-12.ttf")',
+            family: 'Roboto-Regular',
+            source: 'url("https://www.zhangleixd.com/static/imgs/Roboto-Regular-14.ttf")',
             success: console.log
         })
         var today = utils.formatTime2(new Date());
