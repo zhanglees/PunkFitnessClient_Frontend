@@ -14,7 +14,8 @@
             </view>
 
             <view wx:if="{{item.isComplete}}" class="training-status have-done">已上课</view>
-            <view wx:else class="training-status">未上课</view>
+            <view wx:else class="training-status">待上课</view>
+            <!-- <view wx:else class="training-status have-cancel">已取消</view> -->
 
         </view>
         <view wx:if="{{!list.length}}" class="no-data">暂无预约~</view>
