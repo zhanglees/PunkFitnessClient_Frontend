@@ -63,7 +63,8 @@
         </view>
         <view class="stage-remark" id="stageRemarkWrapper">
             备注：
-            <view class="stage-remark-d {{toggleShow ? (toggleFlag ? 'stage-remark-toggle':'stage-remark-expand') : ''}}" id="stageRemark">
+            <!-- <view class="stage-remark-d {{toggleShow ? (toggleFlag ? 'stage-remark-toggle':'stage-remark-expand') : ''}}" id="stageRemark"> -->
+            <view class="stage-remark-d">
                 {{item.coachRemarks || '无'}}
             </view>
             <view class="stage-remark-isShow" wx:if="{{toggleShow}}" bindtap="expandRemark">{{toggleFlag ? '展开' : '收起'}}</view>

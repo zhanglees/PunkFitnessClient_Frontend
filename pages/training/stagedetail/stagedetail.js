@@ -49,25 +49,27 @@ Page({
             this.setData({
                 stageList: classInfos,
                 userTrainingPlan
-            }, () => {
-                Promise.all([
-                    this._getFields('#stageRemarkWrapper'),
-                    this._getFields('#stageRemark')
-                ]).then(res => {
-                    let parentWidth = res[0];
-                    let childWidth = res[1];
-                    if ((parentWidth - childWidth) < 0) {
-                        this.setData({
-                            toggleFlag: true,
-                            toggleShow: true
-                        })
-                    } else {
-                        this.setData({
-                            toggleShow: false
-                        })
-                    }
-                })
-            })
+            }, 
+            // () => {
+            //     Promise.all([
+            //         this._getFields('#stageRemarkWrapper'),
+            //         this._getFields('#stageRemark')
+            //     ]).then(res => {
+            //         let parentWidth = res[0];
+            //         let childWidth = res[1];
+            //         if ((parentWidth - childWidth) < 0) {
+            //             this.setData({
+            //                 toggleFlag: true,
+            //                 toggleShow: true
+            //             })
+            //         } else {
+            //             this.setData({
+            //                 toggleShow: false
+            //             })
+            //         }
+            //     })
+            // }
+            )
         })
     },
     expandRemark() {

@@ -156,15 +156,15 @@
     font-size: 24rpx;
     margin-top: 16rpx;
     width: fit-content;
-    word-break: keep-all;
-    white-space: nowrap;
+    /* word-break: keep-all;
+    white-space: nowrap; */
 }
 
-.stage-remark-toggle {
+/* .stage-remark-toggle {
     height: 36rpx;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
-    /* 这里是超出几行省略 */
+    这里是超出几行省略
     -webkit-line-clamp: 1;
     overflow: hidden;
     display: -webkit-box;
@@ -176,7 +176,7 @@
     word-break: break-all;
     white-space: normal;
     -webkit-line-clamp: unset;
-}
+} */
 
 .stage-detail-target-w {
     padding: 32rpx 32rpx 10rpx;
