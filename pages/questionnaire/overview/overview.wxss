@@ -22,9 +22,13 @@
     flex: 1;
     text-align: center;
     position: relative;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    
 }
 .tab-item-act{
     color: #386DF3;
+    font-family: PingFangSC-Medium;
 }
 .tab-item-act::after{
     position: absolute;

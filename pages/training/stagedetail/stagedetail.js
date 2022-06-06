@@ -43,6 +43,7 @@ Page({
                 console.log('详情返回stage:', stage)
             })
             let userTrainingPlan = res.data.userTrainingPlan;
+            console.log('userTrainingPlan',userTrainingPlan);
             if (userTrainingPlan && userTrainingPlan.goalsMethod) { userTrainingPlan.goalsMethod = userTrainingPlan.goalsMethod.split(','); }
 
             console.log('详情返回:', userTrainingPlan)
