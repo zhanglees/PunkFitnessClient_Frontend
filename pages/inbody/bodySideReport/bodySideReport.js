@@ -146,13 +146,13 @@ Page({
         app.req.api.getHealthReportDetail({ reportId }).then(res => {
             console.log('体侧详情：', res.data)
             const { userhealthcheckReport, userhealthcheckResource } = res.data
-            let formResourceUrl = {};
+            // let formResourceUrl = {};
             // for (var i in userhealthcheckResource) {
             //     userhealthcheckResource[i] && (formResourceUrl[i] = 'https://' + userhealthcheckResource[i]);
             // }
             this.setData({
                 userhealthcheckReportList: userhealthcheckReport,
-                userhealthcheckResourceList: formResourceUrl
+                userhealthcheckResourceList: userhealthcheckResource
             })
         })
 
@@ -163,6 +163,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        wx.loadFontFace({
+            family: 'Roboto-Bold',
+            source: 'url("https://www.zhangleixd.com/static/imgs/Roboto-Bold-3.ttf")',
+            success: console.log
+        })
         this.data.reportId = options.reportId;
         this.getBodySideReportList()
     },

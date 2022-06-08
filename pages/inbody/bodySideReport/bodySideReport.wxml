@@ -6,7 +6,7 @@
                 <image class="icon-style" src="{{item.icon}}"></image>
                 <text class="left-text">{{item.name}}</text>
             </view>
-            <view class="right-container">{{userhealthcheckReportList[item.id] || '--'}}{{item.danwei}}</view>
+            <view class="right-container">{{userhealthcheckReportList[item.id] || '--'}} {{item.danwei}}</view>
         </li>
     </ul>
     <view class="report-style" wx:if="{{userhealthcheckResourceList.healthReportPath}}">
@@ -24,18 +24,18 @@
         </ul>
     </view>
     <view>
-        <ul class="body-ul" style="margin-bottom: 80rpx;">
-            <li style="border-radius: 4rpx;">
+        <ul class="body-ul body-ul-img">
+            <li>
                 <image class="bottom-imgs" src="{{userhealthcheckResourceList.itemLeftPath}}">
                     <view class="bottom-imgs-imgs">左侧面照片</view>
                 </image>
             </li>
-            <li style="border-radius: 4rpx;">
+            <li>
                 <image class="bottom-imgs" src="{{userhealthcheckResourceList.itemRightPath}}">
                     <view class="bottom-imgs-imgs">右侧面照片</view>
                 </image>
             </li>
-            <li style="border-radius: 4rpx;">
+            <li>
                 <image class="bottom-imgs" src="{{userhealthcheckResourceList.itemBackPath}}">
                     <view class="bottom-imgs-imgs">背面照片</view>
                 </image>

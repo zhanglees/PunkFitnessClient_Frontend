@@ -1,37 +1,32 @@
 <!--pages/evaluation/staticDetail/staticDetail.wxml-->
 <view class="container">
 
-  <ul wx:if="{{list.length>0}}">
-    <li class="left-container" style="margin-right: 7rpx;">
-      <!-- <view class="img-container" > -->
-      <!-- <image class="img-item img-container" style=" margin-bottom: -9rpx;"
-        src="{{'https://'+ sideList.currentUserResource.resourceUrl}}" mode="scaleToFill">
-        <text class="test-style">侧面</text>
-      </image> -->
-      <image class="img-item img-container" style=" margin-bottom: -9rpx;"
+  <ul wx:if="{{list.length>0}}" class="list">
+    <li class="li-container">
+      <image class="img-item img-container"
         src="{{ sideList.currentUserResource.resourceUrl}}" mode="scaleToFill" wx:if="{{sideList.currentUserResource.resourceUrl || positiveList.currentUserResource.resourceUrl}}"> 
         <text class="test-style">侧面</text>
       </image>
-      <view  wx:else style="text-align: center;">侧面</view>
+      <view class="li-container-title" wx:else>侧面</view>
       <!-- </view> -->
       <view class="text-container  left-style" wx:for="{{sideList.feedbacks}}" wx:key="index"
         style="border-right: 1px soild #f1f1f3; ">
         <text class="text-top">{{item.feedbackItem}}</text>
         <text class="text-bottom">{{item.childFeedbacks[0].feedbackItem ||'--'}}</text>
       </view>
-      <view class="text-container left-style"  style="border-right: 1px soild #f1f1f3; border-bottom: 1px soild #f1f1f3; margin-bottom: 160rpx;">
+      <view class="text-container left-style">
         <text class="text-top">教练备注</text>
         <text class="text-bottom">{{sideList.coachRemark ||'--'}}</text>
       </view>
     </li>
-    <li class="left-container" style="margin-left: 7rpx;">
+    <li class="li-container">
       <!-- <view class="img-container"> -->
       <!-- <image class="img-item  img-container" src="{{'https://'+positiveList.currentUserResource.resourceUrl}}" -->
       <image class="img-item  img-container" src="{{positiveList.currentUserResource.resourceUrl}}"
-        style=" margin-bottom: -9rpx;" wx:if="{{sideList.currentUserResource.resourceUrl || positiveList.currentUserResource.resourceUrl}}">
+       wx:if="{{sideList.currentUserResource.resourceUrl || positiveList.currentUserResource.resourceUrl}}">
         <text class="test-style">正面</text>
       </image>
-      <view  wx:else style="text-align: center;" >正面</view>
+      <view  wx:else class="li-container-title">正面</view>
       <!-- </view> -->
       <view class="text-container  right-style" wx:for="{{positiveList.feedbacks}}" wx:key="index"
         style="border-left: 1px soild #f1f1f3; ">
@@ -39,7 +34,7 @@
         <text class="text-bottom">{{item.childFeedbacks[0].feedbackItem ||'--'}}</text>
 
       </view>
-      <view class="text-container right-style"  style="border-right: 1px soild #f1f1f3; border-bottom: 1px soild #f1f1f3; margin-bottom: 160rpx;">
+      <view class="text-container right-style">
         <text class="text-top">教练备注</text>
         <text class="text-bottom">{{positiveList.coachRemark ||'--'}}</text>
       </view>

@@ -8,7 +8,10 @@
 
 .li-style {
   position: relative;
-  display: block;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
   height: 144rpx;
   line-height: 144rpx;
   border-bottom: 1px solid #F1F1F3;
@@ -16,16 +19,16 @@
 }
 
 .left-container {
-  position: absolute;
-  left: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .right-container {
-  position: absolute;
-  right: 0;
-  font-size: 18px;
   font-weight: bold;
   color: #222834;
+  font-family: Roboto-Bold;
 }
 
 .left-text {
@@ -43,13 +46,15 @@
   font-weight: 500;
   color: #222834;
   height: 40rpx;
-  margin: 24rpx 0 24rpx 32rpx;
+  line-height: 40rpx;
+  margin: 48rpx 0 24rpx 32rpx;
 }
 
 .report-img {
   width: 420rpx;
   height: 236rpx;
   margin-left: 32rpx;
+  border-radius: 8rpx;
 }
 
 .body-container {
@@ -83,11 +88,14 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
+.body-ul-img{
+  margin-bottom: 80rpx;
+}
 
 .bottom-imgs {
   width: 208rpx;
   height: 278rpx;
+  border-radius: 8rpx;
   position: relative;
 }
 .bottom-imgs-imgs{

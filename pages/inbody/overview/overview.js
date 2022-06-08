@@ -50,7 +50,7 @@ Page({
                         startDate = x_data[0];
                         endDate = x_data[x_data.length - 1];
                         this.setData({
-                            dataTitle: startDate ? (startDate + ' ~ ' + endDate) : '',
+                            dataTitle: startDate ? (startDate + ' - ' + endDate) : '',
                             xData: x_data,
                             yData: y_data,
                             currentPoint: { weight: y_data[y_data.length - 1], time: endDate }
@@ -172,28 +172,29 @@ Page({
             background: '#3D4257',
             animation: true, //是否开启动画
             legend: false,
-            dataLabel: true,
+            dataLabel: false,
             dataPointShape: true,
             series: [{
                 name: "体重",
                 data: y_data,
+                color: '#5586EB',
                 format: function(val, name) {
                     return val + '';
                 }
             }],
             xAxis: { //是否隐藏x轴分割线
                 disableGrid: true,
-                fontColor: '#eee'
+                fontColor: '#9093a0',
+                gridColor: '#9093a0',
             },
             yAxis: { //y轴数据
-                // format: function (val) {  //返回数值
-                //   return val.toFixed(2);
-                // },
-                gridColor: '#eee',
                 disableGrid: true,
-                titleFontColor: '#eee',
-                fontColor: '#eee',
-                gridColor: '#3D4257'
+                titleFontColor: '#9093a0',
+                fontColor: '#9093a0',
+                gridColor: '#3D4257',
+                format: function(val) {
+                    return val + 'kg';
+                }
             },
             width: windowWidth,
             height: 189,
