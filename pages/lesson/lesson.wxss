@@ -39,7 +39,12 @@
     height: 44rpx;
 }
 
-.classname::before,
+.classname .title-icon {
+    height: 28rpx;
+    width: 42rpx;
+    margin-right: 8rpx;
+}
+/* .classname::before,
 .classname::after {
     content: '';
     display: inline-block;
@@ -58,7 +63,7 @@
 .classname::after {
     background: #60D481;
     left: 14rpx;
-}
+} */
 
 .training-title::before {
     content: "";
@@ -109,7 +114,7 @@
 }
 
 .action-item-trainname {
-    background: rgba(56, 109, 243, 0.1);
+    background: rgba(56, 109, 243, .09);
     font-size: 24rpx;
     text-align: center;
     width: 96rpx;
@@ -117,6 +122,9 @@
     line-height: 44rpx;
     color: #386DF3;
     border-radius: 4rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
 }
 
 .action-item-trainname1 {
@@ -330,10 +338,16 @@
 
 .action-item-s-title {
     color: #707784;
-    padding-left: 32rpx;
+    padding-left: 40rpx;
     position: relative;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
 }
-
+.action-item-s-v{
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #222834;
+}
 .action-item-s-title::before {
     content: '';
     display: block;
@@ -344,7 +358,9 @@
     z-index: 1;
     position: absolute;
     border: 8rpx solid #fff;
-    left: 0;
+    border-right-width: 16rpx;
+    border-left-width: 16rpx;
+    left: -8rpx;
     top: 8rpx;
 }
 
@@ -401,6 +417,8 @@
     height: 48rpx;
     width: 48rpx;
     margin-right: 16rpx;
+    position: relative;
+    top: -8rpx;
 }
 .share-tip-icon {
     height: 32rpx;

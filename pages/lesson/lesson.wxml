@@ -2,6 +2,7 @@
 <view class="container">
     <view class="page-title">
         <view class="classname">
+            <image src="/images/icons/yuandian.svg" class="title-icon" />
             {{(showOrder?(showOrder + '. ') : '')+ sectionName}}
         </view>
         <view class="show-share-btn" bindtap="renderToCanvas" wx:if="{{completeTime != 'null'}}">
@@ -13,13 +14,13 @@
         <view class="action-item">
             <view class="action-item-s">
                 <view class="action-item-s-title">热身方式：</view>
-                <view>{{warmUp}}</view>
+                <view class="action-item-s-v">{{warmUp}}</view>
             </view>
             <view class="action-item-s action-item-s-c">
                 <view class="action-item-s-title">正式训练</view>
                 <view class="action-item-i" wx:for="{{actionList}}" wx:for-index="i" wx:key="action" wx:for-item="action">
                     <view class="action-item-head">
-                        <view class="action-item-head-left">
+                        <!-- <view class="action-item-head-left"> -->
                             <view class="user-video-wrapper video-wrapper" wx:if="{{action.videourl}}" bindtap="playVideo" data-index="{{i}}">
                                 <!-- <video class="user-video" data-src="{{action.videourl}}" src="{{action.videourl}}" object-fit="cover"></video>                             -->
                                 <image class="user-video-bg" object-fit="cover" src="{{action.videoImg || action.thumbnailImage}}" />
@@ -27,11 +28,11 @@
                                 <image class="user-video-play" src="/images/icons/v-play.png" />
                             </view>
                             <view class="action-item-head-c">
-                                <view class="action-item-actionname">{{action.actionName}}</view>
+                                <view class="action-item-actionname action-item-s-v">{{action.actionName}}</view>
                                 <view class="action-item-trainname action-item-trainname{{i}}">动作{{i+1}}</view>
                             </view>
-                            <view class="action-item-head-r"><i class="zx-tip"></i>126人在学</view>
-                        </view>
+                            <!-- <view class="action-item-head-r"><i class="zx-tip"></i>126人在学</view> -->
+                        <!-- </view> -->
                     </view>
                     <view class="class-info-list">
                         <view wx:for="{{itemsShow}}" class="class-info-li" wx:key="index" wx:for-item="ia">
@@ -42,7 +43,7 @@
             </view>
             <view class="action-item-s">
                 <view class="action-item-s-title">放松方式：</view>
-                <view>{{relax}}</view>
+                <view class="action-item-s-v">{{relax}}</view>
             </view>
         </view>
     </view>

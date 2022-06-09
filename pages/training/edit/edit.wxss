@@ -23,12 +23,15 @@
     word-break: break-all;
     word-wrap: break-word;
     text-align: left;
-    margin-bottom: 20rpx;
+    /* margin-bottom: 20rpx; */
 }
 
 .bottom-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 16rpx 0 24rpx;
+    line-height: 40rpx;
 }
 
 .left-time {
@@ -46,6 +49,6 @@
     width: 40rpx;
     height: 40rpx;
     border: 1px solid rgba(34, 40, 52, 0.03);
-    margin: -4rpx 8rpx 24rpx 0;
+    margin-right: 8rpx;
     border-radius: 50%;
 }
