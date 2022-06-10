@@ -30,26 +30,22 @@ page {
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
     color: #222834;
-    /* width: 100%; */
     box-sizing: border-box;
-    padding: 20rpx;
     background-color: #fff;
     border-radius: 12rpx;
     margin: 32rpx;
 }
-
-.form .weui-cell::after {
+.form .form-cell:not(:last-child) .weui-cell::after {
     content: " ";
     position: absolute;
-    left: 40rpx;
+    left: 32rpx;
     bottom: 0;
-    right: 40rpx;
+    right: 32rpx;
     height: 1px;
     border-top: 1px solid #F1F1F3;
     color: rgba(0, 0, 0, 0.1);
     z-index: 2;
 }
-
 .form .weui-cell__bd {
     text-align: right;
     color: #222834;

@@ -2,7 +2,7 @@
 <wxs src="/utils/util.wxs" module="utils" />
 <view class="container">
     <view class="form">
-        <mp-cell wx:for="{{info}}" wx:key="index" title="{{item.name}}" link="{{item.id=='headImg' ? true : false}}" bindtap="{{item.id=='headImg' ? 'changeAvatar' : 'changeInfo'}}" data-index="{{index}}">
+        <mp-cell class="form-cell" wx:for="{{info}}" wx:key="index" title="{{item.name}}" link="{{item.id=='headImg' ? true : false}}" bindtap="{{item.id=='headImg' ? 'changeAvatar' : 'changeInfo'}}" data-index="{{index}}">
             <image wx:if="{{item.id=='headImg'}}" src="{{formData.headImg || '/images/avatar.png'}}" class="userinfo-avatar-img" />
             <block wx:elif="{{formData[item.id] != null}}">
                 <text wx:if="{{item.id == 'sex'}}">{{genders[formData.sex]}}</text>

@@ -191,7 +191,19 @@
     box-sizing: border-box;
     margin-top: 32rpx;
     margin-left: 32rpx;
+    position: relative;
 }
+.class-info-list:before{
+    content:'';
+    width: 0;
+    height: 0;
+    border-width: 0 16rpx 16rpx 0;
+    border-style: solid;
+    border-color: transparent transparent #F7F7F9;
+    position: absolute;
+    left: 0;
+    top: -16rpx;
+  }
 
 .class-info-li {
     display: inline-block;
@@ -461,4 +473,15 @@
     top: 46rpx;
     left: 108rpx;
     display: block;
+}
+
+.video-wrapper::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 48rpx;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+    border-radius: 0px 0px 12rpx 12rpx;
 }
