@@ -59,8 +59,8 @@
         <view class="share-btn">
             <view class="share-btn-item" bindtap="saveImage">
                 <image class="share-btn-icon" src="/images/icons/share-download.png"></image>下载</view>
-            <view open-type="share" class="share-btn-item">
-                <image class="share-btn-icon" src="/images/icons/share-wechat.png"></image>微信</view>
+            <!-- <view open-type="share" class="share-btn-item">
+                <image class="share-btn-icon" src="/images/icons/share-wechat.png"></image>微信</view> -->
         </view>
     </view>
     <view class="share-hide" wx:if="{{showCanvas}}">

@@ -32,17 +32,23 @@
     align-items: center;
     padding: 16rpx 0 24rpx;
     line-height: 40rpx;
-}
-
-.left-time {
-    font-size: 24rpx;
+    position: relative;
     font-weight: 400;
     color: #707784;
-    line-height: 32rpx;
 }
-
+/* .bottom-item::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    background: red;
+    opacity: .5;
+    right: 0;
+    top: 20rpx;
+    height: 24rpx;
+} */
 .right-container {
     display: flex;
+    align-items: center;
 }
 
 .right-img {

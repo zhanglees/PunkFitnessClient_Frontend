@@ -26,7 +26,10 @@ Component({
         wx.loadFontFace({
             family: 'Roboto-Regular',
             source: 'url("https://www.zhangleixd.com/static/imgs/Roboto-Regular-14.ttf")',
-            success: console.log
+        })
+        wx.loadFontFace({
+          family: 'Roboto-Medium',
+          source: 'url("https://www.zhangleixd.com/static/imgs/Roboto-Medium-12.ttf")'
         })
         var today = utils.formatTime2(new Date());
         this.setData({
@@ -67,8 +70,8 @@ Component({
                 swiperCurrent: 5,
                 dateCurrent: d,
                 // dateCurrentStr: d.getFullYear() + '-' + month + '-' + day,
-                dateMonth: month + '月',
-                dateYear: year + '年',
+                dateMonth: month,
+                dateYear: year,
                 dateCurrentStr: year + "-" + month + "-" + day,
                 dayCurrentStr: this.data.dateListArray[d.getDay()]
             });

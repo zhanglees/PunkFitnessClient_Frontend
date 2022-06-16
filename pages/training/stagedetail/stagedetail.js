@@ -32,6 +32,10 @@ Page({
         const userId = wx.getStorageSync('userInfo').id;
         const { trainingPlanId, coachId, classId } = options;
         this.getStageDetail(userId, trainingPlanId, coachId, classId);
+        wx.loadFontFace({
+            family: 'Roboto-Bold',
+            source: 'url("https://www.zhangleixd.com/static/imgs/Roboto-Bold-3.ttf")'
+        })
     },
 
     getStageDetail(userId, trainPlainId, coachId, classId) {

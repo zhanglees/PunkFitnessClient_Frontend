@@ -2,18 +2,19 @@
 <wxs src="/utils/util.wxs" module="utils" />
 <view class="container">
     <view class="form">
-        <mp-cell class="form-cell" wx:for="{{info}}" wx:key="index" title="{{item.name}}" link="{{item.id=='headImg' ? true : false}}" bindtap="{{item.id=='headImg' ? 'changeAvatar' : 'changeInfo'}}" data-index="{{index}}">
-            <image wx:if="{{item.id=='headImg'}}" src="{{formData.headImg || '/images/avatar.png'}}" class="userinfo-avatar-img" />
-            <block wx:elif="{{formData[item.id] != null}}">
-                <text wx:if="{{item.id == 'sex'}}">{{genders[formData.sex]}}</text>
-                <text wx:elif="{{item.id == 'birthday'}}">{{utils.timestampDate(formData.birthday)}}</text>
-                <text wx:else>{{formData[item.id]}}{{item.unit || ''}}</text>
-            </block>
-            <text wx:else class="v-placeholder">--</text>
-            <view slot="footer" wx:if="{{item.id=='headImg'}}">
-                <image class="img-icon" src="/images/icons/arrow.png"></image>
+        <view class="form-cell" wx:for="{{info}}" wx:key="index" bindtap="{{item.id=='headImg' ? 'changeAvatar' : 'changeInfo'}}" data-index="{{index}}">
+            <view class="form-cell-title">{{item.name}}</view>
+            <view class="form-cell-right">
+                <image wx:if="{{item.id=='headImg'}}" src="{{formData.headImg || '/images/avatar.png'}}" class="userinfo-avatar-img" />
+                <block wx:elif="{{formData[item.id] != null}}">
+                    <text wx:if="{{item.id == 'sex'}}">{{genders[formData.sex]}}</text>
+                    <text wx:elif="{{item.id == 'birthday'}}">{{utils.timestampDate(formData.birthday)}}</text>
+                    <text wx:else>{{formData[item.id]}}{{item.unit || ''}}</text>
+                </block>
+                <text wx:else class="v-placeholder">--</text>
+                <image class="img-icon" src="/images/icons/arrow.png" wx:if="{{item.id=='headImg'}}"></image>
             </view>
-        </mp-cell>
+        </view>
     </view>
     <!-- <mp-half-screen-dialog extClass="change-dialog" bindbuttontap="buttontap" show="{{show}}" title="{{changeItem.name}}" buttons="{{buttons}}">
         <view slot="desc">

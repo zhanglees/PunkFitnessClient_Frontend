@@ -48,6 +48,10 @@ Page({
         });
         this.getLesson(coachId, usertrainSectionId, sectionName, userInfo.id)
         this.getMemberInfo();
+        // wx.loadFontFace({
+        //     family: 'Roboto-Bold',
+        //     source: 'url("https://www.zhangleixd.com/static/imgs/Roboto-Bold-3.ttf")',
+        // })
     },
     // onShareAppMessage(res){
     //     if(res.from == 'button')

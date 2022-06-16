@@ -32,10 +32,32 @@
     font-family: Roboto-Medium;
     font-weight: 500;
     color: #222834;
-    line-height: 36rpx;
+    line-height: 44rpx;
     min-width: 80rpx;
+    position: relative;
 }
-
+/* .leftContent::after{
+    content: '';
+    background: red;
+    opacity: .5;
+    height: 44rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: -100px;
+    z-index: 1000;
+}
+.leftContent::before{
+    content: '';
+    background: blue;
+    opacity: .5;
+    height: 44rpx;
+    position: absolute;
+    left: 0;
+    top: 44rpx;
+    right: -100px;
+    z-index: 1000;
+} */
 .rightContent {
     height: 132rpx;
     background: #F7F7F9;

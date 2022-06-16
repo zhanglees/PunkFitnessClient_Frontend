@@ -85,7 +85,7 @@ return str;
 const style = (data)=>{ 
   const timeW = data.userInfo.time ? 20 * String(data.userInfo.time).length : 40;
   const signW = data.userInfo.sign ? 20 * String(data.userInfo.sign).length : 40;
-  const countW = 20 + (data.userInfo.count ? 18 * String(data.userInfo.count).length : 30);
+  const countW = 16 + (data.userInfo.count ? 14 * String(data.userInfo.count).length : 30);
   let sty = {
     container: {
       width: 375,
@@ -94,7 +94,7 @@ const style = (data)=>{
       paddingLeft: 24,
       paddingRight: 24,
       backgroundColor: '#fff',
-      borderRadius: 10,
+      borderRadius: 12,
       // flexDirection: 'column',
       // justifyContent: 'space-around',
       // backgroundColor: '#fff',
@@ -107,7 +107,7 @@ const style = (data)=>{
       alignItems: 'center',
       width: 327,
       height: 24,
-      marginBottom: 21,
+      marginBottom: 35,
     },
     title: {
       width: 290,

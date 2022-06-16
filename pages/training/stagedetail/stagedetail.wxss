@@ -25,7 +25,7 @@
 }
 
 .plan-target-list-item {
-    margin-right: 20rpx;
+    /* margin-right: 20rpx; */
     display: inline-block;
 }
 
@@ -60,6 +60,7 @@
 }
 
 .plan-info-item-v {
+    font-family: Roboto-Bold;
     font-size: 36rpx;
     font-weight: bold;
 }

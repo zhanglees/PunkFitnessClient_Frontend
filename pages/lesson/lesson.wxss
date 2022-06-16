@@ -31,7 +31,7 @@
 
 .classname {
     position: relative;
-    padding-left: 50rpx;
+    /* padding-left: 50rpx; */
     font-size: 36rpx;
     font-weight: 500;
     color: #222834;
@@ -249,7 +249,7 @@
     background: #fff;
     overflow-y: scroll;
     transform: rotate(0deg);
-    border-radius: 12rpx;
+    border-radius: 24rpx;
 }
 
 .share-tip {
@@ -266,7 +266,8 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: space-around;
 }
 .share-btn-item{
     font-size: 24rpx;

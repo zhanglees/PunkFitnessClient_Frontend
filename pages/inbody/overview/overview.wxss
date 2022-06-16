@@ -79,6 +79,7 @@
 
 .report-item-title {
     font-weight: 500;
+    font-size: 32rpx;
 }
 
 .report-item-cell-d-i {
@@ -95,6 +96,7 @@
     background: #303750;
     border-radius: 12rpx;
     position: relative;
+    font-family: PingFangSC-Regular, PingFang SC;
 }
 
 .chart-tooltip::before {
@@ -111,6 +113,7 @@
 
 .chart-tooltip-v {
     margin-left: 32rpx;
+    /* letter-spacing: 1px; */
 }
 /* .chart-tooltip::after{
     content: '';
